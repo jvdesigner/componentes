@@ -47,7 +47,7 @@ class blockDefaultHeaderNavigation extends HTMLElement {
 
                 <img src="${imglogo}" class="mr-3 h-9 sm:h-9" alt="Flowbite Logo" />
 
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">${txtlogo}</span>
+                <span class="max-sm:hidden self-center text-xl font-semibold whitespace-nowrap dark:text-white">${txtlogo}</span>
             </a>
 
             <div class="flex items-center lg:order-2">
