@@ -58,7 +58,7 @@ class herowithimage extends HTMLElement {
 
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="${imghero}" alt="mockup">
+            <img src="${imghero}" alt="imagem hero">
         </div>                
     </div>
 </section>
