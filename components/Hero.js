@@ -2,7 +2,7 @@
 
 // -- Conteudo Hero -- //
 
-const imghero = "../imagens/imgHero.png";
+const imghero = "https://i.ibb.co/Q7WRnyd/imgHero.png";
 const txttitulo = "100% Natural Food";
 const txtsubtitulo = "Escolha a melhor maneira para uma vida mais saudável";
 

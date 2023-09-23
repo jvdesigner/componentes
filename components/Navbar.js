@@ -6,7 +6,7 @@
 
 // -- Logo -- //
 
-const imglogo = "../imagens/logo.png";
+const imglogo = "https://i.ibb.co/kSJXPj1/logo.png";
 const txtlogo = "Sol Nascente";
 
 // -- Cores -- //
