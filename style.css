@@ -2,3 +2,4 @@
     transition:all 0.2s linear;
 }
 
+body{overflow-x: hidden;}

@@ -13,9 +13,6 @@ const txtlogo = "Sol Nascente";
 
 const cor01 ="teal";
 
-
-
-
 // ---------------------
 
 // -- COMPONENTS -- //
@@ -39,7 +36,7 @@ class blockDefaultHeaderNavigation extends HTMLElement {
 
 <header>
 
-    <nav class="bg-white drop-shadow-md border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    <nav class="bg-white/90 drop-shadow-md border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
 
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
 
@@ -47,7 +44,7 @@ class blockDefaultHeaderNavigation extends HTMLElement {
 
                 <img src="${imglogo}" class="mr-3 h-9 sm:h-9" alt="Flowbite Logo" />
 
-                <span class="max-sm:hidden self-center text-xl font-semibold whitespace-nowrap dark:text-white">${txtlogo}</span>
+                <span class="max-sm:hidden self-center text-xl font-semibold whitespace-nowrap dark:text-white hover:text-${cor01}-600">${txtlogo}</span>
             </a>
 
             <div class="flex items-center lg:order-2">
@@ -55,6 +52,8 @@ class blockDefaultHeaderNavigation extends HTMLElement {
                 <a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Entrar</a>
 
                 <a href="#" class="text-white bg-${cor01}-700 hover:bg-${cor01}-800 focus:ring-4 focus:ring-${cor01}-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-${cor01}-600 dark:hover:bg-${cor01}-700 focus:outline-none dark:focus:ring-${cor01}-800">Cadastrar</a>
+
+                
 
                 <!-- user -->
 
@@ -134,14 +133,14 @@ class blockDefaultHeaderNavigation extends HTMLElement {
                     </li>
 
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-${cor01}-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Blog</a>
-                    </li>
-
-                    <li>
                         <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-${cor01}-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Suporte</a>
                     </li>
+
+              
                     
                 </ul>
+
+          
 
             </div>
 
