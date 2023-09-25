@@ -1,5 +1,24 @@
 *{
     transition:all 0.2s linear;
+    ::selection{background: rgba(210, 255, 238, 0.733);}
 }
 
 body{overflow-x: hidden;}
+
+.element-to-float {
+    animation: animefloat 2s ease-in-out infinite; 
+}
+
+
+@keyframes animefloat {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
