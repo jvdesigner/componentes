@@ -1,8 +1,3 @@
-// animacao
-
-// animate__animated  animate__fadeInLeft animate__slow
-
-
 
 // -- Conteudo Hero -- //
 
