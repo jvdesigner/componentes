@@ -58,9 +58,36 @@ class navbar01 extends HTMLElement {
                       Suporte
                     </a>
                   </li>
+
+                  <li class="hover:-translate-y-2" >
+          <a
+            class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:scale-105"
+            href="/"
+          >
+            Entrar
+          </a>
+
+         
+           
+          </li>
+
+          <li class="hover:-translate-y-2" >
+          <a
+          class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 hover:scale-105"
+          href="/"
+        >
+          Cadastrar
+        </a>
+          </li>
       
                   
                 </ul>
+
+                
+        
+        
+
+                
       
               
       </div>

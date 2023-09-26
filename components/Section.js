@@ -80,7 +80,7 @@ class section02 extends HTMLElement {
     <carousel-02></carousel-02>
 
 
-      <div class="lg:py-24">
+      <div class="lg:py-24 max-lg:text-center">
         <h2 class="text-3xl font-bold sm:text-4xl text-teal-600">Promoções da semana</h2>
 
         <p class="mt-4 text-gray-600">
@@ -89,7 +89,7 @@ class section02 extends HTMLElement {
 
         <a
           href="#"
-          class="mt-8 inline-block rounded bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-400"
+          class="mt-8 inline-block rounded bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-400 hover:scale-105"
         >
           Aproveite agora
         </a>
