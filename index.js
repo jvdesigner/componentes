@@ -35,10 +35,7 @@ import * as funcaoLoading from './funcoes/loading.js'
 // == AO CARREGAR A PÁGINA == //
 
 
-window.addEventListener('DOMContentLoaded', funcaoLoading.mostrarLoading() )
-
-
-window.addEventListener('load', funcaoLoading.ocultarLoading() )
+window.addEventListener('load', ()=> {setTimeout(()=>{funcaoLoading.ocultarLoading(),2000})} )
 
 
 
