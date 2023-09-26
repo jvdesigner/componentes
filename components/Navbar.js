@@ -78,8 +78,8 @@ class navbar01 extends HTMLElement {
         </nav>
       </div>
 
-      <div class="flex items-center gap-4">
-        <div class="sm:flex sm:gap-4">
+      <div class="flex items-center gap-4 ">
+        <div class="hidden sm:flex gap-4 ">
           <a
             class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:scale-105"
             href="/"

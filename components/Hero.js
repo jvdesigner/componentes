@@ -16,7 +16,7 @@ class hero01 extends HTMLElement {
 
 <section
   
-  class="relative opacity-80 bg-fixed bg-[url(https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80)] bg-cover bg-center bg-no-repeat relative"
+  class="relative h-screen opacity-80 bg-fixed bg-[url(https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80)] bg-cover bg-center bg-no-repeat relative"
 >
  <div class="absolute top-0 left-0 h-full w-full bg-black/30"></div>
 
