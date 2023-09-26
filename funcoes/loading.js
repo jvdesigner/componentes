@@ -22,6 +22,8 @@ export function mostrarLoading(){
 
     elementoPai.appendChild(novoElemento);
 
+    document.documentElement.style.overflowY = 'hidden'
+
 
 }
 
@@ -33,8 +35,7 @@ export function ocultarLoading(){
    
     novoElemento.remove()
 
-    
-    
+    document.documentElement.style.overflowY = 'auto'
 
 
 }

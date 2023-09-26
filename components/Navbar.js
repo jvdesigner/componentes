@@ -1,4 +1,8 @@
 
+
+// ================================================================================== /
+
+
 // == Componente de navbar 01 == //
 
 class navbar01 extends HTMLElement {
@@ -11,7 +15,55 @@ class navbar01 extends HTMLElement {
   
 <!-- Codigo -->
           
+<div id="menu" class=" hidden items-center justify-center  h-screen fixed z-50 top-0 bg-white/90 w-screen ">    
       
+      <svg id="fecharmenu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  absolute top-4 right-4 hover:stroke-teal-500 cursor-pointer">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      
+                <ul class="flex flex-col items-center justify-evenly h-full gap-6 text-lg">
+      
+                  <li class="hover:-translate-y-2  ">
+                    <a
+                      class="text-teal-500 transition hover:text-gray-500/75"
+                      href="/"
+                    >
+                      Início
+                    </a>
+                  </li>
+      
+                  <li class="hover:-translate-y-2">
+                    <a
+                      class="text-gray-500 transition hover:text-gray-500/75"
+                      href="/"
+                    >
+                      Sobre
+                    </a>
+                  </li>
+      
+                  <li class="hover:-translate-y-2">
+                    <a
+                      class="text-gray-500 transition hover:text-gray-500/75"
+                      href="/"
+                    >
+                      Produtos
+                    </a>
+                  </li>
+      
+                  <li class="hover:-translate-y-2">
+                    <a
+                      class="text-gray-500 transition hover:text-gray-500/75"
+                      href="/"
+                    >
+                      Suporte
+                    </a>
+                  </li>
+      
+                  
+                </ul>
+      
+              
+      </div>
 
 <header class="bg-white/90">
 
@@ -76,6 +128,7 @@ class navbar01 extends HTMLElement {
             
           </ul>
         </nav>
+
       </div>
 
       <div class="flex items-center gap-4 ">
@@ -99,6 +152,7 @@ class navbar01 extends HTMLElement {
 
         <div class="block md:hidden">
           <button
+            id="iconNavbar"
             class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
           >
             <svg
@@ -130,6 +184,17 @@ class navbar01 extends HTMLElement {
         
 
       `;
+
+      const menu = document.getElementById('menu');
+      const fecharmenu = document.getElementById('fecharmenu');
+
+        
+      iconNavbar.addEventListener('click', ()=> {menu.style.display="flex";document.documentElement.style.overflowY = 'hidden';});
+      fecharmenu.addEventListener('click', ()=> {menu.style.display="none";document.documentElement.style.overflowY = 'auto';});
+
+      
+
+    
   }
 }
 
@@ -137,6 +202,8 @@ customElements.define("navbar-01", navbar01);
 
 
 // ================================================================================== //
+
+
 
 
 
