@@ -37,7 +37,7 @@ class hero01 extends HTMLElement {
       </h1>
 
       <p class="mt-4 max-w-lg sm:text-xl/relaxed">
-      Faça Escolhas Conscientes para Nutrir Seu Corpo e o Planeta
+      Faça escolhas conscientes para nutrir seu corpo e o planeta
       </p>
 
       <div class="mt-8 flex flex-col gap-4 justify-evenly text-center">

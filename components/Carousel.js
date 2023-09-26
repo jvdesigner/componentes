@@ -2,10 +2,8 @@
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
 
 
-//swiper-slide
 
-
-// == Componente de hero 01 == //
+// == Componente de carrossel 01 == //
 
 class carousel01 extends HTMLElement {
     constructor() {
@@ -49,6 +47,12 @@ class carousel01 extends HTMLElement {
             speed: 700,
 
             spaceBetween: 10,
+
+            autoplay: {
+              delay: 2500,
+              disableOnInteraction: true,
+            
+            },
             
             breakpoints: {
 
@@ -82,6 +86,69 @@ class carousel01 extends HTMLElement {
   
   
   // ================================================================================== //
+
+
+  // == Componente de carrossel 02 == //
+
+class carousel02 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+
+  <div class="swiper carrossel2 mySwiper w-[60%] scale-[0.8] max-lg:scale-75 max-lg:w-[70%]">
+
+      <div class="swiper-wrapper ">
+
+          <cards-02 class="swiper-slide"></cards-02>
+          <cards-02 class="swiper-slide"></cards-02>
+          <cards-02 class="swiper-slide"></cards-02>
+          <cards-02 class="swiper-slide"></cards-02>
+          <cards-02 class="swiper-slide"></cards-02>
+          <cards-02 class="swiper-slide"></cards-02>
+          <cards-02 class="swiper-slide"></cards-02>
+          
+
+      </div>
+
+  </div>
+
+
+
+<!-- Codigo -->
+        
+
+      `;
+
+      var swiper2 = new Swiper(".carrossel2", {
+
+          
+
+
+          autoplay: {
+            delay: 1000,
+            disableOnInteraction: true,
+          
+          },
+          
+          grabCursor: true,
+      effect: "cards",
+
+        });
+
+
+  }
+}
+
+customElements.define("carousel-02", carousel02);
+
+
+// ================================================================================== //
   
   
   
