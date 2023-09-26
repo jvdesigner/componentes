@@ -27,11 +27,14 @@ export function mostrarLoading(){
 
 
 export function ocultarLoading(){
-    
+
     const novoElemento = document.querySelector('.loading');
     
-
-    novoElemento.remove();
+    setTimeout(()=>{
+        novoElemento.remove(),2000
+    })
+    
+    
 
 
 }
