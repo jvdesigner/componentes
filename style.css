@@ -1,24 +1,12 @@
-*{
-    transition:all 0.2s linear;
-    ::selection{background: rgba(210, 255, 238, 0.733);}
+
+*{  
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s linear;
 }
 
-body{overflow-x: hidden;}
-
-.element-to-float {
-    animation: animefloat 2s ease-in-out infinite; 
+::selection {
+    background: rgba(184, 237, 226, 0.27); /* Verde com 50% de opacidade */
 }
 
-
-@keyframes animefloat {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px); 
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
+body{background: linear-gradient(111deg, rgba(0, 171, 146, 0.40) -5.47%, rgba(206, 255, 184, 0.21) 39.07%);}

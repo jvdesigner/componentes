@@ -1,60 +1,47 @@
-// -- Cores -- //
-
-const cor01 ="teal";
 
 
 
-// ---------------------
+// == Componente de cards 01 == //
 
-// -- COMPONENTS -- //
-
-// ---------------------
-
-
-// -- Cartões de categoria --//
-
-class cardstipo01 extends HTMLElement {
+class cards01 extends HTMLElement {
     constructor() {
       super();
 
-      const srcimagem = this.getAttribute('srcimagem');
-      const titulo = this.getAttribute('titulo');
-      const texto = this.getAttribute('texto');
+      const srcimagem = this.getAttribute('srcimagem')||'https://i.ibb.co/StwXZqq/Image.png';
+      const txtTitulo = this.getAttribute('txtTitulo')||'Categoria';
+      const txtTexto = this.getAttribute('txtTexto')||'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandaedolores, possimus pariatur animi temporibus nesciunt praesentium dolore.';
+      const txtqnt = this.getAttribute('txtqnt')||'0';
   
       this.innerHTML = `
       
             
     
   <!-- Codigo -->
-
-        <div class=" group/fru items-center bg-white rounded-lg  sm:flex dark:bg-gray-800 opacity-80 hover:opacity-100 dark:border-gray-700 hover:scale-105 hover:-translate-y-2 hover:drop-shadow-lg cursor-pointer p-4 outline outline-2 outline-gray-200 hover:drop-shadow-${cor01}">
-
-            <div class="p-6 max-md:w-1/2 mx-auto group-hover/fru:-translate-y-4">
-                <img class="bg-contain  rounded-lg sm:rounded-none sm:rounded-l-lg" src="${srcimagem}" style="max-height:120px;max-weight:120px">
-            </div>
-
-            <div class="p-5">
-
-                <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white flex justify-between">
-                    <a href="#">${titulo}</a>
-                    
-                </h3>
-
-                
-
-                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">${texto}</p>
-
-                
-            </div>
-
-            
         
-        </div>  
 
-       
-  
-  
-  
+  <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg hover:scale-[1.01] group/categorias cursor-pointer">
+  <img
+    alt="Office"
+    src="${srcimagem}"
+    class="h-48 w-full object-contain p-8 group-hover/categorias:-translate-y-2"
+  />
+
+  <div class="backdrop-blur-sm bg-white/60 p-4 sm:p-6">
+    <div class="block text-xs text-gray-500">
+      ${txtqnt} unid
+    </div>
+
+    <a href="#">
+      <h3 class="mt-0.5 text-lg text-gray-900">
+        ${txtTitulo}
+      </h3>
+    </a>
+
+    <p class="mt-2 line-clamp-3 group-hover/categorias:line-clamp-none text-gray-500">
+      ${txtTexto}
+    </p>
+  </div>
+</article>
             
             
   <!-- Codigo -->
@@ -64,5 +51,17 @@ class cardstipo01 extends HTMLElement {
     }
   }
   
-  customElements.define("cards-categorias", cardstipo01);
+  customElements.define("cards-01", cards01);
+  
+  
+  // ================================================================================== //
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
