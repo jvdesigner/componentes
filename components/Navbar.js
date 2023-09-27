@@ -83,20 +83,22 @@ class navbar01 extends HTMLElement {
 
       <div class="flex items-center gap-4 max-md:scale-95">
         <div class="flex gap-4 ">
-          <a
-            class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:scale-105"
-            href="/"
+
+          <div
+          id="btnEntrar"
+            class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:scale-105 cursor-pointer"
+            
           >
             Entrar
-          </a>
+          </div>
 
           <div class="flex">
-            <a
-              class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 hover:scale-105"
-              href="/"
+            <div
+              class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 hover:scale-105 cursor-pointer"
+              
             >
               Cadastrar
-            </a>
+            </div>
 
           </div>
         </div>
@@ -143,8 +145,14 @@ class navbar01 extends HTMLElement {
         
 
       `;
+
+      
+
     
   }
+
+  
+
 }
 
 customElements.define("navbar-01", navbar01);

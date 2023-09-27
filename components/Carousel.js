@@ -212,7 +212,7 @@ class carousel03 extends HTMLElement {
 
         <cards-03 
         nomeCliente="Maria Silva"
-        textoCliente="Adoro a Natureza Viva! Eles têm sempre os produtos mais frescos e saborosos. Além disso, o atendimento ao cliente é excepcional. Recomendo muito!"
+        textoCliente="Adoro a Sol Nascente! Eles têm sempre os produtos mais frescos e saborosos. Além disso, o atendimento ao cliente é excepcional. Recomendo muito!"
         srcimagem="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
         numeroEstrelas=5
         class="swiper-slide">
@@ -220,7 +220,7 @@ class carousel03 extends HTMLElement {
 
         <cards-03 
         nomeCliente="João Santos"
-        textoCliente="Os alimentos orgânicos da Natureza Viva são uma ótima opção para quem procura uma dieta mais saudável. Eles têm uma grande variedade de produtos e preços justos."
+        textoCliente="Os alimentos orgânicos da Sol Nascente são uma ótima opção para quem procura uma dieta mais saudável. Eles têm uma grande variedade de produtos e preços justos."
         srcimagem="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
         numeroEstrelas=4
         class="swiper-slide">
@@ -228,7 +228,7 @@ class carousel03 extends HTMLElement {
 
         <cards-03 
         nomeCliente="Ana Pereira"
-        textoCliente="A Natureza Viva é o meu lugar favorito para comprar alimentos orgânicos. Sempre encontro o que preciso, e a qualidade é impecável. É um paraíso para os amantes da comida saudável!"
+        textoCliente="A Sol Nascente é o meu lugar favorito para comprar alimentos orgânicos. Sempre encontro o que preciso, e a qualidade é impecável. É um paraíso para os amantes da comida saudável!"
         srcimagem="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
         numeroEstrelas=5
         class="swiper-slide">
@@ -236,7 +236,7 @@ class carousel03 extends HTMLElement {
 
         <cards-03 
         nomeCliente="Carlos Ferreira"
-        textoCliente="A Natureza Viva é uma loja muito boa, mas às vezes os preços podem ser um pouco altos. No entanto, a qualidade dos produtos faz valer a pena o investimento."
+        textoCliente="A Sol Nascente é uma loja muito boa, mas às vezes os preços podem ser um pouco altos. No entanto, a qualidade dos produtos faz valer a pena o investimento."
         srcimagem="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
         numeroEstrelas=5
         class="swiper-slide">
@@ -253,7 +253,7 @@ class carousel03 extends HTMLElement {
 
   <cards-03 
   nomeCliente="André Martins"
-  textoCliente="A Natureza Viva é um lugar confiável para comprar produtos orgânicos. Eles têm uma boa seleção e são transparentes sobre a origem dos alimentos. Eu aprecio muito isso."
+  textoCliente="A Sol Nascente é um lugar confiável para comprar produtos orgânicos. Eles têm uma boa seleção e são transparentes sobre a origem dos alimentos. Eu aprecio muito isso."
   srcimagem="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
   numeroEstrelas=5
   class="swiper-slide">
@@ -261,7 +261,7 @@ class carousel03 extends HTMLElement {
 
   <cards-03 
   nomeCliente="Luísa Gonçalves"
-  textoCliente="Só compro alimentos orgânicos na Natureza Viva! A loja é limpa, organizada e sempre tem produtos frescos. É um alívio saber que estou cuidando da minha saúde e do meio ambiente ao fazer compras aqui."
+  textoCliente="Só compro alimentos orgânicos na Sol Nascente! A loja é limpa, organizada e sempre tem produtos frescos. É um alívio saber que estou cuidando da minha saúde e do meio ambiente ao fazer compras aqui."
   srcimagem="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
   numeroEstrelas=4
   class="swiper-slide">
@@ -269,7 +269,7 @@ class carousel03 extends HTMLElement {
 
   <cards-03 
   nomeCliente="Pedro Rodrigues"
-  textoCliente="A Natureza Viva oferece uma experiência de compra agradável para os amantes de alimentos orgânicos. A única coisa que poderiam melhorar é a variedade de produtos sazonais."
+  textoCliente="A Sol Nascente oferece uma experiência de compra agradável para os amantes de alimentos orgânicos. A única coisa que poderiam melhorar é a variedade de produtos sazonais."
   srcimagem="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
   numeroEstrelas=5
   class="swiper-slide">

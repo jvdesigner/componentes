@@ -25,7 +25,7 @@ import * as compFooter from './components/Footer.js'
 
 import * as compCart from './components/Cart.js'
 
-
+import * as compForms from './components/Forms.js'
 
 
 
@@ -61,9 +61,18 @@ favoritos.forEach((favorito)=>{
 })
 
 
+// Abrir formulario de login
+
+const btnEntrar = document.getElementById('btnEntrar')
+const objFormLogin = document.getElementById('objFormLogin')
+const fecharFormLogin = document.getElementById('fecharFormLogin')
+const fecharFormLogin2 = document.getElementById('fecharFormLogin2')
 
 
+btnEntrar.addEventListener('click', ()=> {objFormLogin.style.display="block";document.documentElement.style.overflow = 'hidden';} )
 
+fecharFormLogin.addEventListener('click', ()=> {objFormLogin.style.display="none";document.documentElement.style.overflow = 'auto';} )
+fecharFormLogin2.addEventListener('click', ()=> {objFormLogin.style.display="none";document.documentElement.style.overflow = 'auto';} )
 
 
 

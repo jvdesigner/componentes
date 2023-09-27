@@ -79,7 +79,7 @@ class cards01 extends HTMLElement {
 
       let preenchimentoFavorito="";
 
-      if (isProdutoFavorito(idProduto)) { preenchimentoFavorito = "fill-teal-600"} 
+      //if (isProdutoFavorito(idProduto)) { preenchimentoFavorito = "fill-teal-600"} 
 
     this.innerHTML = `
     
@@ -204,7 +204,7 @@ class cards01 extends HTMLElement {
      // Chama a função preencherEstrelas com o número de estrelas
      this.preencherEstrelas(numeroEstrelas);
 
-     this.querySelector('.clsfavoritos').addEventListener('click', ()=> { gerenciarProdutoFavorito(idProduto) } ) 
+     //this.querySelector('.clsfavoritos').addEventListener('click', ()=> { gerenciarProdutoFavorito(idProduto) } ) 
 
 
 
