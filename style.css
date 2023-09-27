@@ -13,4 +13,5 @@ body{
     background: linear-gradient(111deg, rgba(0, 171, 146, 0.40) -5.47%, rgba(206, 255, 184, 0.21) 39.07%);
 }
 
-html{overflow-x: hidden;}
+html,body{overflow: hidden;}
+

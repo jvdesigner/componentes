@@ -14,10 +14,51 @@ import * as compCarousel from './components/Carousel.js'
 
 import * as compCards from './components/Cards.js'
 
+import * as compAvatar from './components/Avatar.js'
+
+import * as compMenu from './components/Menu.js'
+
+import * as compTestimonials from './components/Testimonials.js'
+
 
 
 
 // ================================================================================== //
+
+
+// == Funcoes == //
+
+
+function animationFavoritos(){
+
+    const favoritos = document.querySelectorAll('.clsfavoritos');
+
+    favoritos.forEach((favorito)=>{
+
+        favorito.addEventListener('click',()=>{
+
+        favorito.classList.toggle('fill-teal-500');
+        favorito.classList.toggle('stroke-teal-500');
+
+
+        })
+
+    })
+
+
+
+
+}
+
+animationFavoritos();
+
+
+
+
+// ================================================================================== //
+
+
+
 
 
 // == Importar Funcoes == //

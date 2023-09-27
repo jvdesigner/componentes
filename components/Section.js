@@ -23,11 +23,11 @@ class section01 extends HTMLElement {
 
     <header class="text-center ">
 
-      <h2 class="text-4xl font-bold text-teal-900 max-sm:text-3xl">
+      <h2 class="text-4xl font-bold text-teal-600 max-sm:text-3xl">
        Categorias
       </h2>
 
-      <p class="max-w-md mx-auto mt-4 text-teal-500">
+      <p class="max-w-md mx-auto mt-4 text-gray-600">
         Conheça nossas categorias
       </p>
 

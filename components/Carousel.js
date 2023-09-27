@@ -168,7 +168,7 @@ class carousel02 extends HTMLElement {
 
 
           autoplay: {
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false,
           
           },
@@ -183,6 +183,110 @@ class carousel02 extends HTMLElement {
 }
 
 customElements.define("carousel-02", carousel02);
+
+
+// ================================================================================== //
+
+
+// == Componente de carrossel 03 == //
+
+class carousel03 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+
+  <div class="swiper mySwiper carrossel3 overflow-y-visible">
+
+      <div class="swiper-wrapper">
+
+        <cards-03 class="swiper-slide" ></cards-03>
+        <cards-03 class="swiper-slide" ></cards-03>
+        <cards-03 class="swiper-slide" ></cards-03>
+        <cards-03 class="swiper-slide" ></cards-03>
+
+        <cards-03 class="swiper-slide" ></cards-03>
+        <cards-03 class="swiper-slide" ></cards-03>
+        <cards-03 class="swiper-slide" ></cards-03>
+        <cards-03 class="swiper-slide" ></cards-03>
+
+      </div>
+
+  </div>
+
+  <div class="swiper mySwiper carrossel3 overflow-y-visible mt-8">
+
+  <div class="swiper-wrapper">
+
+    <cards-03 class="swiper-slide" ></cards-03>
+    <cards-03 class="swiper-slide" ></cards-03>
+    <cards-03 class="swiper-slide" ></cards-03>
+    <cards-03 class="swiper-slide" ></cards-03>
+
+    <cards-03 class="swiper-slide" ></cards-03>
+    <cards-03 class="swiper-slide" ></cards-03>
+    <cards-03 class="swiper-slide" ></cards-03>
+    <cards-03 class="swiper-slide" ></cards-03>
+
+  </div>
+
+</div>
+
+
+
+<!-- Codigo -->
+        
+
+      `;
+
+      var swiper3 = new Swiper(".carrossel3", {
+
+          slidesPerView: 1,
+
+          speed: 700,
+
+          spaceBetween: 10,
+
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: true,
+          
+          },
+          
+          breakpoints: {
+
+              300: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+
+          },
+
+        });
+
+
+  }
+}
+
+customElements.define("carousel-03", carousel03);
 
 
 // ================================================================================== //

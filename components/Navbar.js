@@ -14,83 +14,8 @@ class navbar01 extends HTMLElement {
           
   
 <!-- Codigo -->
-          
-<div id="menu" class=" hidden items-center justify-center  h-screen fixed z-50 top-0 bg-white/90 w-screen ">    
-      
-      <svg id="fecharmenu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  absolute top-4 right-4 hover:stroke-teal-500 cursor-pointer">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-      
-                <ul class="flex flex-col items-center justify-evenly h-full gap-6 text-lg">
-      
-                  <li class="hover:-translate-y-2  ">
-                    <a
-                      class="text-teal-500 transition hover:text-gray-500/75"
-                      href="/"
-                    >
-                      Início
-                    </a>
-                  </li>
-      
-                  <li class="hover:-translate-y-2">
-                    <a
-                      class="text-gray-500 transition hover:text-gray-500/75"
-                      href="/"
-                    >
-                      Sobre
-                    </a>
-                  </li>
-      
-                  <li class="hover:-translate-y-2">
-                    <a
-                      class="text-gray-500 transition hover:text-gray-500/75"
-                      href="/"
-                    >
-                      Produtos
-                    </a>
-                  </li>
-      
-                  <li class="hover:-translate-y-2">
-                    <a
-                      class="text-gray-500 transition hover:text-gray-500/75"
-                      href="/"
-                    >
-                      Suporte
-                    </a>
-                  </li>
 
-                  <li class="hover:-translate-y-2" >
-          <a
-            class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:scale-105"
-            href="/"
-          >
-            Entrar
-          </a>
-
-         
-           
-          </li>
-
-          <li class="hover:-translate-y-2" >
-          <a
-          class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 hover:scale-105"
-          href="/"
-        >
-          Cadastrar
-        </a>
-          </li>
-      
-                  
-                </ul>
-
-                
-        
-        
-
-                
-      
-              
-      </div>
+<menu-01></menu-01>
 
 <header class="bg-white/90">
 
@@ -174,6 +99,7 @@ class navbar01 extends HTMLElement {
             >
               Cadastrar
             </a>
+
           </div>
         </div>
 
@@ -198,6 +124,9 @@ class navbar01 extends HTMLElement {
             </svg>
           </button>
         </div>
+
+        <avatar-01 class="hidden"></avatar-01>
+
       </div>
     </div>
   </div>
@@ -211,16 +140,6 @@ class navbar01 extends HTMLElement {
         
 
       `;
-
-      const menu = document.getElementById('menu');
-      const fecharmenu = document.getElementById('fecharmenu');
-
-        
-      iconNavbar.addEventListener('click', ()=> {menu.style.display="flex";document.documentElement.style.overflowY = 'hidden';});
-      fecharmenu.addEventListener('click', ()=> {menu.style.display="none";document.documentElement.style.overflowY = 'auto';});
-
-      
-
     
   }
 }
