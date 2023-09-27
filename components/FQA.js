@@ -17,7 +17,7 @@ class FQA01 extends HTMLElement {
 
  <div class="h-screen flex flex-col  space-y-4 mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
 
-    <h2 class="font-bold text-3xl text-teal-600 mt-10">Perguntas Frequentes</h2>
+    <h2 class="font-bold text-3xl max-md:text-2xl text-teal-600 mt-10">Perguntas Frequentes</h2>
 
  <div class="flex flex-col space-y-4 pt-10 divfqa">
 

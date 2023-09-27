@@ -23,7 +23,7 @@ class section01 extends HTMLElement {
 
     <header class="text-center ">
 
-      <h2 class="text-4xl font-bold text-teal-600 max-sm:text-3xl">
+      <h2 class="text-3xl font-bold text-teal-600 max-sm:text-2xl">
        Categorias
       </h2>
 
@@ -81,9 +81,9 @@ class section02 extends HTMLElement {
 
 
       <div class="lg:py-24 max-lg:text-center">
-        <h2 class="text-3xl font-bold sm:text-4xl text-teal-600">Promoções da semana</h2>
+        <h2 class="max-md:text-2xl font-bold text-3xl text-teal-600">Promoções da semana</h2>
 
-        <p class="mt-4 text-gray-600">
+        <p class="mt-4 text-gray-600 max-md:text-base">
         Descubra nossas promoções imperdíveis da semana e desfrute de sabores incríveis sem pesar no bolso. 
         </p>
 
@@ -96,7 +96,7 @@ class section02 extends HTMLElement {
 
       </div>
 
-      <carousel-02></carousel-02>
+      <carousel-02 class="max-md:scale-95"></carousel-02>
 
     </div>
 
