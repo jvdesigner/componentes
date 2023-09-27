@@ -1,4 +1,10 @@
 
+// == IMPORTAR FUNCOES == //
+
+
+import { gerenciarProdutoFavorito , isProdutoFavorito } from "../funcoes/gerais.js";
+
+
 
 
 // == Componente de cards 01 == //
@@ -68,8 +74,12 @@ class cards01 extends HTMLElement {
       const srcimagem = this.getAttribute('srcimagem') || 'https://i.ibb.co/StwXZqq/Image.png';
       const nomeProduto = this.getAttribute('nomeProduto') || 'Produto';
       const precoProduto = this.getAttribute('precoProduto') || '0,00';
-  
+      const idProduto = this.getAttribute('idProduto') || 1;
       const numeroEstrelas = this.getAttribute('numeroEstrelas') || 5;
+
+      let preenchimentoFavorito="";
+
+      if (isProdutoFavorito(idProduto)) { preenchimentoFavorito = "fill-teal-600"} 
 
     this.innerHTML = `
     
@@ -90,7 +100,7 @@ class cards01 extends HTMLElement {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="h-8 w-8 hover:scale-105 clsfavoritos stroke-teal-600"
+      class="h-8 w-8 hover:scale-105 clsfavoritos stroke-teal-600 ${preenchimentoFavorito}"
     >
       <path
         stroke-linecap="round"
@@ -193,6 +203,11 @@ class cards01 extends HTMLElement {
 
      // Chama a função preencherEstrelas com o número de estrelas
      this.preencherEstrelas(numeroEstrelas);
+
+     this.querySelector('.clsfavoritos').addEventListener('click', ()=> { gerenciarProdutoFavorito(idProduto) } ) 
+
+
+
     }
   
     preencherEstrelas(numeroEstrelas) {
@@ -207,7 +222,9 @@ class cards01 extends HTMLElement {
           estrelas[i].classList.add('text-gray-300');
         }
       }
-    }
+    };
+
+    
 
   }
   

@@ -107,6 +107,7 @@ class carousel02 extends HTMLElement {
 
           <cards-02 
           class="swiper-slide" 
+          idProduto=1
           srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
           nomeProduto="Morango"
           precoProduto="8,99"
@@ -116,6 +117,7 @@ class carousel02 extends HTMLElement {
 
           <cards-02 
           class="swiper-slide" 
+          idProduto=2
           srcimagem="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2Vub3VyYXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
           nomeProduto="Cenoura"
           precoProduto="4,99"
@@ -125,6 +127,7 @@ class carousel02 extends HTMLElement {
 
           <cards-02 
           class="swiper-slide" 
+          idProduto=3
           srcimagem="https://images.unsplash.com/photo-1628773822503-930a7eaecf80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJyb2NvbGlzfGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
           nomeProduto="Brócolis"
           precoProduto="6,99"
@@ -134,6 +137,7 @@ class carousel02 extends HTMLElement {
 
           <cards-02 
           class="swiper-slide" 
+          idProduto=4
           srcimagem="https://images.unsplash.com/photo-1566393028639-d108a42c46a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhbmFuYXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
           nomeProduto="Banana"
           precoProduto="3,99"
@@ -143,6 +147,7 @@ class carousel02 extends HTMLElement {
 
           <cards-02 
           class="swiper-slide" 
+          idProduto=5
           srcimagem="https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWxmYWNlfGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
           nomeProduto="Alface"
           precoProduto="2,99"
@@ -298,8 +303,8 @@ class carousel03 extends HTMLElement {
           spaceBetween: 10,
 
           autoplay: {
-            delay: 2500,
-            disableOnInteraction: true,
+            delay: 3000,
+            disableOnInteraction: false,
           
           },
           
