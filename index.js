@@ -20,6 +20,8 @@ import * as compMenu from './components/Menu.js'
 
 import * as compTestimonials from './components/Testimonials.js'
 
+import * as compFQA from './components/FQA.js'
+
 
 
 

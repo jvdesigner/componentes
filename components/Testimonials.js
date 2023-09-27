@@ -24,7 +24,7 @@ class testimonials01 extends HTMLElement {
       O que nossos clientes dizem
     </h2>
 
-    <carousel-03></carousel-03>
+    <carousel-03 class="scale-95"></carousel-03>
 
   </div>
 

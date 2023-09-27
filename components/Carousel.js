@@ -242,7 +242,7 @@ class carousel03 extends HTMLElement {
 
   </div>
 
-  <div class="swiper mySwiper carrossel3 overflow-y-visible mt-8">
+  <div class="swiper mySwiper carrossel3 overflow-y-visible mt-4">
 
   <div class="swiper-wrapper">
 
