@@ -77,7 +77,7 @@ class section02 extends HTMLElement {
 
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
 
-    <carousel-02></carousel-02>
+    
 
 
       <div class="lg:py-24 max-lg:text-center">
@@ -89,14 +89,14 @@ class section02 extends HTMLElement {
 
         <a
           href="#"
-          class="mt-8 inline-block rounded bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-400 hover:scale-105"
+          class="mt-8 hidden rounded bg-teal-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-400 hover:scale-105"
         >
           Aproveite agora
         </a>
 
       </div>
 
-      
+      <carousel-02></carousel-02>
 
     </div>
 

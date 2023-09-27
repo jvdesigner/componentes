@@ -27,19 +27,21 @@ class cards01 extends HTMLElement {
   />
 
   <div class="backdrop-blur-sm bg-white/60 p-4 sm:p-6">
-    <div class="block text-xs text-gray-500">
-      ${txtqnt} unid
-    </div>
 
-    <a href="#">
+    
       <h3 class="mt-0.5 text-lg text-gray-900">
         ${txtTitulo}
       </h3>
-    </a>
+
+      <div class="block text-xs text-gray-500">
+      ${txtqnt} unid
+    </div>
+  
 
     <p class="mt-2 line-clamp-3 group-hover/categorias:line-clamp-none text-gray-500">
       ${txtTexto}
     </p>
+
   </div>
 </article>
             
@@ -224,9 +226,9 @@ class cards01 extends HTMLElement {
   constructor() {
     super();
 
-    const srcimagem = this.getAttribute('srcimagem') || 'https://i.ibb.co/StwXZqq/Image.png';
-    const nomeProduto = this.getAttribute('nomeProduto') || 'Produto';
-    const precoProduto = this.getAttribute('precoProduto') || '0,00';
+    const srcimagem = this.getAttribute('srcimagem') || 'https://i.ibb.co/TvvbPRZ/Image.png';
+    const nomeCliente = this.getAttribute('nomeCliente') || 'Cliente';
+    const textoCliente = this.getAttribute('textoCliente') || 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui tempore sit, dolorum reprehenderit adipisci et ullam unde vero quae possimus, iure sed obcaecati repudiandae impedit praesentium velit quaerat cum modi?';
 
     const numeroEstrelas = this.getAttribute('numeroEstrelas') || 5;
 
@@ -237,19 +239,19 @@ class cards01 extends HTMLElement {
 <!-- Codigo -->
     
 
-<div class="rounded-lg bg-white p-6 shadow-sm sm:p-8">
+<div class="rounded-lg bg-white p-6 drop-shadow-lg sm:p-8">
 
         <div class="flex items-center gap-4">
 
           <img
             alt="cliente"
-            src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+            src="${srcimagem}"
             class="h-14 w-14 rounded-full object-cover"
           />
 
           <div>
 
-            <div class="flex justify-center gap-0.5 text-teal-500">
+            <div class="flex justify-center gap-0.5 text-teal-500 grupoEstrelascliente">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -302,15 +304,12 @@ class cards01 extends HTMLElement {
               </svg>
             </div>
 
-            <p class="mt-0.5 text-lg font-medium text-gray-900">Paul Starr</p>
+            <p class="mt-0.5 text-lg font-medium text-gray-900">${nomeCliente}</p>
           </div>
         </div>
 
-        <p class="mt-4 text-gray-700">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit
-          rerum incidunt, a consequuntur recusandae ab saepe illo est quia
-          obcaecati neque quibusdam eius accusamus error officiis atque
-          voluptates magnam!
+        <p class="mt-6 text-gray-700" style="min-height:120px">
+         ${textoCliente}
         </p>
       </div>
 
@@ -321,7 +320,21 @@ class cards01 extends HTMLElement {
 
     `;
 
+    this.preencherEstrelas(numeroEstrelas);
+  }
 
+  preencherEstrelas(numeroEstrelas) {
+    const grupoestrelas = this.querySelector('.grupoEstrelascliente');
+    const estrelas = grupoestrelas.querySelectorAll('svg');
+
+    for (let i = 0; i < estrelas.length; i++) {
+      if (i < numeroEstrelas) {
+        estrelas[i].classList.add('text-teal-500');
+      } else {
+        estrelas[i].classList.remove('text-teal-500');
+        estrelas[i].classList.add('text-gray-300');
+      }
+    }
   }
 
 }
