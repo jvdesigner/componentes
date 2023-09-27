@@ -76,7 +76,7 @@ class avatar01 extends HTMLElement {
   
         `;
 
-        const navProfile = document.getElementById('navProfile');
+      const navProfile = document.getElementById('navProfile');
       const btnimgProfile = document.getElementById('btnimgProfile');
       
 
@@ -95,6 +95,10 @@ class avatar01 extends HTMLElement {
   
   
   // ================================================================================== //
+
+  
+
+
   
   
   

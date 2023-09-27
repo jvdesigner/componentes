@@ -22,6 +22,10 @@ import * as compTestimonials from './components/Testimonials.js'
 
 import * as compFQA from './components/FQA.js'
 
+import * as compFooter from './components/Footer.js'
+
+import * as compCart from './components/Cart.js'
+
 
 
 
