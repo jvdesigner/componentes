@@ -243,7 +243,7 @@ class formlogin extends HTMLElement {
               <h1 class="clsobjformcadastro text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl ">
                   Cadastre uma conta
               </h1>
-              <h1 class="clsesquecisenha text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl ">
+              <h1 class="clsesquecisenha text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl">
                   Esqueci minha senha
               </h1>
 
@@ -308,7 +308,7 @@ class formlogin extends HTMLElement {
 
                       </div>
 
-                      <span id="txtesquecisenha" class="text-sm font-medium text-gray-500 hover:underline hover:text-teal-600">Esqueceu a senha?</span>
+                      <span id="txtesquecisenha" class="cursor-pointer text-sm font-medium text-gray-500 hover:underline hover:text-teal-600">Esqueceu a senha?</span>
 
                   </div>
 
@@ -318,12 +318,12 @@ class formlogin extends HTMLElement {
 
                   <p class="text-sm font-light text-gray-500 clsobjformlogin">
 
-                      Não tem conta ainda? <span id="alterarCadastrar" class=" font-medium text-primary-600 hover:underline hover:text-teal-600 ">Cadastrar</span>
+                      Não tem conta ainda? <span id="alterarCadastrar" class="cursor-pointer font-medium text-primary-600 hover:underline hover:text-teal-600 ">Cadastrar</span>
 
                   </p>
                   <p class="text-sm font-light text-gray-500 clsobjformcadastro clsesquecisenha">
 
-                      Já tem uma conta? <span id="alterarEntrar" class=" font-medium text-primary-600 hover:underline hover:text-teal-600 ">Entrar</span>
+                      Já tem uma conta? <span id="alterarEntrar" class="cursor-pointer font-medium text-primary-600 hover:underline hover:text-teal-600 ">Entrar</span>
 
                   </p>
 
