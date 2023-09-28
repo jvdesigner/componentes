@@ -72,6 +72,57 @@ class hero01 extends HTMLElement {
   
   
   // ================================================================================== //
+
+
+  // == Componente de hero 02 == //
+
+class hero02 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+
+<section class="h-screen flex items-center">
+
+    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6 ">
+
+        <div class="font-light text-gray-500 sm:text-lg">
+
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-teal-600 ">Nossa história</h2>
+
+            <p class="mb-4 font-normal">Desde nossa fundação em 2010, nossa paixão por alimentos orgânicos e sustentabilidade tem nos guiado. Começamos com uma pequena horta e a determinação de oferecer produtos saudáveis e de alta qualidade para nossos clientes.</p>
+            <p class="mb-4 font-normal">Ao longo dos anos, crescemos e expandimos nossa oferta, mas nunca perdemos nossa conexão com a natureza e a comunidade local.</p>
+
+        </div>
+
+        <div class="max-lg:max-w-lg">
+
+            <carousel-04></carousel-04>
+
+        </div>
+
+    </div>
+
+</section>
+
+          
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("hero-02", hero02);
+
+
+// ================================================================================== //
   
   
   

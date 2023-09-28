@@ -344,6 +344,122 @@ customElements.define("carousel-03", carousel03);
 
 
 // ================================================================================== //
+
+
+// == Componente de carrossel 03 == //
+
+class carousel04 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+
+  <div class="swiper mySwiper carrossel4">
+
+      <div class="swiper-wrapper py-10">
+
+        <img class="swiper-slide w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1674624682288-085eff4f98da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFncmljdWx0dXJhfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1678344177250-bfdbed89fc03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWdyaWN1bHRvcnxlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="office content 2" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://images.unsplash.com/photo-1551649001-7a2482d98d05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWdyaWN1bHRvcnxlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://images.unsplash.com/photo-1598303080484-8db04d10c787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fGFncmljdWx0b3J8ZW58MHwxfDB8fHww&auto=format&fit=crop&w=500&q=60" alt="office content 2" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://images.unsplash.com/photo-1633233523756-61ea75d5ff32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFncmljdWx0b3J8ZW58MHwxfDB8fHww&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1678344164959-62b230fbbfd0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGFncmljdWx0b3J8ZW58MHwxfDB8fHww&auto=format&fit=crop&w=500&q=60" alt="office content 2" >
+
+       
+
+       
+      </div>
+
+  </div>
+
+  
+
+
+
+
+
+<!-- Codigo -->
+        
+
+      `;
+
+      var swiper4 = new Swiper(".carrossel4", {
+
+        centeredSlides: true,
+        slidesPerView: 3.2,
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        },
+
+          speed: 1000,
+
+          spaceBetween: 10,
+
+          grabCursor: true,
+
+          loop:true,
+
+          effect:'coverflow',
+
+          autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+            waitForTransition:true,
+          
+          },
+
+          breakpoints: {
+
+            300: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 25,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+
+        },
+
+
+
+          
+          
+          
+
+        });
+
+
+  }
+}
+
+customElements.define("carousel-04", carousel04);
+
+
+// ================================================================================== //
   
   
   

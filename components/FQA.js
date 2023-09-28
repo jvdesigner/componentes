@@ -151,7 +151,7 @@ Sim, oferecemos uma ampla variedade de produtos orgânicos, desde frutas e verdu
   class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-white   p-4 text-gray-900"
 >
   <h2 class="font-medium group-hover:translate-x-2 ">
-  Posso encomendar online na Sol Nascente?
+  Qual é o prazo de entrega dos produtos?
   </h2>
 
   <svg
@@ -171,7 +171,7 @@ Sim, oferecemos uma ampla variedade de produtos orgânicos, desde frutas e verdu
 </summary>
 
 <p class="mt-4 px-4 leading-relaxed text-teal-700">
-Sim, você pode fazer pedidos online em nosso site. Oferecemos a conveniência de fazer compras online e oferecemos opções de entrega em domicílio para tornar sua experiência ainda mais fácil.
+O prazo de entrega padrão para os produtos da Natureza Viva é de 5 a 10 dias úteis a partir da data da compra. Trabalhamos arduamente para garantir que seus produtos orgânicos cheguem até você o mais rápido possível, enquanto mantemos a qualidade e a frescura dos itens. Caso haja qualquer atraso ou mudança no prazo de entrega, nossa equipe entrará em contato para manter você informado. 
 </p>
 
 </details>
@@ -182,7 +182,7 @@ Sim, você pode fazer pedidos online em nosso site. Oferecemos a conveniência d
   class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-white   p-4 text-gray-900"
 >
   <h2 class="font-medium group-hover:translate-x-2 ">
-  Vocês oferecem produtos sazonais?
+  Quais as opções de pagamento?
   </h2>
 
   <svg
@@ -202,7 +202,7 @@ Sim, você pode fazer pedidos online em nosso site. Oferecemos a conveniência d
 </summary>
 
 <p class="mt-4 px-4 leading-relaxed text-teal-700">
-Sim, procuramos oferecer produtos sazonais sempre que possível. A disponibilidade de produtos sazonais pode variar ao longo do ano, mas nossa equipe está sempre à procura das melhores opções de cada estação para nossos clientes.
+Aceitamos apenas PIX como forma de pagamento eletrônico em nossa loja. O PIX é uma opção segura e conveniente que oferece rapidez na transação, permitindo que você efetue o pagamento de seus produtos de forma instantânea e sem a necessidade de dinheiro em espécie ou cartões de crédito. 
 </p>
 
 </details>
