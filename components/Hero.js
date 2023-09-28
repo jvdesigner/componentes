@@ -43,14 +43,14 @@ class hero01 extends HTMLElement {
       <div class="mt-8 flex flex-col gap-4 justify-evenly text-center">
         <a
           href="#"
-          class="w-full hover:scale-105 block w-full rounded bg-teal-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-teal-700 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
+          class="w-full hover:scale-[1.02] block w-full rounded bg-teal-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-teal-700 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
         >
           Começar
         </a>
 
         <a
           href="#sectioncategorias"
-          class="w-full  hover:scale-105 block w-full rounded bg-white px-12 py-3 text-sm font-medium text-teal-600 shadow hover:text-teal-700 focus:outline-none focus:ring active:text-teal-500 sm:w-auto"
+          class="w-full  hover:scale-[1.02] block w-full rounded bg-white px-12 py-3 text-sm font-medium text-teal-600 shadow hover:text-teal-700 focus:outline-none focus:ring active:text-teal-500 sm:w-auto"
         >
           Saiba mais
         </a>

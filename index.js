@@ -60,19 +60,102 @@ favoritos.forEach((favorito)=>{
 
 })
 
+// --------------------------------------------------------------------
+
+
+// -- ocultar objetos do formulario de login/cadastro
+
+export function ocultarobjLoginCadastro(tipoForm){
+
+    const objlogin = document.querySelectorAll('.clsobjformlogin')
+    const objcadastro = document.querySelectorAll('.clsobjformcadastro')
+    const objesquecisenha = document.querySelectorAll('.clsesquecisenha')
+  
+   if ( tipoForm == "login" )
+  
+      { 
+  
+        objcadastro.forEach(iobjcadastro => {
+          iobjcadastro.classList.add('hidden');
+        });
+
+        objesquecisenha.forEach(iobjesquecisenha => {
+            iobjesquecisenha.classList.add('hidden');
+          });
+  
+        objlogin.forEach(iobjlogin => {
+          iobjlogin.classList.remove('hidden');
+        });
+  
+  
+      }
+  
+  else if( tipoForm == "cadastro" )
+  
+      { 
+
+        objlogin.forEach(iobjlogin => {
+            iobjlogin.classList.add('hidden');
+          });
+
+          objesquecisenha.forEach(iobjesquecisenha => {
+            iobjesquecisenha.classList.add('hidden');
+          });
+  
+        objcadastro.forEach(iobjcadastro => {
+          iobjcadastro.classList.remove('hidden');
+        });
+
+        
+  
+        
+  
+  
+      }
+
+      else if( tipoForm == "esqueci" )
+  
+      { 
+
+        objlogin.forEach(iobjlogin => {
+            iobjlogin.classList.add('hidden');
+          });
+
+        objesquecisenha.forEach(iobjesquecisenha => {
+            iobjesquecisenha.classList.remove('hidden');
+          });
+  
+        
+  
+  
+      }
+  
+  
+  }
+
+// --------------------------------------------------------------------
+
 
 // Abrir formulario de login
 
 const btnEntrar = document.getElementById('btnEntrar')
+const btnCadastrar = document.getElementById('btnCadastrar')
 const objFormLogin = document.getElementById('objFormLogin')
-const fecharFormLogin = document.getElementById('fecharFormLogin')
-const fecharFormLogin2 = document.getElementById('fecharFormLogin2')
 
 
-btnEntrar.addEventListener('click', ()=> {objFormLogin.style.display="block";document.documentElement.style.overflow = 'hidden';} )
+btnEntrar.addEventListener('click', async ()=> {
+    await ocultarobjLoginCadastro("login");
+    objFormLogin.style.display="block";
+    document.documentElement.style.overflow = 'hidden';
+} )
 
-fecharFormLogin.addEventListener('click', ()=> {objFormLogin.style.display="none";document.documentElement.style.overflow = 'auto';} )
-fecharFormLogin2.addEventListener('click', ()=> {objFormLogin.style.display="none";document.documentElement.style.overflow = 'auto';} )
+btnCadastrar.addEventListener('click', async ()=> {
+    await ocultarobjLoginCadastro("cadastro");
+    objFormLogin.style.display="block";
+    document.documentElement.style.overflow = 'hidden';
+} )
+
+
 
 
 
