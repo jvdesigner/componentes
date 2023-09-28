@@ -119,6 +119,13 @@ function validarSenhaconfirmada(idinputSenha,idinputSenhaConfirmada,idalertainpu
       confirmadaMessage.style.color = 'rgba(255, 0, 0, 0.5)';
       confirmadaMessage.classList.remove('hidden');
     }
+    else if( ( senhaValue == confirmadaValue ) && ( confirmadaValue !== '' ) ){
+
+      confirmadaMessage.textContent = 'Senha válida';
+      confirmadaMessage.style.color = 'rgba(77, 192, 181, 0.8)';
+      confirmadaMessage.classList.remove('hidden');
+
+    }
 
   });
 
