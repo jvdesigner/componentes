@@ -48,6 +48,8 @@ class carousel01 extends HTMLElement {
 
             spaceBetween: 10,
 
+            grabCursor: true,
+
             autoplay: {
               delay: 2500,
               disableOnInteraction: true,
@@ -301,6 +303,8 @@ class carousel03 extends HTMLElement {
           speed: 700,
 
           spaceBetween: 10,
+
+          grabCursor: true,
 
           autoplay: {
             delay: 3000,
