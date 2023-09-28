@@ -550,7 +550,93 @@ customElements.define("carousel-05", carousel05);
 // ================================================================================== //
   
   
+  // == Componente de carrossel 06 == //
+
+class carousel06 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
   
+<!-- Codigo -->
+
+
+  <div class="swiper mySwiper carrossel6 p-2">
+
+      <div class="swiper-wrapper">
+
+          <cards-04 
+            class="swiper-slide"
+            srcimagem="https://ouch-cdn2.icons8.com/XdRpKjiyg2s2kbLvtsDGWE5PKgABQIZSUG-ZPVNp6dw/rs:fit:368:220/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDE0/L2E5NjY5Mzc4LWEw/ZjUtNGQwMC1hNGUx/LTM3ZWVmMDFhMDYz/MS5wbmc.png"
+            txtTitulo="Pagamento Seguro"
+            txtTexto="Garantimos um processo de pagamento seguro e protegido para que você possa fazer suas compras com confiança."
+          ></cards-04>
+
+          <cards-04 
+            class="swiper-slide"
+            srcimagem="https://ouch-cdn2.icons8.com/wj0dTJgSWz08TH2Vru4APdGsjbted-Y9YOB6qdXmnBU/rs:fit:368:429/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvOTA1/L2RhZWRlOTA4LTAx/NTUtNDk4YS04ZWNi/LTczMjIzN2RlM2Ux/Ny5wbmc.png"
+            txtTitulo="Política de devolução"
+            txtTexto="Oferecemos uma política de devolução flexível para garantir a sua satisfação completa com nossos produtos."
+          ></cards-04>
+
+          <cards-04 
+            class="swiper-slide"
+            srcimagem="https://ouch-cdn2.icons8.com/lSUEblB4cfrIfurGPyGKIyWr1aAJoU6_iIGXj5Fhswk/rs:fit:368:314/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvODkz/LzM2ZGE3MTlhLTA0/YmQtNGVlMy1hMmJm/LTZmY2ZiZmUwOGNk/Zi5wbmc.png"
+            txtTitulo="Suporte 24hrs"
+            txtTexto="Nossa equipe de suporte está disponível 24 horas por dia para responder a todas as suas perguntas e resolver suas dúvidas."
+          ></cards-04>
+
+          <cards-04 
+            class="swiper-slide"
+            srcimagem="https://ouch-cdn2.icons8.com/1I1sgyUwblIkY0bvs77m_cw4V31Rki4-yY71gJsKTcY/rs:fit:368:303/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzIx/LzgzNWQ5NzU2LWE2/ODYtNDZlNi1hYjg1/LTQwZTgwNjcyNDQ3/My5wbmc.png"
+            txtTitulo="100% Frescor"
+            txtTexto="Comprometemo-nos a entregar alimentos sempre frescos e de alta qualidade diretamente para sua mesa."
+          ></cards-04>
+          
+
+      </div>
+
+  </div>
+
+
+
+<!-- Codigo -->
+        
+
+      `;
+
+      var swiper6 = new Swiper(".carrossel6", {
+
+          slidesPerView: 1.1,
+
+          speed: 700,
+
+          spaceBetween: 10,
+
+          loop:true,
+
+          grabCursor: true,
+
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+          
+          },
+          
+          
+
+        });
+
+
+  }
+}
+
+customElements.define("carousel-06", carousel06);
+
+
+// ================================================================================== //
   
   
   

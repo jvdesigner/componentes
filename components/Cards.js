@@ -363,6 +363,67 @@ customElements.define("cards-03", cards03);
 
 // ================================================================================== //
   
+
+// == Componente de cards 01 == //
+
+class cards04 extends HTMLElement {
+  constructor() {
+    super();
+
+    const srcimagem = this.getAttribute('srcimagem')||'https://i.ibb.co/StwXZqq/Image.png';
+    const txtTitulo = this.getAttribute('txtTitulo')||'Titulo';
+    const txtTexto = this.getAttribute('txtTexto')||'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandaedolores, possimus pariatur animi temporibus nesciunt praesentium dolore.';
+    
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+
+<div class="p-0 max-w-lg ">
+<div class="group relative block h-64 sm:h-80 lg:h-96 cursor-pointer ">
+  <span class=" absolute inset-0 border-2 border-dashed border-teal-200 rounded-2xl drop-shadow-md"></span>
+
+  <div
+    class="relative flex h-full transform items-end border-2  hover:drop-shadow-xl bg-white/70 rounded-2xl transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2 "
+  >
+    <div
+      class="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8 flex flex-col items-center  h-full justify-center mx-auto"
+    >
+      <img class="w-[80%] max-md:w-[60%] max-h-[200px]" src="${srcimagem}" alt="">
+
+      <h2 class="mt-4 text-lg text-teal-600 max-md:text-base font-medium">${txtTitulo}</h2>
+    </div>
+
+    <div
+      class="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8"
+    >
+      <h3 class="mt-4 text-xl font-medium sm:text-2xl text-teal-600">${txtTitulo}</h3>
+
+      <p class="mt-4 text-sm sm:text-base">
+      ${txtTexto}
+      </p>
+
+      <p class="mt-8 font-bold invisible">Read more</p>
+    </div>
+  </div>
+</div>
+</div>
+          
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("cards-04", cards04);
+
+
+// ================================================================================== //
   
   
   
