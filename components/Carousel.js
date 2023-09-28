@@ -438,7 +438,7 @@ class carousel04 extends HTMLElement {
             spaceBetween: 25,
           },
           1024: {
-            slidesPerView: 2,
+            slidesPerView: 2.6,
             spaceBetween: 30,
           },
 
