@@ -95,8 +95,8 @@ class hero02 extends HTMLElement {
 
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-teal-600 ">Nossa história</h2>
 
-            <p class="mb-4 font-normal">Desde nossa fundação em 2010, nossa paixão por alimentos orgânicos e sustentabilidade tem nos guiado. Começamos com uma pequena horta e a determinação de oferecer produtos saudáveis e de alta qualidade para nossos clientes.</p>
-            <p class="mb-4 font-normal">Ao longo dos anos, crescemos e expandimos nossa oferta, mas nunca perdemos nossa conexão com a natureza e a comunidade local.</p>
+            <p class="mb-4 font-normal">Desde nossa fundação em 2010, nossa paixão por <strong class="text-teal-600">alimentos orgânicos</strong> e <strong class="text-teal-600">sustentabilidade</strong> tem nos guiado. Começamos com uma pequena horta e a determinação de oferecer produtos saudáveis e de <strong class="text-teal-600">alta qualidade</strong> para nossos clientes.</p>
+            <p class="mb-4 font-normal">Ao longo dos anos, crescemos e expandimos nossa oferta, mas nunca perdemos nossa conexão com a </strong>natureza</strong> e a comunidade local.</p>
 
         </div>
 
@@ -123,6 +123,54 @@ customElements.define("hero-02", hero02);
 
 
 // ================================================================================== //
+
+
+  // == Componente de hero 03 == //
+
+  class hero03 extends HTMLElement {
+    constructor() {
+      super();
+  
+      this.innerHTML = `
+      
+            
+    
+  <!-- Codigo -->
+        
+  <section class="h-screen flex items-center">
+
+    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 max-sm:flex-col-reverse max-sm:flex max-sm:gap-8">
+
+        <div class="mr-auto place-self-center lg:col-span-7">
+
+            <h1 class="max-w-2xl mb-4 text-3xl text-teal-600 font-extrabold tracking-tight leading-none md:text-5xl xl:text-4xl ">Nossa Missão e Compromisso</h1>
+
+            <p class="max-w-2xl mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">Nossa missão é simples e poderosa: proporcionar uma experiência de <strong class="text-teal-600">alimentação saudável e sustentável para todos</strong>.<br><br> Acreditamos que a escolha de alimentos orgânicos não deve ser um luxo, mas sim um direito.Estamos comprometidos em fornecer <strong class="text-teal-600">alimentos de qualidade</strong> que beneficiem a <strong class="text-teal-600">saúde das pessoas</strong> e o <strong class="text-teal-600">bem-estar do planeta</strong>.</p>
+
+        </div>
+
+        <div class=" lg:mt-0 lg:col-span-5 flex ">
+
+            <carousel-05></carousel-05>
+
+        </div>    
+
+    </div>
+
+</section>
+  
+            
+  <!-- Codigo -->
+          
+  
+        `;
+    }
+  }
+  
+  customElements.define("hero-03", hero03);
+  
+  
+  // ================================================================================== //
   
   
   

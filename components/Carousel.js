@@ -346,7 +346,7 @@ customElements.define("carousel-03", carousel03);
 // ================================================================================== //
 
 
-// == Componente de carrossel 03 == //
+// == Componente de carrossel 04 == //
 
 class carousel04 extends HTMLElement {
   constructor() {
@@ -457,6 +457,94 @@ class carousel04 extends HTMLElement {
 }
 
 customElements.define("carousel-04", carousel04);
+
+
+// ================================================================================== //
+
+
+// == Componente de carrossel 05 == //
+
+class carousel05 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+
+  <div class="swiper mySwiper carrossel5">
+
+      <div class="swiper-wrapper ">
+
+        <img class="swiper-slide w-full rounded-lg" src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFncmljdWx0b3J8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1663011210631-442450983065?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8b3JnYW5pY3xlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1664202219683-e7c7c9d0bf40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fG9yZ2FuaWN8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://images.unsplash.com/photo-1551117425-5e0f451ca10e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fG9yZ2FuaWN8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://plus.unsplash.com/premium_photo-1664910590150-9a8fe18ba7a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fG9yZ2FuaWMlMjBwZW9wbGUlMjBlYXR8ZW58MHwwfDB8fHww&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+        <img class="swiper-slide w-full rounded-lg" src="https://images.unsplash.com/photo-1470072768013-bf9532016c10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8b3JnYW5pYyUyMHBlb3BsZSUyMGVhdHxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="office content 1" >
+
+       
+
+       
+      </div>
+
+  </div>
+
+  
+
+
+
+
+
+<!-- Codigo -->
+        
+
+      `;
+
+      var swiper5 = new Swiper(".carrossel5", {
+
+        slidesPerView: 3.2,
+
+          speed: 1000,
+
+          spaceBetween: 10,
+
+          grabCursor: true,
+
+          loop:true,
+
+          effect:"fade",
+
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            waitForTransition:true,
+          
+          },
+
+        
+
+
+
+          
+          
+          
+
+        });
+
+
+  }
+}
+
+customElements.define("carousel-05", carousel05);
 
 
 // ================================================================================== //
