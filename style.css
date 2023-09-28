@@ -15,3 +15,5 @@ body{
 
 html,body{overflow: hidden;}
 
+input{box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.17) inset;border: none;outline:none;}
+
