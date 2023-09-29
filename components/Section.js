@@ -166,6 +166,104 @@ customElements.define("section-03", section03);
 
 
 // ================================================================================== //
+
+
+ // == Componente de section 04 == //
+
+ class section04 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+
+<section class="h-screen flex overflow-x-hidden">
+
+<div class=" px-4 mx-auto lg:px-12 w-full mt-10">
+
+  <form-search></form-search>
+
+  <carousel-07></carousel-07>
+
+  <section class="grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-3 gap-4 pb-24 mt-10 max-md:mt-2">
+
+      <cards-05 
+      idProduto=1
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Morango"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="8,99"
+      numeroEstrelas=4
+      >
+      </cards-05>
+
+      <cards-05 
+      idProduto=2
+      srcimagem="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2Vub3VyYXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Cenoura"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="4,99"
+      numeroEstrelas=5
+      >
+      </cards-05>
+
+      <cards-05
+      idProduto=3
+      srcimagem="https://images.unsplash.com/photo-1628773822503-930a7eaecf80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJyb2NvbGlzfGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Brócolis"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="6,99"
+      numeroEstrelas=5
+      >
+      </cards-05>
+
+      <cards-05
+      idProduto=4
+      srcimagem="https://images.unsplash.com/photo-1566393028639-d108a42c46a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhbmFuYXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Banana"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="3,99"
+      numeroEstrelas=5
+      >
+      </cards-05>
+
+      <cards-05 
+      idProduto=5
+      srcimagem="https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWxmYWNlfGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Alface"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="2,99"
+      numeroEstrelas=4
+      >
+      </cards-05>
+
+
+  </section>
+
+</div>
+
+</section>
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("section-04", section04);
+
+
+// ================================================================================== //
   
   
   

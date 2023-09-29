@@ -648,6 +648,124 @@ customElements.define("carousel-06", carousel06);
 
 // ================================================================================== //
   
+
+  // == Componente de carrossel 07 == //
+
+  class carousel07 extends HTMLElement {
+    constructor() {
+      super();
+  
+      this.innerHTML = `
+      
+            
+    
+  <!-- Codigo -->
+  
+  
+    <div class="swiper mySwiper carrossel7 mt-10 max-md:mt-2 overflow-y-visible p-2">
+  
+        <div id="containerTab" class="swiper-wrapper">
+  
+        <button type="button" class="swiper-slide max-w-[150px] outline outline-teal-600 text-teal-900 hover:outline outline-2 hover:scale-[1.02] hover:outline-teal-600 hover:text-teal-600 focus:outline-teal-600 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3">
+        Todas
+        </button>
+
+        <button type="button" class="swiper-slide max-w-[150px] text-gray-900 hover:outline outline-2 hover:scale-[1.02] hover:outline-teal-600 hover:text-teal-600 focus:outline-teal-600 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3">
+        Frutas
+        </button>
+
+        <button type="button" class="swiper-slide max-w-[150px] text-gray-900 hover:outline outline-2 hover:scale-[1.02] hover:outline-teal-600 hover:text-teal-600 focus:outline-teal-600 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3">
+        Legumes
+        </button>
+
+        <button type="button" class="swiper-slide max-w-[150px] text-gray-900 hover:outline outline-2 hover:scale-[1.02] hover:outline-teal-600 hover:text-teal-600 focus:outline-teal-600 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3">
+        Vegetais
+        </button>
+
+        <button type="button" class="swiper-slide max-w-[150px]  text-gray-900 hover:outline outline-2 hover:scale-[1.02] hover:outline-teal-600 hover:text-teal-600 focus:outline-teal-600 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3">
+        Laticínios
+        </button>
+            
+  
+        </div>
+  
+    </div>
+  
+  
+  
+  <!-- Codigo -->
+          
+  
+        `;
+
+        const containerTab = document.getElementById('containerTab')
+        const tabs = containerTab.querySelectorAll('button')
+
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            // Remova a classe 'outline' de todos os botões
+            tabs.forEach((otherTab) => {
+              otherTab.classList.remove('outline')
+              otherTab.classList.remove('outline-teal-600')
+            })
+
+            // Adicione a classe 'outline' ao botão atual
+            tab.classList.add('outline')
+            tab.classList.add('outline-teal-600')
+          })
+        })
+
+
+          
+
+  
+        var swiper7 = new Swiper(".carrossel7", {
+  
+            slidesPerView: 1,
+  
+            speed: 700,
+  
+            spaceBetween: 10,
+  
+            grabCursor: true,
+
+            freeMode:true,
+
+            breakpoints: {
+
+              300: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 15,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+
+          },
+            
+            
+  
+          });
+  
+  
+    }
+  }
+  
+  customElements.define("carousel-07", carousel07);
+  
+  
+  // ================================================================================== //
+
   
   
   
