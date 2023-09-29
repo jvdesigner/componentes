@@ -74,6 +74,8 @@ class cards01 extends HTMLElement {
       const srcimagem = this.getAttribute('srcimagem') || 'https://i.ibb.co/StwXZqq/Image.png';
       const nomeProduto = this.getAttribute('nomeProduto') || 'Produto';
       const precoProduto = this.getAttribute('precoProduto') || '0,00';
+      const medidaProduto = this.getAttribute('medidaProduto') || 'kg';
+      const pesoProduto = this.getAttribute('pesoProduto') || 0;
       const idProduto = this.getAttribute('idProduto') || 1;
       const numeroEstrelas = this.getAttribute('numeroEstrelas') || 5;
 
@@ -180,7 +182,9 @@ class cards01 extends HTMLElement {
 
     <h3 class="mt-4 text-2xl font-medium text-gray-900">${nomeProduto}</h3>
 
-    <p class="mt-1.5 text-xl text-gray-700">R$ ${precoProduto}</p>
+    <p class="mt-1.5 text-lg text-gray-600">${pesoProduto} ${medidaProduto}</p>
+
+    <p class="mt-4 text-2xl text-gray-700 font-semibold">R$ ${precoProduto}</p>
 
     <form class="mt-10">
       <button
@@ -364,7 +368,7 @@ customElements.define("cards-03", cards03);
 // ================================================================================== //
   
 
-// == Componente de cards 01 == //
+// == Componente de cards 04 == //
 
 class cards04 extends HTMLElement {
   constructor() {
