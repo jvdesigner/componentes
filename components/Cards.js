@@ -456,7 +456,7 @@ customElements.define("cards-04", cards04);
   <!-- Codigo -->
         
   
-  <div class="group relative block overflow-hidden rounded-lg w-[90%] max-md:w-full mx-auto cursor-pointer hover:scale-[1.02] hover:-translate-y-2 hover:drop-shadow-xl">
+  <div class="group relative block overflow-hidden rounded-lg w-[100%] max-md:w-full mx-auto cursor-pointer hover:scale-[1.02] hover:-translate-y-2 hover:drop-shadow-xl">
 
     <button
       class="absolute end-4 top-4 max-md:top-2 max-md:right-2 z-10 rounded-full bg-white/90 p-1.5 max-md:p-0.5 text-gray-900 transition hover:text-gray-900/75"

@@ -27,6 +27,8 @@ import * as compCart from './components/Cart.js'
 
 import * as compForms from './components/Forms.js'
 
+import * as compTabs from './components/Tabs.js'
+
 
 
 // ===================================== Importar Funcoes ============================================= //

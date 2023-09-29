@@ -181,15 +181,15 @@ customElements.define("section-03", section03);
 <!-- Codigo -->
       
 
-<section class="h-screen flex overflow-x-hidden">
+<section class="h-screen flex flex-col overflow-x-hidden px-28 max-lg:px-0 relative">
 
-<div class=" px-4 mx-auto lg:px-12 w-full mt-10">
+<div class=" px-4 mx-auto lg:px-12 w-full mt-10 relative">
 
   <form-search></form-search>
 
-  <carousel-07></carousel-07>
+  <carousel-07 class="flex items-center"></carousel-07>
 
-  <section class="grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-3 gap-4 pb-24 mt-10 max-md:mt-2">
+  <section id="galeriaProdutos" class="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-3 gap-10 max-md:gap-x-2 max-md:gap-y-6 px-16 max-md:px-0 pb-20 max-md:pb-10 pt-8 max-md:pt-0 ">
 
       <cards-05 
       idProduto=1
@@ -246,10 +246,19 @@ customElements.define("section-03", section03);
       >
       </cards-05>
 
+      
+      
+      
 
   </section>
 
+  <tabs-01></tabs-01>
+
+  
+
 </div>
+
+
 
 </section>
           

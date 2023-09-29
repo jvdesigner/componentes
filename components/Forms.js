@@ -470,7 +470,7 @@ class formlogin extends HTMLElement {
     <!-- Codigo -->
           
     
-    <div class="relative bg-white shadow-md rounded-lg mt-10">
+    <div class="relative bg-white shadow-md rounded-lg mt-10 w-[80%] max-md:w-full mx-auto">
 
       <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
 
