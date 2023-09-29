@@ -563,7 +563,7 @@ class carousel06 extends HTMLElement {
 <!-- Codigo -->
 
 
-  <div class="swiper mySwiper carrossel6 p-2">
+  <div class="swiper mySwiper carrossel6 p-2 max-md:-translate-y-16">
 
       <div class="swiper-wrapper">
 

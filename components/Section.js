@@ -96,7 +96,7 @@ class section02 extends HTMLElement {
 
       </div>
 
-      <carousel-02 class="max-md:scale-95"></carousel-02>
+      <carousel-02 class="max-md:scale-[0.85]"></carousel-02>
 
     </div>
 
@@ -133,11 +133,11 @@ customElements.define("section-02", section02);
       
 
 
-<section class="max-w-screen-xl mx-auto h-screen flex items-center justify-center max-lg:flex-col max-lg:justify-evenly p-10">
+<section class="max-w-screen-xl mx-auto h-screen flex items-center justify-center max-lg:flex-col max-lg:justify-evenly max-md:px-4">
 
   <div class="mr-auto place-self-center lg:col-span-7">
 
-            <h1 class="max-w-2xl mb-4 text-3xl text-teal-600 font-extrabold tracking-tight leading-none md:text-3xl xl:text-3xl ">Por que comprar conosco é uma escolha inteligente?</h1>
+            <h1 class="max-w-2xl mb-4 text-3xl text-teal-600 font-extrabold tracking-tight leading-none md:text-3xl xl:text-3xl ">Por que comprar conosco ?</h1>
 
             <p class="max-w-2xl mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">Na Sol Nascente, acreditamos que a sua <strong class="text-teal-600">saúde</strong> e <strong class="text-teal-600">bem-estar</strong> são prioridades. É por isso que nos dedicamos a oferecer uma <strong class="text-teal-600">experiência de compra única</strong>, repleta de benefícios que fazem toda a diferença.</p>
 
