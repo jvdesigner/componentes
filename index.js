@@ -29,6 +29,8 @@ import * as compForms from './components/Forms.js'
 
 import * as compTabs from './components/Tabs.js'
 
+import * as compAlert from './components/Alerts.js'
+
 
 
 // ===================================== Importar Funcoes ============================================= //

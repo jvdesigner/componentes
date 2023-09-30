@@ -265,8 +265,8 @@ class formlogin extends HTMLElement {
 
                       <div class="relative flex items-center ">
                       <input autocomplete="off" maxlength="12" type="password" id="txtSenhaLogin" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="••••••••">
-                      <svg id="iconmostrarSenha" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                      <svg id="iconocultarSenha" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
+                      <svg id="iconmostrarSenha" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="fill-none w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      <svg id="iconocultarSenha" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="fill-none hidden w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
 
                       </div>  
 
@@ -280,8 +280,8 @@ class formlogin extends HTMLElement {
 
                       <div class="relative flex items-center ">
                       <input autocomplete="off" maxlength="12" type="password" id="txtSenhaLogin2" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="••••••••">
-                      <svg id="iconmostrarSenha2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                      <svg id="iconocultarSenha2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
+                      <svg id="iconmostrarSenha2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="fill-none w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      <svg id="iconocultarSenha2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="fill-none hidden w-6 h-6 absolute right-4 text-gray-500 hover:text-teal-600 cursor-pointer"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
 
                       </div>  
 
@@ -516,6 +516,130 @@ class formlogin extends HTMLElement {
     
     // ================================================================================== //
   
+
+        // == Componente de form suporte == //
+
+        class formsuporte extends HTMLElement {
+          constructor() {
+            super();
+        
+            this.innerHTML = `
+            
+                  
+          
+        <!-- Codigo -->
+              
+        <div class="flex flex-col w-full items-center justify-center px-6  mx-auto  relative h-screen -translate-x-16 max-md:-translate-x-0">
+
+        <div class="w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-md xl:p-0 ">
+
+
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+
+                <h1 class=" text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl ">
+                    Entre em contato
+                </h1>
+              
+                <form 
+                  class="space-y-4 md:space-y-6" 
+                  autocomplete="off"
+                >
+
+                    <div class="mb-6">
+
+                        <label 
+                          for="txtEmailContato" 
+                          class="block mb-2 text-sm font-medium text-gray-500 "
+                          >Email
+                        </label>
+
+                        <input 
+                          autocomplete="off" 
+                          type="email" 
+                          maxlength="100" 
+                          id="txtEmailContato" 
+                          class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
+                          placeholder="cliente@email.com"
+                        > 
+
+                        <p class="hidden mt-2 text-sm text-gray-600">Email válido</p>
+
+                    </div>
+
+                    <div class="mb-6">
+
+                        <label 
+                          for="txtAssuntoContato" 
+                          class="block mb-2 text-sm font-medium text-gray-500 "
+                          >Assunto
+                        </label>
+
+                        <input 
+                          autocomplete="off" 
+                          type="text" 
+                          maxlength="100" 
+                          id="txtAssuntoContato" 
+                          class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
+                          placeholder="Assunto"
+                        > 
+
+                        <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
+
+                    </div>
+
+                    <div class="mb-6">
+
+                        <label 
+                          for="txtMensagemContato" 
+                          class="block mb-2 text-sm font-medium text-gray-500 "
+                          >Mensagem
+                        </label>
+
+                        <textarea 
+                          autocomplete="off"
+                          maxlength="500" 
+                          id="txtMensagemContato"
+                          rows="4" 
+                          class="required resize-none bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5 mb-4" 
+                          placeholder="Escreva aqui"
+                        ></textarea>
+
+                        <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
+
+                    </div>
+
+      
+              
+                    <button 
+                      id="btnenviarcontato" 
+                      type="button" 
+                      class=" w-full  text-white bg-teal-600 hover:bg-teal-700 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:scale-[1.02] hover:scale-[1.02] "
+                      >Enviar
+                    </button>
+
+              
+                </form>
+
+               
+
+            </div>
+
+        </div>
+
+    </div>
+       
+                  
+        <!-- Codigo -->
+                
+        
+              `;
+          }
+        }
+        
+        customElements.define("form-suporte", formsuporte);
+        
+        
+        // ================================================================================== //
   
   
   

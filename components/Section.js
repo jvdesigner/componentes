@@ -273,6 +273,40 @@ customElements.define("section-04", section04);
 
 
 // ================================================================================== //
+
+
+ // == Componente de section 05 == //
+
+ class section05 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+<section class="h-screen w-screen flex justify-evenly items-center max-md:flex-col-reverse max-md:h-full">
+
+    <footer-02 class="max-lg:mb-28"></footer-02>
+
+    <form-suporte class=" w-1/2 max-lg:w-full"></form-suporte>
+
+</section>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("section-05", section05);
+
+
+// ================================================================================== //
   
   
   

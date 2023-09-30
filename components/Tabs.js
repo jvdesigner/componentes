@@ -14,7 +14,7 @@
         
   <div class="flex justify-center gap-1 text-xs font-medium pb-2 mx-auto mt-10 max-md:mt-0 max-md:mb-28 mb-20 scale-110 max-md:scale-100">
   <li
-      class="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+      class="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 hover:-translate-y-1"
     >
       <span class="sr-only">Prev Page</span>
       <svg
@@ -32,34 +32,34 @@
   </li>
 
   <li
-      class="cursor-pointer block h-8 w-8 rounded border border-gray-100 bg-teal-600 text-center leading-8 text-white"
+      class="cursor-pointer block h-8 w-8 rounded border border-gray-100 bg-teal-600 hover:-translate-y-1 text-center leading-8 text-white"
     >
       1
    
   </li>
 
   <li
-    class="cursor-pointer block h-8 w-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
+    class="cursor-pointer block h-8 w-8 rounded border border-gray-100 hover:-translate-y-1 bg-white text-center leading-8 text-gray-900"
   >
     2
   </li>
 
   <li
-      class="cursor-pointer block h-8 w-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
+      class="cursor-pointer block h-8 w-8 rounded border border-gray-100 hover:-translate-y-1 bg-white text-center leading-8 text-gray-900"
     >
       3
 
   </li>
 
   <li
-      class="cursor-pointer block h-8 w-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900"
+      class="cursor-pointer block h-8 w-8 rounded border border-gray-100 hover:-translate-y-1 bg-white text-center leading-8 text-gray-900"
     >
       4
 
   </li>
 
   <li
-      class="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
+      class="cursor-pointer inline-flex h-8 w-8 items-center justify-center hover:-translate-y-1 rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
     >
       <span class="sr-only">Next Page</span>
       <svg
