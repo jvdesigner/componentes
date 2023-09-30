@@ -180,43 +180,16 @@ window.addEventListener('load', ()=> {setTimeout(()=>{funcaoLoading.ocultarLoadi
 // ===================================== localStorage ============================================= //
 
 
-// -- funcoes
-
-// Função para calcular o tamanho total do armazenamento localStorage
-
-function calcularTamanhoLocalStorage() {
-
-    let tamanhoTotal = 0;
-
-    for (let i = 0; i < localStorage.length; i++) {
-        const chave = localStorage.key(i);
-        const valor = localStorage.getItem(chave);
-        tamanhoTotal += chave.length + valor.length;
-    }
-
-    // Converta para megabytes (opcional)
-    const tamanhoMB = (tamanhoTotal / (1024 * 1024)).toFixed(2);
-
-    console.log(`Tamanho do localStorage: ${tamanhoMB} MB`);
-
-}
-
-// Use a função para obter o tamanho total
-//calcularTamanhoLocalStorage();
 
 // -- objetos no armazenamento
 
 // Lista de produtos favoritos 
+
 //alert(localStorage.getItem("favoritos"))
 
 //limpar localstorage
+
 //localStorage.clear(); 
-
-
-
-
-
-
 
 
 

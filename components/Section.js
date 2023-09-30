@@ -307,6 +307,38 @@ customElements.define("section-05", section05);
 
 
 // ================================================================================== //
+
+
+ // == Componente de section 06 == //
+
+ class section06 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+<section class="h-screen w-screen flex flex-col items-center p-10 justify-center">
+
+    <cards-06></cards-06>
+
+</section>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("section-06", section06);
+
+
+// ================================================================================== //
   
   
   

@@ -209,9 +209,9 @@ class formlogin extends HTMLElement {
 />
         
 
-  <section id="objFormLogin" class="bg-white h-screen w-screen hidden fixed top-0 z-50  animate__animated  animate__fadeInUp">
+  <section id="objFormLogin" class="bg-white h-screen w-screen hidden fixed top-0 z-50  ">
 
-  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 relative">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 relative animate__animated  animate__fadeInUp">
 
     <div class="absolute top-4  left-4 mx-auto max-sm:hidden flex items-center gap-2 cursor-pointer text-gray-600 hover:scale-105 hover:text-teal-600">
       
