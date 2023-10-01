@@ -36,18 +36,18 @@ import * as compAlert from './components/Alerts.js'
 // ===================================== Importar Funcoes ============================================= //
 
 
-import * as funcaoLoading from './funcoes/loading.js'
+import * as funcoes_login from './functions/f_login.js'
+
+import * as funcoes_loading from './functions/f_loading.js'
 
 
 
+// ===================================== ADICIONAR EVENTO ============================================= //
 
 
-
-// ===================================== Funcoes ============================================= //
-
-
-
-// funcao que preenche o icone de meus curtidos
+// Icone de favoritos
+// Adiciona evento click nos elementos da classe clsfavoritos 
+// Acao >> Ao clicar o icone coloca ou tira o preenchimento 
 
 
 const favoritos = document.querySelectorAll('.clsfavoritos');
@@ -64,144 +64,55 @@ favoritos.forEach((favorito)=>{
 
 })
 
-// --------------------------------------------------------------------
 
 
-// -- ocultar objetos do formulario de login/cadastro
-
-export function ocultarobjLoginCadastro(tipoForm){
-
-    const objlogin = document.querySelectorAll('.clsobjformlogin')
-    const objcadastro = document.querySelectorAll('.clsobjformcadastro')
-    const objesquecisenha = document.querySelectorAll('.clsesquecisenha')
-  
-   if ( tipoForm == "login" )
-  
-      { 
-  
-        objcadastro.forEach(iobjcadastro => {
-          iobjcadastro.classList.add('hidden');
-        });
-
-        objesquecisenha.forEach(iobjesquecisenha => {
-            iobjesquecisenha.classList.add('hidden');
-          });
-  
-        objlogin.forEach(iobjlogin => {
-          iobjlogin.classList.remove('hidden');
-        });
-  
-  
-      }
-  
-  else if( tipoForm == "cadastro" )
-  
-      { 
-
-        objlogin.forEach(iobjlogin => {
-            iobjlogin.classList.add('hidden');
-          });
-
-          objesquecisenha.forEach(iobjesquecisenha => {
-            iobjesquecisenha.classList.add('hidden');
-          });
-  
-        objcadastro.forEach(iobjcadastro => {
-          iobjcadastro.classList.remove('hidden');
-        });
-
-        
-  
-        
-  
-  
-      }
-
-      else if( tipoForm == "esqueci" )
-  
-      { 
-
-        objlogin.forEach(iobjlogin => {
-            iobjlogin.classList.add('hidden');
-          });
-
-        objesquecisenha.forEach(iobjesquecisenha => {
-            iobjesquecisenha.classList.remove('hidden');
-          });
-  
-        
-  
-  
-      }
-  
-  
-  }
-
-// --------------------------------------------------------------------
-
-
-// Abrir formulario de login
+// Formulario de Login | cadastro
+// Acao >> Abrir o formulario de login
+// Adiciona evento click nos botoes de entrar e cadastro para abrir o formulario
 
 const btnEntrar = document.getElementById('btnEntrar')
 const btnCadastrar = document.getElementById('btnCadastrar')
 const objFormLogin = document.getElementById('objFormLogin')
 
 
-btnEntrar.addEventListener('click', async ()=> {
-    await ocultarobjLoginCadastro("login");
+btnEntrar.addEventListener('click',  ()=> {
+  funcoes_login.ocultarobjLoginCadastro("login");
     objFormLogin.style.display="block";
     document.documentElement.style.overflow = 'hidden';
 } )
 
-btnCadastrar.addEventListener('click', async ()=> {
-    await ocultarobjLoginCadastro("cadastro");
+btnCadastrar.addEventListener('click',  ()=> {
+  funcoes_login.ocultarobjLoginCadastro("cadastro");
     objFormLogin.style.display="block";
     document.documentElement.style.overflow = 'hidden';
 } )
 
 
+// Janela Atual
+// evento >> carregamento completo
+// acao >> remover o componente de loading
+// Ocultar carregando quando a tela carregar
+
+window.addEventListener('load',()=>{ funcoes_loading.ocultarLoading() })
+
+
+
+// ===================================== EXECUTAR ============================================= //
+
+
+
+// Mostrar carregando
+
+funcoes_loading.mostrarLoading();
 
 
 
 
 
 
+/* Anotacoes
 
-// ===================================== AO CARREGAR A PÁGINA ============================================= //
-
-
-window.addEventListener('load', ()=> {setTimeout(()=>{funcaoLoading.ocultarLoading(),2000})} )
-
-
-
-
-
-
-// ===================================== localStorage ============================================= //
-
-
-
-// -- objetos no armazenamento
-
-// Lista de produtos favoritos 
-
-//alert(localStorage.getItem("favoritos"))
-
-//limpar localstorage
-
-//localStorage.clear(); 
-
-
-
-
-
-
-// ===================================== RASCUNHO ============================================= //
-
-
-
-
-/* 
+// =====================================  Cookies | Localstorage | SessionStorage  ============================================= //
 
 >> Cookies << 
 

@@ -1,6 +1,12 @@
 
 
+// =================================== FUNCOES =============================================== //
+
+
 // Gerar lista url de imagem do unsplash
+
+// parametros >> palavra chave de busca (query) | quantidade de imagens (qnt) 
+// retorno >> lista de urls de imagens
 
 async function gerarImagensUnsplash(query,qnt){
 
@@ -28,9 +34,11 @@ async function gerarImagensUnsplash(query,qnt){
     }
 }
   
-// ------------------------------------------------------------------------------
+
 
 // Gerar numero inteiro aleatorio
+// Paramentros >> numero minimo (min) e maximo (max)
+// Retorno >> numero inteiro
 
 function getRandomInt(min, max) {
     // Use Math.floor() para arredondar para baixo e Math.random() para gerar um número decimal aleatório entre 0 e 1.
@@ -38,10 +46,11 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-// ------------------------------------------------------------------------------
+
 
 // Gerar numero decimal aleatorio
-  
+// Paramentros >> numero minimo (min) e maximo (max)
+// Retorno >> numero decimal
   
   function getRandomDecimal(min, max) {
     // Gere um número decimal aleatório entre min e max.
@@ -52,9 +61,10 @@ function getRandomInt(min, max) {
   }
 
 
-// ------------------------------------------------------------------------------
 
 // Gerar ID
+// Paramentros >> quantidade de caracteres (length)
+// Retorno >> id
 
 function generateRandomUID(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -71,9 +81,8 @@ function generateRandomUID(length) {
 
 
 
-// ------------------------------------------------------------------------------
-
-// Gerar cards galeria de produtos
+// Gerar cards galeria de produtos com dados aleatórios
+// Parametro >> quantidade de cards da galeria
 
 async function gerarCardsProdutos(nCards){
 
@@ -151,19 +160,3 @@ async function gerarCardsProdutos(nCards){
 
 }
 
-//window.addEventListener('load',()=>{gerarCardsProdutos(10)})
-
-/*
-
-<cards-05 
-idProduto=1
-srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
-nomeProduto="Morango"
-pesoProduto=1
-medidaProduto="kg"
-precoProduto="8,99"
-numeroEstrelas=4
->
-</cards-05>
-
-*/

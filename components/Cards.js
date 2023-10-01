@@ -2,7 +2,7 @@
 // == IMPORTAR FUNCOES == //
 
 
-import { gerenciarProdutoFavorito , isProdutoFavorito } from "../funcoes/gerais.js";
+import { gerenciarProdutoFavorito , isProdutoFavorito } from "../functions/f_produtos.js";
 
 
 
@@ -484,7 +484,7 @@ customElements.define("cards-04", cards04);
     <img
       src="${srcimagem}"
       alt=""
-      class="h-64 max-2xl:h-48 max-xl:h-48 max-lg:h-44 max-md:h-36 max-sm:h-28 w-full object-cover transition duration-500 group-hover:scale-105"
+      class="h-64 max-2xl:h-48 max-xl:h-48 max-lg:h-44 max-md:h-36 max-sm:h-28 w-full object-cover transition duration-500 group-hover:scale-105 imagemProduto"
     />
   
     <div class="relative border border-gray-100 bg-white p-6 max-md:p-2">
@@ -584,7 +584,7 @@ customElements.define("cards-04", cards04);
 
        // Produto selecionado
 
-       this.addEventListener('click',()=>{
+       this.querySelector('.imagemProduto').addEventListener('click',()=>{
 
         localStorage.setItem('localImagemProduto', srcimagem);
         localStorage.setItem('localNomeProduto', nomeProduto);

@@ -1,4 +1,9 @@
 
+// =================================== HTML =============================================== //
+
+
+// Estrutura HTML do componente de loading
+
 const estruturaHtml=`
 
 <div role="status" class="loading h-screen fixed z-50 top-0 bg-white w-screen flex items-center justify-center flex-col gap-4">
@@ -11,7 +16,11 @@ const estruturaHtml=`
 
 `
 
-// ================================================================================== //
+
+// =================================== FUNCOES =============================================== //
+
+
+// Funcao para criar e mostrar o componente na tela
 
 export function mostrarLoading(){
 
@@ -27,6 +36,9 @@ export function mostrarLoading(){
 
 }
 
+
+
+// Funcao para remover o componente na tela
 
 export function ocultarLoading(){
 

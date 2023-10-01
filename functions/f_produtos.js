@@ -1,6 +1,11 @@
 
 
-// Função para adicionar ou remover um produto da lista de favoritos com base na existência do ID
+
+// =================================== FUNCOES =============================================== //
+
+
+// Função para adicionar ou remover um produto da lista de favoritos no localstorage (favoritos) com base na existência do ID
+// parametros >> id do produto (valorIdProduto)
 
 export function gerenciarProdutoFavorito(valorIdProduto) {
 
@@ -31,7 +36,9 @@ export function gerenciarProdutoFavorito(valorIdProduto) {
 }
 
 
-// Função para verificar se um produto está na lista de favoritos
+// Função para verificar se um produto está na lista de favoritos 
+// paramentros >> id do produto
+// retorno >> boolean
 
 export function isProdutoFavorito(valorIdProduto) {
     let produtosFavoritos = localStorage.getItem("favoritos");

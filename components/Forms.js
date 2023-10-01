@@ -1,8 +1,10 @@
+// =================================== IMPORTAR FUNCOES =============================================== //
 
-import { ocultarobjLoginCadastro } from '../index.js'
+
+import { ocultarobjLoginCadastro } from '../functions/f_login.js'
 
 
-//== funcoes == //
+// =================================== FUNCOES =============================================== //
 
 
 // -- mostrar senha
@@ -25,7 +27,7 @@ function toggleVisibility(idinputSenha, idiconmostrarsenha, idiconocultarsenha) 
   });
 }
 
-// --------------
+
 
 // -- validar email 
 
@@ -53,7 +55,7 @@ function validarEmail(idinputEmail,idalertainputemail) {
   });
 }
 
-// --------------
+
 
 // Validar senha
 
@@ -81,7 +83,7 @@ function validarSenha(idinputEmail,idalertainputemail) {
   });
 }
 
-// -------------
+
 
 // Validar senha confirmada
 
@@ -131,7 +133,7 @@ function validarSenhaconfirmada(idinputSenha,idinputSenhaConfirmada,idalertainpu
 
 }
 
-// -------------
+
 
 // Campos obrigatorios
 
@@ -165,7 +167,7 @@ function validarFormulario(formulario) {
 
 }
 
-// --------------
+
 
 // Zerar formulario
 
@@ -187,7 +189,9 @@ function zerarValoresDoFormulario(formulario) {
 }
 
 
-// ===============================================================================
+
+
+// =================================== COMPONENTES =============================================== //
 
 
 
@@ -197,7 +201,7 @@ class formlogin extends HTMLElement {
     constructor() {
       super();
   
-      this.innerHTML = `
+  this.innerHTML = `
       
             
     
@@ -209,7 +213,7 @@ class formlogin extends HTMLElement {
 />
         
 
-  <section id="objFormLogin" class="bg-white h-screen w-screen hidden fixed top-0 z-50  ">
+  <section id="objFormLogin" class="bg-white h-screen w-screen hidden fixed top-0 z-50  bgpadrao opacity:1">
 
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 relative animate__animated  animate__fadeInUp">
 
@@ -517,129 +521,129 @@ class formlogin extends HTMLElement {
     // ================================================================================== //
   
 
-        // == Componente de form suporte == //
+    // == Componente de form suporte == //
 
-        class formsuporte extends HTMLElement {
-          constructor() {
-            super();
+    class formsuporte extends HTMLElement {
+      constructor() {
+        super();
+    
+        this.innerHTML = `
         
-            this.innerHTML = `
-            
-                  
-          
-        <!-- Codigo -->
               
-        <div class="flex flex-col w-full items-center justify-center px-6  mx-auto  relative h-screen -translate-x-16 max-md:-translate-x-0">
-
-        <div class="w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-md xl:p-0 ">
-
-
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-
-                <h1 class=" text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl ">
-                    Entre em contato
-                </h1>
-              
-                <form 
-                  class="space-y-4 md:space-y-6" 
-                  autocomplete="off"
-                >
-
-                    <div class="mb-6">
-
-                        <label 
-                          for="txtEmailContato" 
-                          class="block mb-2 text-sm font-medium text-gray-500 "
-                          >Email
-                        </label>
-
-                        <input 
-                          autocomplete="off" 
-                          type="email" 
-                          maxlength="100" 
-                          id="txtEmailContato" 
-                          class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
-                          placeholder="cliente@email.com"
-                        > 
-
-                        <p class="hidden mt-2 text-sm text-gray-600">Email válido</p>
-
-                    </div>
-
-                    <div class="mb-6">
-
-                        <label 
-                          for="txtAssuntoContato" 
-                          class="block mb-2 text-sm font-medium text-gray-500 "
-                          >Assunto
-                        </label>
-
-                        <input 
-                          autocomplete="off" 
-                          type="text" 
-                          maxlength="100" 
-                          id="txtAssuntoContato" 
-                          class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
-                          placeholder="Assunto"
-                        > 
-
-                        <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
-
-                    </div>
-
-                    <div class="mb-6">
-
-                        <label 
-                          for="txtMensagemContato" 
-                          class="block mb-2 text-sm font-medium text-gray-500 "
-                          >Mensagem
-                        </label>
-
-                        <textarea 
-                          autocomplete="off"
-                          maxlength="500" 
-                          id="txtMensagemContato"
-                          rows="4" 
-                          class="required resize-none bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5 mb-4" 
-                          placeholder="Escreva aqui"
-                        ></textarea>
-
-                        <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
-
-                    </div>
-
       
-              
-                    <button 
-                      id="btnenviarcontato" 
-                      type="button" 
-                      class=" w-full  text-white bg-teal-600 hover:bg-teal-700 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:scale-[1.02] hover:scale-[1.02] "
-                      >Enviar
-                    </button>
+    <!-- Codigo -->
+          
+    <div class="flex flex-col w-full items-center justify-center px-6  mx-auto  relative h-screen -translate-x-16 max-md:-translate-x-0">
 
-              
-                </form>
+    <div class="w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-md xl:p-0 ">
 
-               
 
-            </div>
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+
+            <h1 class=" text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl ">
+                Entre em contato
+            </h1>
+          
+            <form 
+              class="space-y-4 md:space-y-6" 
+              autocomplete="off"
+            >
+
+                <div class="mb-6">
+
+                    <label 
+                      for="txtEmailContato" 
+                      class="block mb-2 text-sm font-medium text-gray-500 "
+                      >Email
+                    </label>
+
+                    <input 
+                      autocomplete="off" 
+                      type="email" 
+                      maxlength="100" 
+                      id="txtEmailContato" 
+                      class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
+                      placeholder="cliente@email.com"
+                    > 
+
+                    <p class="hidden mt-2 text-sm text-gray-600">Email válido</p>
+
+                </div>
+
+                <div class="mb-6">
+
+                    <label 
+                      for="txtAssuntoContato" 
+                      class="block mb-2 text-sm font-medium text-gray-500 "
+                      >Assunto
+                    </label>
+
+                    <input 
+                      autocomplete="off" 
+                      type="text" 
+                      maxlength="100" 
+                      id="txtAssuntoContato" 
+                      class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
+                      placeholder="Assunto"
+                    > 
+
+                    <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
+
+                </div>
+
+                <div class="mb-6">
+
+                    <label 
+                      for="txtMensagemContato" 
+                      class="block mb-2 text-sm font-medium text-gray-500 "
+                      >Mensagem
+                    </label>
+
+                    <textarea 
+                      autocomplete="off"
+                      maxlength="500" 
+                      id="txtMensagemContato"
+                      rows="4" 
+                      class="required resize-none bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5 mb-4" 
+                      placeholder="Escreva aqui"
+                    ></textarea>
+
+                    <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
+
+                </div>
+
+  
+          
+                <button 
+                  id="btnenviarcontato" 
+                  type="button" 
+                  class=" w-full  text-white bg-teal-600 hover:bg-teal-700 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:scale-[1.02] hover:scale-[1.02] "
+                  >Enviar
+                </button>
+
+          
+            </form>
+
+            
 
         </div>
 
     </div>
-       
-                  
-        <!-- Codigo -->
-                
-        
-              `;
-          }
-        }
-        
-        customElements.define("form-suporte", formsuporte);
-        
-        
-        // ================================================================================== //
+
+</div>
+    
+              
+    <!-- Codigo -->
+            
+    
+          `;
+      }
+    }
+    
+    customElements.define("form-suporte", formsuporte);
+    
+    
+    // ================================================================================== //
   
   
   
