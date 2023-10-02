@@ -326,6 +326,56 @@ customElements.define("section-05", section05);
 customElements.define("section-06", section06);
 
 
+// == Componente de section 07 == //
+
+class section07 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+<section class="h-screen max-lg:h-full flex max-lg:flex-col items-center max-lg:justify-center max-lg:px-4  py-8 lg:py-16 antialiased max-lg:mb-20">
+
+    <article class="w-full flex flex max-lg:flex-col items-start max-lg:justify-center">
+
+    <rating-03 class=" w-[40%] max-lg:w-full flex items-center flex-col max-lg:mb-10"></rating-03>
+
+    
+    <div class=" w-1/2 max-lg:w-full mx-auto ">
+
+        <!-- titulo -->
+        <div class="flex justify-between items-center mb-6">
+
+            <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Avaliações (20)</h2>
+
+        </div>
+
+        <form-comentario></form-comentario>
+
+        <carousel-08></carousel-08>
+
+    </div>
+
+    </article>
+    
+
+</section>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("section-07", section07);
+
+
   
   
   

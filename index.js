@@ -31,6 +31,8 @@ import * as compTabs from './components/Tabs.js'
 
 import * as compAlert from './components/Alerts.js'
 
+import * as compRating from './components/Rating.js'
+
 
 
 // ===================================== Importar Funcoes ============================================= //
@@ -111,7 +113,8 @@ funcoes_loading.mostrarLoading();
 
 //funcoes_localstorage.MostrarDadosLocalstorage();
 
-
+// Chame a função para calcular e imprimir o tamanho de armazenamento
+//funcoes_localstorage.getLocalStorageSize();
 
 /* Anotacoes
 

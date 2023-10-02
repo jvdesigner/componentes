@@ -4,6 +4,8 @@
 
 import * as funcoes_produtos from "../functions/produtos.js";
 
+import * as funcoes_data from "../functions/data.js";
+
 
 
 // ================================== COMPONENTES ================================================ //
@@ -61,7 +63,7 @@ class cards01 extends HTMLElement {
     }
   }
   
-  customElements.define("cards-01", cards01);
+customElements.define("cards-01", cards01);
 
 
   // == Componente de cards 02 == //
@@ -237,7 +239,7 @@ class cards01 extends HTMLElement {
   
   }
   
-  customElements.define("cards-02", cards02);
+customElements.define("cards-02", cards02);
 
 
 
@@ -732,7 +734,7 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
 
   <p class="text-gray-900 text-xl max-md:text-lg font-semibold">R$ ${precoProduto}</p>
 
-  <p tooltip="clique" class="mt-1.5 max-w-[45ch] text-base max-md:text-xs text-gray-500 mb-4 line-clamp-3 relative active:line-clamp-none cursor-pointer">
+  <p id="txtdescricao" tooltip="clique" class="mt-1.5 max-w-[45ch] text-base max-md:text-xs text-gray-500 mb-4 line-clamp-3 relative cursor-pointer">
     ${descricaoProduto}
   </p>
 
@@ -834,6 +836,13 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
     btnaumentar.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('aumentar',inputqnt) })
     btndiminuir.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('diminuir',inputqnt) })
 
+    
+    // texto de  descricao do produto
+    const txtdescricao = document.getElementById('txtdescricao')
+
+    // funcao para mostrar descricao do produto
+    funcoes_produtos.mostrarDescricao(txtdescricao)
+
 
 
   }
@@ -852,7 +861,83 @@ customElements.define("cards-06", cards06);
     
       
   
+// == Componente de cards 07 == //
+
+class cards07 extends HTMLElement {
+  constructor() {
+    super();
+
+    const nEstrelas = this.getAttribute('nEstrelas')||'5';
+    const txtTexto = this.getAttribute('txtTexto')||'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandaedolores, possimus pariatur animi temporibus nesciunt praesentium dolore.';
+    const txtData = this.getAttribute('txtData')||'2022-08-01';
+
+    const txtData2 =  funcoes_data.formatDate(txtData);;
+
+
+    this.innerHTML = `
+    
+          
   
+<!-- Codigo -->
+      
+<!-- comentarios -->
+    <article class="p-6 text-base bg-white rounded-lg outline outline-1 outline-gray-300 shadow">
+
+        <footer class="flex justify-between items-center mb-2">
+          
+            <div class="flex items-center justify-between w-full">
+                
+                <!-- estrelas -->
+                <div class="grupoEstrelas flex items-center">
+
+                    <svg class="w-4 h-4  mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                    </svg>
+                    <svg class="w-4 h-4  mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                    </svg>
+                    <svg class="w-4 h-4  mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                    </svg>
+                    <svg class="w-4 h-4  mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                    </svg>
+                    <svg class="w-4 h-4  mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                    </svg>
+
+                    
+                </div>
+
+                <!-- data -->
+                <p class="text-sm text-gray-600">
+                <time pubdate datetime="${txtData}">${txtData2}
+                </time>
+                </p>
+
+            </div>
+
+        </footer>
+
+        <!-- comentario -->
+        <p class="text-gray-500 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, odio? Itaque maiores reprehenderit ea? Assumenda, perspiciatis cumque facere optio error, illo a, non nulla ullam ipsa et omnis magni veritatis.</p>
+
+    </article>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+
+
+    // Chama a função preencherEstrelas com o número de estrelas
+    funcoes_produtos.preencherEstrelas(nEstrelas,this);
+
+  }
+}
+
+customElements.define("cards-07", cards07);
   
   
   

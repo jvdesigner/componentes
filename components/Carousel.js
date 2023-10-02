@@ -744,6 +744,93 @@ customElements.define("carousel-06", carousel06);
   
   // ================================================================================== //
 
+
+  // == Componente de carrossel 08 == //
+
+  class carousel08 extends HTMLElement {
+    constructor() {
+      super();
+  
+      this.innerHTML = `
+      
+            
+    
+  <!-- Codigo -->
+  
+  
+    <div class="swiper mySwiper carrossel8 h-80 max-lg:h-[600px] max-lg:mt-10">
+  
+        <div class="swiper-wrapper">
+  
+        <cards-07 class="swiper-slide"></cards-07>
+        <cards-07 class="swiper-slide"></cards-07>
+        <cards-07 class="swiper-slide"></cards-07>
+        <cards-07 class="swiper-slide"></cards-07>
+            
+  
+        </div>
+  
+    </div>
+  
+  
+  
+  <!-- Codigo -->
+          
+  
+        `;
+          
+
+  
+        var swiper7 = new Swiper(".carrossel8", {
+  
+            slidesPerView: 2.8,
+  
+            speed: 700,
+  
+            spaceBetween: 4,
+  
+            grabCursor: true,
+
+            freeMode:true,
+
+            direction: "vertical",
+
+            breakpoints: {
+
+              300: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 3,
+                },
+
+            640: {
+              slidesPerView: 2.5,
+              spaceBetween: 2,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 4,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 4,
+            },
+
+          },
+
+        
+            
+  
+          });
+  
+  
+    }
+  }
+  
+  customElements.define("carousel-08", carousel08);
+  
+  
+  // ================================================================================== //
+
   
   
   

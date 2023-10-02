@@ -123,4 +123,13 @@ export function alterarSelecaoCategoriaProdutos(containerTab){
 }
 
 
+// Função para mostrar a descricao do produto
+// parametros >> texto 
+
+export function mostrarDescricao(texto){
+
+  texto.addEventListener( 'click', () => { texto.classList.toggle('line-clamp-none') })
+
+}
+
 

@@ -481,6 +481,64 @@ class formsuporte extends HTMLElement {
 }
 
 customElements.define("form-suporte", formsuporte);
+
+
+// == Componente de form avaliacao == //
+
+class formcomentario extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+<!-- formulario de comentario -->
+<form id="formcomentario" class="mb-6">
+
+    <div class="blockinput">
+
+        <label for="comment" class="sr-only">Seu comentário</label>
+
+        <textarea id="comment" rows="6"
+            class="required p-4 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none mb-4 rounded-lg rounded-t-lg border border-gray-200"
+            placeholder="Escreva o que achou do produto...">
+       </textarea>
+
+       <p id="alertainputclassificacao" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+    </div>
+    
+    <button 
+        id="btnenviarcomentario"
+        type="button"
+        class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-teal-700 rounded-lg focus:ring-4 focus:ring-teal-200 hover:bg-teal-800">
+        Comentar
+    </button>
+
+</form>
+          
+<!-- Codigo -->
+        
+
+      `;
+
+      // formulario
+      const formcomentario = document.getElementById('formcomentario')
+
+      // botao para enviar 
+      const btnenviarcomentario = document.getElementById('btnenviarcomentario')
+
+      // validar campos obrigatorio no formulario de suporte
+
+      btnenviarcomentario.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formcomentario) });
+
+  }
+}
+
+customElements.define("form-comentario", formcomentario);
     
     
   
