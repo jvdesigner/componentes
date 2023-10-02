@@ -798,12 +798,12 @@ customElements.define("carousel-06", carousel06);
             breakpoints: {
 
               300: {
-                  slidesPerView: 2.5,
-                  spaceBetween: 3,
+                  slidesPerView: 3.2,
+                  spaceBetween: 2,
                 },
 
             640: {
-              slidesPerView: 2.5,
+              slidesPerView: 3.2,
               spaceBetween: 2,
             },
             768: {
