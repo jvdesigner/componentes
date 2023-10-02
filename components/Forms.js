@@ -503,7 +503,7 @@ class formcomentario extends HTMLElement {
         <label for="comment" class="sr-only">Seu comentário</label>
 
         <textarea id="comment" rows="6"
-            class="required p-4 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none mb-4 rounded-lg rounded-t-lg border border-gray-200"
+            class="required resize-none p-4 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none mb-4 rounded-lg rounded-t-lg border border-gray-200"
             placeholder="Escreva o que achou do produto...">
        </textarea>
 
