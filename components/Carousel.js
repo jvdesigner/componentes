@@ -758,7 +758,7 @@ customElements.define("carousel-06", carousel06);
   <!-- Codigo -->
   
   
-    <div class="swiper mySwiper carrossel8 h-80 max-lg:h-[600px] max-lg:mt-10">
+    <div class="swiper mySwiper carrossel8 h-80 max-lg:h-[500px] max-lg:mt-10">
   
         <div class="swiper-wrapper">
   
@@ -798,12 +798,12 @@ customElements.define("carousel-06", carousel06);
             breakpoints: {
 
               300: {
-                  slidesPerView: 3.2,
+                  slidesPerView: 2.2,
                   spaceBetween: 2,
                 },
 
             640: {
-              slidesPerView: 3.2,
+              slidesPerView: 2.2,
               spaceBetween: 2,
             },
             768: {
