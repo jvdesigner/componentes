@@ -369,11 +369,12 @@ class formsuporte extends HTMLElement {
         </h1>
       
         <form 
+          id = "formsuporte"
           class="space-y-4 md:space-y-6" 
           autocomplete="off"
         >
 
-            <div class="mb-6">
+            <div class="mb-6 blockinput">
 
                 <label 
                   for="txtEmailContato" 
@@ -394,7 +395,7 @@ class formsuporte extends HTMLElement {
 
             </div>
 
-            <div class="mb-6">
+            <div class="mb-6 blockinput">
 
                 <label 
                   for="txtAssuntoContato" 
@@ -415,7 +416,7 @@ class formsuporte extends HTMLElement {
 
             </div>
 
-            <div class="mb-6">
+            <div class="mb-6 blockinput">
 
                 <label 
                   for="txtMensagemContato" 
@@ -464,6 +465,17 @@ class formsuporte extends HTMLElement {
 
       // funcao para validar email
       funcoes_login.validarEmail('txtEmailContato','alertainputemailsuporte');
+
+      // formulario de suporte
+      const formsuporte = document.getElementById('formsuporte')
+
+
+      // botao para enviar formulario de suporte
+      const btnenviarcontato = document.getElementById('btnenviarcontato')
+
+      // validar campos obrigatorio no formulario de suporte
+
+      btnenviarcontato.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formsuporte) });
 
   }
 }

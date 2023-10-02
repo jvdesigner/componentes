@@ -17,10 +17,14 @@ export function validarFormulario(formulario) {
       const camposObrigatorios = iblockinput.querySelector('.required');
   
       const valorCampo = camposObrigatorios.value.trim();
+
+      const msgalert = iblockinput.querySelector('p');
+
+      if( msgalert.textContent === 'Campo Obrigatório' && msgalert.style.color === 'rgba(255, 0, 0, 0.5)' ) 
+      { msgalert.classList.add('hidden'); }
   
       if (valorCampo === '') {
   
-        const msgalert = iblockinput.querySelector('p');
         msgalert.textContent = 'Campo Obrigatório';
         msgalert.style.color = 'rgba(255, 0, 0, 0.5)';
         msgalert.classList.remove('hidden');
