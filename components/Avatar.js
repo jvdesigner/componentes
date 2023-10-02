@@ -1,4 +1,10 @@
 
+ // ================================== IMPORTAR FUNCOES ================================================ //
+
+ import * as funcoes_perfil from '../functions/perfil.js'
+
+
+// ================================== COMPONENTES ================================================ //
 
 
 // == Componente de avatar 01 == //
@@ -76,17 +82,10 @@ class avatar01 extends HTMLElement {
   
         `;
 
-      const navProfile = document.getElementById('navProfile');
-      const btnimgProfile = document.getElementById('btnimgProfile');
-      
 
-      btnimgProfile.addEventListener('click', ()=> {
-        
-        if(navProfile.style.display=="block"){navProfile.style.display="none"}
-        else{navProfile.style.display="block"}
-      
-      
-      });
+      // Dropdown menu perfil do navbar
+            
+      btnimgProfile.addEventListener('click',  funcoes_perfil.controlarDropdownPerfil  );
 
     }
   }
@@ -94,7 +93,7 @@ class avatar01 extends HTMLElement {
   customElements.define("avatar-01", avatar01);
   
   
-  // ================================================================================== //
+
 
   
 

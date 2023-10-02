@@ -1,4 +1,5 @@
 
+// ================================== COMPONENTES ================================================ //
 
 
 // == Componente de footer 01 == //
@@ -230,13 +231,11 @@ class footer01 extends HTMLElement {
     }
   }
   
-  customElements.define("footer-01", footer01);
+customElements.define("footer-01", footer01);
   
-  
-  // ================================================================================== //
 
 
-  // == Componente de footer 02 == //
+// == Componente de footer 02 == //
 
 class footer02 extends HTMLElement {
   constructor() {
@@ -345,7 +344,7 @@ class footer02 extends HTMLElement {
 customElements.define("footer-02", footer02);
 
 
-// ================================================================================== //
+
   
   
   

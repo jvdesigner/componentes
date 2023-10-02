@@ -1,7 +1,9 @@
 
 
+// =================================== COMPONENTES =============================================== //
 
-// == Componente de hero 01 == //
+
+// == Componente de menu 01 == //
 
 class menu01 extends HTMLElement {
     constructor() {
@@ -116,10 +118,10 @@ class menu01 extends HTMLElement {
     }
   }
   
-  customElements.define("menu-01", menu01);
+customElements.define("menu-01", menu01);
   
   
-  // ================================================================================== //
+
   
   
   

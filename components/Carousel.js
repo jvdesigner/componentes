@@ -1,6 +1,17 @@
 
+ // ================================== IMPORTAR BIBLIOTECA DE CARROSSEL ================================================ //
+
+
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
 
+
+ // ================================== IMPORTAR FUNCOES ================================================ //
+
+
+ import * as funcoes_produtos from "../functions/produtos.js";
+
+
+// ================================== COMPONENTES ================================================ //
 
 
 // == Componente de carrossel 01 == //
@@ -84,13 +95,10 @@ class carousel01 extends HTMLElement {
     }
   }
   
-  customElements.define("carousel-01", carousel01);
+customElements.define("carousel-01", carousel01);
   
-  
-  // ================================================================================== //
 
-
-  // == Componente de carrossel 02 == //
+// == Componente de carrossel 02 == //
 
 class carousel02 extends HTMLElement {
   constructor() {
@@ -181,9 +189,6 @@ class carousel02 extends HTMLElement {
 
       var swiper2 = new Swiper(".carrossel2", {
 
-          
-
-
           autoplay: {
             delay: 5000,
             disableOnInteraction: false,
@@ -191,7 +196,7 @@ class carousel02 extends HTMLElement {
           },
           
           grabCursor: true,
-      effect: "cards",
+          effect: "cards",
 
         });
 
@@ -200,9 +205,6 @@ class carousel02 extends HTMLElement {
 }
 
 customElements.define("carousel-02", carousel02);
-
-
-// ================================================================================== //
 
 
 // == Componente de carrossel 03 == //
@@ -353,9 +355,6 @@ class carousel03 extends HTMLElement {
 customElements.define("carousel-03", carousel03);
 
 
-// ================================================================================== //
-
-
 // == Componente de carrossel 04 == //
 
 class carousel04 extends HTMLElement {
@@ -469,9 +468,6 @@ class carousel04 extends HTMLElement {
 customElements.define("carousel-04", carousel04);
 
 
-// ================================================================================== //
-
-
 // == Componente de carrossel 05 == //
 
 class carousel05 extends HTMLElement {
@@ -555,12 +551,9 @@ class carousel05 extends HTMLElement {
 }
 
 customElements.define("carousel-05", carousel05);
-
-
-// ================================================================================== //
   
   
-  // == Componente de carrossel 06 == //
+// == Componente de carrossel 06 == //
 
 class carousel06 extends HTMLElement {
   constructor() {
@@ -644,12 +637,9 @@ class carousel06 extends HTMLElement {
 }
 
 customElements.define("carousel-06", carousel06);
-
-
-// ================================================================================== //
   
 
-  // == Componente de carrossel 07 == //
+// == Componente de carrossel 07 == //
 
   class carousel07 extends HTMLElement {
     constructor() {
@@ -698,23 +688,11 @@ customElements.define("carousel-06", carousel06);
   
         `;
 
+        // Container de selecao de categoria dos produtos na galeria
         const containerTab = document.getElementById('containerTab')
-        const tabs = containerTab.querySelectorAll('button')
-
-        tabs.forEach((tab) => {
-          tab.addEventListener('click', () => {
-            // Remova a classe 'outline' de todos os botões
-            tabs.forEach((otherTab) => {
-              otherTab.classList.remove('outline')
-              otherTab.classList.remove('outline-teal-600')
-            })
-
-            // Adicione a classe 'outline' ao botão atual
-            tab.classList.add('outline')
-            tab.classList.add('outline-teal-600')
-          })
-        })
-
+        
+        // chamar funcao que altera a selecao da categoria
+        funcoes_produtos.alterarSelecaoCategoriaProdutos(containerTab)
 
           
 

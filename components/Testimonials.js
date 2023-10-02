@@ -1,6 +1,9 @@
 
 
 
+// =================================== COMPONENTES =============================================== //
+
+
 // == Componente de testimonials 01 == //
 
 class testimonials01 extends HTMLElement {
@@ -38,10 +41,10 @@ class testimonials01 extends HTMLElement {
     }
   }
   
-  customElements.define("testimonials-01", testimonials01);
+customElements.define("testimonials-01", testimonials01);
   
   
-  // ================================================================================== //
+
   
   
   

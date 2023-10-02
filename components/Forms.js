@@ -1,193 +1,9 @@
 // =================================== IMPORTAR FUNCOES =============================================== //
 
 
-import { ocultarobjLoginCadastro } from '../functions/f_login.js'
+import * as funcoes_login from '../functions/login.js'
 
-
-// =================================== FUNCOES =============================================== //
-
-
-// -- mostrar senha
-
-function toggleVisibility(idinputSenha, idiconmostrarsenha, idiconocultarsenha) {
-  const inputSenha = document.getElementById(idinputSenha);
-  const iconMostrarSenha = document.getElementById(idiconmostrarsenha);
-  const iconOcultarSenha = document.getElementById(idiconocultarsenha);
-
-  iconMostrarSenha.addEventListener('click', () => {
-    inputSenha.type = 'text'; // Torna a senha visível
-    iconMostrarSenha.style.display = 'none'; // Oculta o ícone de mostrar senha
-    iconOcultarSenha.style.display = 'block'; // Exibe o ícone de ocultar senha
-  });
-
-  iconOcultarSenha.addEventListener('click', () => {
-    inputSenha.type = 'password'; // Oculta a senha
-    iconMostrarSenha.style.display = 'block'; // Exibe o ícone de mostrar senha
-    iconOcultarSenha.style.display = 'none'; // Oculta o ícone de ocultar senha
-  });
-}
-
-
-
-// -- validar email 
-
-function validarEmail(idinputEmail,idalertainputemail) {
-  const emailInput = document.getElementById(idinputEmail);
-  const emailMessage = document.getElementById(idalertainputemail);
-
-  emailInput.addEventListener('input', () => {
-    const email = emailInput.value;
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-    if (email === '') {
-      emailMessage.classList.add('hidden'); // Oculta a mensagem
-    }
-
-    else if (emailPattern.test(email)) {
-      emailMessage.textContent = 'Email válido';
-      emailMessage.style.color = 'rgba(77, 192, 181, 0.8)';
-      emailMessage.classList.remove('hidden');
-    } else {
-      emailMessage.textContent = 'Email inválido';
-      emailMessage.style.color = 'rgba(255, 0, 0, 0.5)';
-      emailMessage.classList.remove('hidden');
-    }
-  });
-}
-
-
-
-// Validar senha
-
-function validarSenha(idinputEmail,idalertainputemail) {
-  const emailInput = document.getElementById(idinputEmail);
-  const emailMessage = document.getElementById(idalertainputemail);
-
-  emailInput.addEventListener('input', () => {
-    const email = emailInput.value;
-    const emailPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
-
-    if (email === '') {
-      emailMessage.classList.add('hidden'); // Oculta a mensagem
-    }
-
-    else if (emailPattern.test(email)) {
-      emailMessage.textContent = 'Senha válida';
-      emailMessage.style.color = 'rgba(77, 192, 181, 0.8)';
-      emailMessage.classList.remove('hidden');
-    } else {
-      emailMessage.textContent = 'Sua senha deve conter no mínimo 6 caracteres incluindo números, letras maíusculas e minúsculas';
-      emailMessage.style.color = 'rgba(255, 0, 0, 0.5)';
-      emailMessage.classList.remove('hidden');
-    }
-  });
-}
-
-
-
-// Validar senha confirmada
-
-function validarSenhaconfirmada(idinputSenha,idinputSenhaConfirmada,idalertainputConfirmada) {
-
-  const inputSenha = document.getElementById(idinputSenha);
-  const inputSenhaConfirmada = document.getElementById(idinputSenhaConfirmada);
-
-  const confirmadaMessage = document.getElementById(idalertainputConfirmada);
-
-  inputSenhaConfirmada.addEventListener('input', () => {
-
-    const senhaValue = inputSenha.value;
-    const confirmadaValue = inputSenhaConfirmada.value;
-    
-
-    if ( senhaValue !== confirmadaValue ) {
-
-      confirmadaMessage.textContent = 'A senha confirmada está diferente da senha';
-      confirmadaMessage.style.color = 'rgba(255, 0, 0, 0.5)';
-      confirmadaMessage.classList.remove('hidden');
-    }
-
-  });
-
-  inputSenha.addEventListener('input', () => {
-
-    const senhaValue = inputSenha.value;
-    const confirmadaValue = inputSenhaConfirmada.value;
-    
-
-    if ( ( senhaValue !== confirmadaValue ) && ( confirmadaValue !== '' ) ) {
-
-      confirmadaMessage.textContent = 'A senha confirmada está diferente da senha';
-      confirmadaMessage.style.color = 'rgba(255, 0, 0, 0.5)';
-      confirmadaMessage.classList.remove('hidden');
-    }
-    else if( ( senhaValue == confirmadaValue ) && ( confirmadaValue !== '' ) ){
-
-      confirmadaMessage.textContent = 'Senha válida';
-      confirmadaMessage.style.color = 'rgba(77, 192, 181, 0.8)';
-      confirmadaMessage.classList.remove('hidden');
-
-    }
-
-  });
-
-}
-
-
-
-// Campos obrigatorios
-
-function validarFormulario(formulario) {
-  
-  const blockinput = formulario.querySelectorAll('.blockinput');
-  
-
-  for (const iblockinput of blockinput) {
-
-    const camposObrigatorios = iblockinput.querySelector('.required');
-
-    const valorCampo = camposObrigatorios.value.trim();
-
-    if (valorCampo === '') {
-
-      const msgalert = iblockinput.querySelector('p');
-      msgalert.textContent = 'Campo Obrigatório';
-      msgalert.style.color = 'rgba(255, 0, 0, 0.5)';
-      msgalert.classList.remove('hidden');
-
-      camposObrigatorios.focus();
-
-      return false; // Impede o envio do formulário
-
-    }
-
-  }
-
-  return true; // Permite o envio do formulário se todos os campos obrigatórios estiverem preenchidos
-
-}
-
-
-
-// Zerar formulario
-
-function zerarValoresDoFormulario(formulario) {
-  
-  const elementosDeEntrada = formulario.querySelectorAll('input');
-  const alertas = formulario.querySelectorAll('.clsalertinput');
-
-  elementosDeEntrada.forEach(elemento => {
-    if (elemento.type === 'checkbox') {elemento.checked = false} 
-    else {elemento.value = ''}
-  });
-
-  alertas.forEach(alerta => {
-    alerta.classList.add('hidden');
-  });
-
-
-}
-
+import * as funcoes_formulario from '../functions/formulario.js'
 
 
 
@@ -347,50 +163,60 @@ class formlogin extends HTMLElement {
   
         `;
 
-        toggleVisibility('txtSenhaLogin', 'iconmostrarSenha', 'iconocultarSenha');
-        toggleVisibility('txtSenhaLogin2', 'iconmostrarSenha2', 'iconocultarSenha2');
+        // funcao mostrar senha no input
+        funcoes_login.toggleVisibility('txtSenhaLogin', 'iconmostrarSenha', 'iconocultarSenha');
+        funcoes_login.toggleVisibility('txtSenhaLogin2', 'iconmostrarSenha2', 'iconocultarSenha2');
 
-        validarEmail('txtEmailLogin','alertainputemail');
+        // funcao para validar email
+        funcoes_login.validarEmail('txtEmailLogin','alertainputemail');
 
-        validarSenha('txtSenhaLogin','alertainputsenha');
-        validarSenha('txtSenhaLogin2','alertainputsenha2');
+        // funcao para validar senha
+        funcoes_login.validarSenha('txtSenhaLogin','alertainputsenha');
+        funcoes_login.validarSenha('txtSenhaLogin2','alertainputsenha2');
 
-        validarSenhaconfirmada('txtSenhaLogin','txtSenhaLogin2','alertainputsenha2');
+        // funcao para validar senha confirmada
+        funcoes_login.validarSenhaconfirmada('txtSenhaLogin','txtSenhaLogin2','alertainputsenha2');
 
 
+        // botoes do formulario
         const btnentrar = document.getElementById('btnentrar');
         const btnformcadastro = document.getElementById('btnformcadastro');
         const btnformesquecisenha = document.getElementById('btnformesquecisenha');
 
+        // formulario de login
         const formlogin = document.getElementById('formlogin');
         
+        // botao para fechar o formulario
         const fecharFormLogin = document.getElementById('fecharFormLogin')
         const fecharFormLogin2 = document.getElementById('fecharFormLogin2')
+
+        // section do formulario
         const objFormLogin = document.getElementById('objFormLogin')
 
+        // botoes de entrar e cadastro
         const alterarEntrar = document.getElementById('alterarEntrar');
         const alterarCadastrar = document.getElementById('alterarCadastrar');
 
+        // link para esqueci minha senha
         const txtesquecisenha = document.getElementById('txtesquecisenha');
 
+        // adicionar funcao de campos obrigatorios nos botoes
+        btnentrar.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formlogin) });
+        btnformcadastro.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formlogin) });
+        btnformesquecisenha.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formlogin) });
 
-        btnentrar.addEventListener('click',()=>{ validarFormulario(formlogin) });
-        btnformcadastro.addEventListener('click',()=>{ validarFormulario(formlogin) });
-        btnformesquecisenha.addEventListener('click',()=>{ validarFormulario(formlogin) });
-
-
-
+        // adicionar ao evento de clique no botao de entrar
         alterarEntrar.addEventListener('click',()=>{ 
           
           // fechar formulario de cadastro
-          zerarValoresDoFormulario(formlogin);
+          funcoes_formulario.zerarValoresDoFormulario(formlogin);
           objFormLogin.style.display="none";
           document.documentElement.style.overflow = 'auto';
 
           setTimeout(async()=>
 
           // abrir formulario de login
-            {await ocultarobjLoginCadastro("login");
+            {funcoes_login.ocultarobjLoginCadastro("login");
             objFormLogin.style.display="block";
             document.documentElement.style.overflow = 'hidden';}
             
@@ -399,17 +225,18 @@ class formlogin extends HTMLElement {
         
         });
 
+        // adicionar ao evento de clique no botao de cadastrar
         alterarCadastrar.addEventListener('click',()=>{ 
           
           // fechar formulario de login
-          zerarValoresDoFormulario(formlogin);
+          funcoes_formulario.zerarValoresDoFormulario(formlogin);
           objFormLogin.style.display="none";
           document.documentElement.style.overflow = 'auto';
 
           setTimeout(async()=>
 
           // abrir formulario de login
-            {await ocultarobjLoginCadastro("cadastro");
+            {funcoes_login.ocultarobjLoginCadastro("cadastro");
             objFormLogin.style.display="block";
             document.documentElement.style.overflow = 'hidden';}
             
@@ -418,17 +245,18 @@ class formlogin extends HTMLElement {
         
         });
 
+        // adicionar ao evento de clique no botao de esqueci minha senha
         txtesquecisenha.addEventListener('click',()=>{ 
           
           // fechar formulario de login
-          zerarValoresDoFormulario(formlogin);
+          funcoes_formulario.zerarValoresDoFormulario(formlogin);
           objFormLogin.style.display="none";
           document.documentElement.style.overflow = 'auto';
 
           setTimeout(async()=>
 
           // abrir formulario de esqueci
-            {await ocultarobjLoginCadastro("esqueci");
+            {funcoes_login.ocultarobjLoginCadastro("esqueci");
             objFormLogin.style.display="block";
             document.documentElement.style.overflow = 'hidden';}
             
@@ -437,15 +265,16 @@ class formlogin extends HTMLElement {
         
         });
 
+        // fechar formulario de login
         fecharFormLogin.addEventListener('click', ()=> {
-          zerarValoresDoFormulario(formlogin);
+          funcoes_formulario.zerarValoresDoFormulario(formlogin);
           objFormLogin.style.display="none";
           document.documentElement.style.overflow = 'auto';
         } );
-      
-      
+        
+        // fechar formulario de login
         fecharFormLogin2.addEventListener('click', ()=> {
-          zerarValoresDoFormulario(formlogin);
+          funcoes_formulario.zerarValoresDoFormulario(formlogin);
           objFormLogin.style.display="none";
           document.documentElement.style.overflow = 'auto';
         } );
@@ -455,195 +284,193 @@ class formlogin extends HTMLElement {
     }
   }
   
-  customElements.define("form-login", formlogin);
+customElements.define("form-login", formlogin);
   
   
-  // ================================================================================== //
-  
-  
-    // == Componente de form search == //
+// == Componente de form search == //
 
-    class formsearch extends HTMLElement {
-      constructor() {
-        super();
+class formsearch extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
     
-        this.innerHTML = `
-        
-              
-      
-    <!-- Codigo -->
           
-    
-    <div class="relative bg-white shadow-md rounded-lg mt-10 w-[80%] max-md:w-full mx-auto">
+  
+<!-- Codigo -->
+      
 
-      <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
+<div class="relative bg-white shadow-md rounded-lg mt-10 w-[80%] max-md:w-full mx-auto">
 
-        <div class="w-full ">
+  <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
 
-          <form class="flex items-center">
+    <div class="w-full ">
 
-            <label for="simple-search" class="sr-only">Pesquisar</label>
+      <form class="flex items-center">
 
-            <div class="relative w-full">
+        <label for="simple-search" class="sr-only">Pesquisar</label>
 
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+        <div class="relative w-full">
 
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 " fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
 
-                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 " fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 
-                </svg>
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
 
-              </div>
+            </svg>
 
-              <input type="text" id="simple-search" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white outline-none focus:border-teal-600" placeholder="Pesquisar">
-            </div>
+          </div>
 
-          </form>
-
+          <input type="text" id="simple-search" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white outline-none focus:border-teal-600" placeholder="Pesquisar">
         </div>
 
-      </div>
+      </form>
 
     </div>
-    
-              
-    <!-- Codigo -->
-            
-    
-          `;
-      }
-    }
-    
-    customElements.define("form-search", formsearch);
-    
-    
-    // ================================================================================== //
-  
 
-    // == Componente de form suporte == //
+  </div>
 
-    class formsuporte extends HTMLElement {
-      constructor() {
-        super();
-    
-        this.innerHTML = `
+</div>
+
+          
+<!-- Codigo -->
         
-              
-      
-    <!-- Codigo -->
-          
-    <div class="flex flex-col w-full items-center justify-center px-6  mx-auto  relative h-screen -translate-x-16 max-md:-translate-x-0">
 
-    <div class="w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-md xl:p-0 ">
+      `;
+  }
+}
 
-
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-
-            <h1 class=" text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl ">
-                Entre em contato
-            </h1>
-          
-            <form 
-              class="space-y-4 md:space-y-6" 
-              autocomplete="off"
-            >
-
-                <div class="mb-6">
-
-                    <label 
-                      for="txtEmailContato" 
-                      class="block mb-2 text-sm font-medium text-gray-500 "
-                      >Email
-                    </label>
-
-                    <input 
-                      autocomplete="off" 
-                      type="email" 
-                      maxlength="100" 
-                      id="txtEmailContato" 
-                      class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
-                      placeholder="cliente@email.com"
-                    > 
-
-                    <p class="hidden mt-2 text-sm text-gray-600">Email válido</p>
-
-                </div>
-
-                <div class="mb-6">
-
-                    <label 
-                      for="txtAssuntoContato" 
-                      class="block mb-2 text-sm font-medium text-gray-500 "
-                      >Assunto
-                    </label>
-
-                    <input 
-                      autocomplete="off" 
-                      type="text" 
-                      maxlength="100" 
-                      id="txtAssuntoContato" 
-                      class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
-                      placeholder="Assunto"
-                    > 
-
-                    <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
-
-                </div>
-
-                <div class="mb-6">
-
-                    <label 
-                      for="txtMensagemContato" 
-                      class="block mb-2 text-sm font-medium text-gray-500 "
-                      >Mensagem
-                    </label>
-
-                    <textarea 
-                      autocomplete="off"
-                      maxlength="500" 
-                      id="txtMensagemContato"
-                      rows="4" 
-                      class="required resize-none bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5 mb-4" 
-                      placeholder="Escreva aqui"
-                    ></textarea>
-
-                    <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
-
-                </div>
-
+customElements.define("form-search", formsearch);
   
+  
+
+// == Componente de form suporte == //
+
+class formsuporte extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
           
-                <button 
-                  id="btnenviarcontato" 
-                  type="button" 
-                  class=" w-full  text-white bg-teal-600 hover:bg-teal-700 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:scale-[1.02] hover:scale-[1.02] "
-                  >Enviar
-                </button>
+  
+<!-- Codigo -->
+      
+<div class="flex flex-col w-full items-center justify-center px-6  mx-auto  relative h-screen -translate-x-16 max-md:-translate-x-0">
 
-          
-            </form>
+<div class="w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-md xl:p-0 ">
 
-            
 
-        </div>
+    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+
+        <h1 class=" text-xl font-bold leading-tight tracking-tight text-teal-600 md:text-2xl ">
+            Entre em contato
+        </h1>
+      
+        <form 
+          class="space-y-4 md:space-y-6" 
+          autocomplete="off"
+        >
+
+            <div class="mb-6">
+
+                <label 
+                  for="txtEmailContato" 
+                  class="block mb-2 text-sm font-medium text-gray-500 "
+                  >Email
+                </label>
+
+                <input 
+                  autocomplete="off" 
+                  type="email" 
+                  maxlength="100" 
+                  id="txtEmailContato" 
+                  class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
+                  placeholder="cliente@email.com"
+                > 
+
+                <p id="alertainputemailsuporte" class="hidden mt-2 text-sm text-gray-600">Email válido</p>
+
+            </div>
+
+            <div class="mb-6">
+
+                <label 
+                  for="txtAssuntoContato" 
+                  class="block mb-2 text-sm font-medium text-gray-500 "
+                  >Assunto
+                </label>
+
+                <input 
+                  autocomplete="off" 
+                  type="text" 
+                  maxlength="100" 
+                  id="txtAssuntoContato" 
+                  class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" 
+                  placeholder="Assunto"
+                > 
+
+                <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
+
+            </div>
+
+            <div class="mb-6">
+
+                <label 
+                  for="txtMensagemContato" 
+                  class="block mb-2 text-sm font-medium text-gray-500 "
+                  >Mensagem
+                </label>
+
+                <textarea 
+                  autocomplete="off"
+                  maxlength="500" 
+                  id="txtMensagemContato"
+                  rows="4" 
+                  class="required resize-none bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5 mb-4" 
+                  placeholder="Escreva aqui"
+                ></textarea>
+
+                <p class="hidden mt-2 text-sm text-gray-600">Campo Obrigatório</p>
+
+            </div>
+
+
+      
+            <button 
+              id="btnenviarcontato" 
+              type="button" 
+              class=" w-full  text-white bg-teal-600 hover:bg-teal-700 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:scale-[1.02] hover:scale-[1.02] "
+              >Enviar
+            </button>
+
+      
+        </form>
+
+        
 
     </div>
 
 </div>
+
+</div>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+
+      // funcao para validar email
+      funcoes_login.validarEmail('txtEmailContato','alertainputemailsuporte');
+
+  }
+}
+
+customElements.define("form-suporte", formsuporte);
     
-              
-    <!-- Codigo -->
-            
     
-          `;
-      }
-    }
-    
-    customElements.define("form-suporte", formsuporte);
-    
-    
-    // ================================================================================== //
   
   
   

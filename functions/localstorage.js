@@ -7,7 +7,7 @@
 // Apresentacao da chave e valor dos dados armazenados no localstorage
 // Printa no console todas as chaves que estao armazenadas no localstorage e seus valores
 
-function MostrarDadosLocalstorage(){
+export function MostrarDadosLocalstorage(){
 
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
@@ -20,5 +20,5 @@ function MostrarDadosLocalstorage(){
   
   // Limpar todos os dados do localstorage
   
-  localStorage.clear(); 
+  //localStorage.clear(); 
   

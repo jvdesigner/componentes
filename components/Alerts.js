@@ -1,5 +1,8 @@
 
 
+ // ================================== COMPONENTES ================================================ //
+
+ 
   // == Componente de alert 01 == //
 
   class alert01 extends HTMLElement {
@@ -53,9 +56,8 @@
   customElements.define("alert-01", alert01);
   
   
-  // ================================================================================== //
 
-    // == Componente de alert 01 == //
+    // == Componente de alert 02 == //
 
     class alert02 extends HTMLElement {
         constructor() {
@@ -136,4 +138,3 @@
       customElements.define("alert-02", alert02);
       
       
-      // ================================================================================== //

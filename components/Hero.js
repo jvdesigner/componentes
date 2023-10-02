@@ -1,6 +1,9 @@
 
 
 
+// =================================== COMPONENTES =============================================== //
+
+
 // == Componente de hero 01 == //
 
 class hero01 extends HTMLElement {
@@ -68,13 +71,10 @@ class hero01 extends HTMLElement {
     }
   }
   
-  customElements.define("hero-01", hero01);
-  
-  
-  // ================================================================================== //
+customElements.define("hero-01", hero01);
 
 
-  // == Componente de hero 02 == //
+// == Componente de hero 02 == //
 
 class hero02 extends HTMLElement {
   constructor() {
@@ -122,8 +122,6 @@ class hero02 extends HTMLElement {
 customElements.define("hero-02", hero02);
 
 
-// ================================================================================== //
-
 
   // == Componente de hero 03 == //
 
@@ -169,8 +167,7 @@ customElements.define("hero-02", hero02);
   
   customElements.define("hero-03", hero03);
   
-  
-  // ================================================================================== //
+
   
   
   

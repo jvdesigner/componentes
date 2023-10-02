@@ -1,4 +1,12 @@
 
+ // ================================== IMPORTAR FUNCOES ================================================ //
+
+
+ import * as funcoes_carrinho from "../functions/carrinho.js";
+
+
+
+// ================================== COMPONENTES ================================================ //
 
 
 // == Componente de cart 01 == //
@@ -117,32 +125,17 @@ class cart01 extends HTMLElement {
   
         `;
 
-      const navcart = document.getElementById('navcart');
-      const btnnavcart = document.getElementById('btnnavcart');
-      
-
-      btnnavcart.addEventListener('click', ()=> {
-        
-        if(navcart.style.display=="block"){navcart.style.display="none"}
-        else{navcart.style.display="block"}
-
-        btnnavcart.classList.toggle('stroke-teal-600')
-      
-      
-      });
-
-
+      // Chamar funcao ao clicar no carrinho
+      btnnavcart.addEventListener('click', ()=> { funcoes_carrinho.dropdownCarrinhoNavbar() });
 
 
     }
   }
   
-  customElements.define("cart-01", cart01);
+customElements.define("cart-01", cart01);
   
   
-  // ================================================================================== //
-
-  // == Componente de itemcart 01 == //
+// == Componente de itemcart 01 == //
 
 class itemcart01 extends HTMLElement {
     constructor() {

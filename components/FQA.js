@@ -1,5 +1,7 @@
 
 
+// =================================== COMPONENTES =============================================== //
+
 
 
 // == Componente de FQA 01 == //
@@ -247,10 +249,9 @@ Aceitamos apenas PIX como forma de pagamento eletrônico em nossa loja. O PIX é
 
 }
   
-  customElements.define("fqa-01", FQA01);
+customElements.define("fqa-01", FQA01);
   
   
-  // ================================================================================== //
   
   
   

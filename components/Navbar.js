@@ -1,4 +1,9 @@
 
+
+
+// =================================== COMPONENTES =============================================== //
+
+
 // == Componente de navbar 01 == //
 
 class navbar01 extends HTMLElement {
@@ -151,20 +156,12 @@ class navbar01 extends HTMLElement {
 
       `;
 
-      
-
     
-  }
-
-  
+  } 
 
 }
 
 customElements.define("navbar-01", navbar01);
-
-
-// ================================================================================== //
-
 
 
 
@@ -240,7 +237,6 @@ class navbar02 extends HTMLElement {
 customElements.define("navbar-02", navbar02);
 
 
-// ================================================================================== //
 
 
 

@@ -36,9 +36,11 @@ import * as compAlert from './components/Alerts.js'
 // ===================================== Importar Funcoes ============================================= //
 
 
-import * as funcoes_login from './functions/f_login.js'
+import * as funcoes_login from './functions/login.js'
 
-import * as funcoes_loading from './functions/f_loading.js'
+import * as funcoes_loading from './functions/loading.js'
+
+import * as funcoes_localstorage from './functions/localstorage.js'
 
 
 
@@ -105,8 +107,9 @@ window.addEventListener('load',()=>{ funcoes_loading.ocultarLoading() })
 
 funcoes_loading.mostrarLoading();
 
+// printar localstorage
 
-
+//funcoes_localstorage.MostrarDadosLocalstorage();
 
 
 

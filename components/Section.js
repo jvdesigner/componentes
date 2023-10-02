@@ -1,6 +1,6 @@
 
 
-
+// =================================== COMPONENTES =============================================== //
 
 
 // == Componente de section 01 == //
@@ -49,14 +49,11 @@ class section01 extends HTMLElement {
     }
   }
   
-  customElements.define("section-01", section01);
+customElements.define("section-01", section01);
   
-  
-  // ================================================================================== //
 
 
-
-  // == Componente de section 02 == //
+// == Componente de section 02 == //
 
 class section02 extends HTMLElement {
   constructor() {
@@ -116,10 +113,8 @@ class section02 extends HTMLElement {
 customElements.define("section-02", section02);
 
 
-// ================================================================================== //
 
-
- // == Componente de section 03 == //
+// == Componente de section 03 == //
 
  class section03 extends HTMLElement {
   constructor() {
@@ -165,10 +160,8 @@ customElements.define("section-02", section02);
 customElements.define("section-03", section03);
 
 
-// ================================================================================== //
 
-
- // == Componente de section 04 == //
+// == Componente de section 04 == //
 
  class section04 extends HTMLElement {
   constructor() {
@@ -272,8 +265,6 @@ customElements.define("section-03", section03);
 customElements.define("section-04", section04);
 
 
-// ================================================================================== //
-
 
  // == Componente de section 05 == //
 
@@ -306,10 +297,7 @@ customElements.define("section-04", section04);
 customElements.define("section-05", section05);
 
 
-// ================================================================================== //
-
-
- // == Componente de section 06 == //
+// == Componente de section 06 == //
 
  class section06 extends HTMLElement {
   constructor() {
@@ -338,7 +326,6 @@ customElements.define("section-05", section05);
 customElements.define("section-06", section06);
 
 
-// ================================================================================== //
   
   
   
