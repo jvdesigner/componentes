@@ -52,7 +52,7 @@ export function zerarValoresDoFormulario(formulario) {
   
     elementosDeEntrada.forEach(elemento => {
       if (elemento.type === 'checkbox') {elemento.checked = false} 
-      else {elemento.value = ''}
+      else {elemento.value = null}
     });
   
     alertas.forEach(alerta => {

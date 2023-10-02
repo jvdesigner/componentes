@@ -160,5 +160,5 @@ async function gerarCardsProdutos(nCards){
 
 }
 
-//window.addEventListener('load',()=>{ gerarCardsProdutos(10) })
+//window.addEventListener('load',()=>{ gerarCardsProdutos(8) })
 

@@ -182,7 +182,7 @@ customElements.define("section-03", section03);
 
   <carousel-07 class="flex items-center"></carousel-07>
 
-  <section id="galeriaProdutos" class="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-3 gap-10 max-md:gap-x-2 max-md:gap-y-6 px-10 max-md:px-0 pb-20 max-md:pb-10 pt-8 max-md:pt-0 ">
+  <section id="galeriaProdutos" class="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-3 gap-0 max-md:gap-x-2 max-md:gap-y-6 px-10 max-md:px-0 pb-20 max-md:pb-10 pt-8 max-md:pt-0 ">
 
       <cards-05 
       idProduto=1
@@ -236,6 +236,39 @@ customElements.define("section-03", section03);
       medidaProduto="kg"
       precoProduto="2,99"
       numeroEstrelas=4
+      >
+      </cards-05>
+
+      <cards-05 
+      idProduto=2
+      srcimagem="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2Vub3VyYXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Cenoura"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="4,99"
+      numeroEstrelas=5
+      >
+      </cards-05>
+
+      <cards-05
+      idProduto=3
+      srcimagem="https://images.unsplash.com/photo-1628773822503-930a7eaecf80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJyb2NvbGlzfGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Brócolis"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="6,99"
+      numeroEstrelas=5
+      >
+      </cards-05>
+
+      <cards-05
+      idProduto=4
+      srcimagem="https://images.unsplash.com/photo-1566393028639-d108a42c46a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhbmFuYXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+      nomeProduto="Banana"
+      pesoProduto=1
+      medidaProduto="kg"
+      precoProduto="3,99"
+      numeroEstrelas=5
       >
       </cards-05>
 

@@ -135,7 +135,7 @@ class navbar01 extends HTMLElement {
           </button>
         </div>
 
-        <div class="hidden items-center gap-8">
+        <div class="flex items-center gap-8">
 
           <cart-01></cart-01>
           <avatar-01></avatar-01>

@@ -500,9 +500,9 @@ class formcomentario extends HTMLElement {
 
     <div class="blockinput">
 
-        <label for="comment" class="sr-only">Seu comentário</label>
+        <label for="txtcomentario" class="sr-only">Seu comentário</label>
 
-        <textarea id="comment" rows="6"
+        <textarea id="txtcomentario" rows="6"
             class="required resize-none p-4 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none mb-4 rounded-lg rounded-t-lg border border-gray-200"
             placeholder="Escreva o que achou do produto...">
        </textarea>
@@ -530,6 +530,12 @@ class formcomentario extends HTMLElement {
 
       // botao para enviar 
       const btnenviarcomentario = document.getElementById('btnenviarcomentario')
+
+      // campo de comentario
+      const txtcomentario = document.getElementById('txtcomentario')
+
+      // zerar
+      txtcomentario.value = null
 
       // validar campos obrigatorio no formulario de suporte
 

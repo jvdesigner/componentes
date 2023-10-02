@@ -4,6 +4,8 @@
 
  import * as funcoes_carrinho from "../functions/carrinho.js";
 
+ import * as funcoes_produtos from "../functions/produtos.js";
+
 
 
 // ================================== COMPONENTES ================================================ //
@@ -22,7 +24,7 @@ class cart01 extends HTMLElement {
   <!-- Codigo -->
         
 
-  <div  class="block shrink-0  relative max-md:scale-90">
+  <div  class="block shrink-0  relative ">
 
   <span class="sr-only">carrinho</span>
 
@@ -43,9 +45,11 @@ class cart01 extends HTMLElement {
 
           <div class="mt-8">
 
-            <ul id="galeriaItensCarrinho" class="space-y-10">
+            <ul id="galeriaItensCarrinho" class="space-y-10 text-center">
 
-                <itemcart-01></itemcart-01>
+              Carrinho Vazio
+
+                
 
             </ul>
 
@@ -100,7 +104,7 @@ class cart01 extends HTMLElement {
                     href="#"
                     class="block rounded bg-teal-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-teal-600 hover:scale-105"
                   >
-                    Checkout
+                    Confirmar
                   </a>
                 </div>
 
@@ -144,6 +148,7 @@ class itemcart01 extends HTMLElement {
       const srcimagem = this.getAttribute('srcimagem') || 'https://i.ibb.co/StwXZqq/Image.png';
       const nomeProduto = this.getAttribute('nomeProduto') || 'Produto';
       const precoProduto = this.getAttribute('precoProduto') || '0,00';
+      const qtnProduto = this.getAttribute('qtnProduto') || '1';
   
       this.innerHTML = `
       
@@ -176,10 +181,13 @@ class itemcart01 extends HTMLElement {
                 
 
                   <div class="max-md:scale-75">
-                    <label for="Quantity" class="sr-only"> Quantity </label>
+
+                    <label for="txtqtnCarrinho" class="sr-only"> Quantity </label>
 
                     <div class="flex items-center border border-gray-200 rounded">
+
                       <button
+                        id="btndiminuirCarrinho"
                         type="button"
                         class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                       >
@@ -188,17 +196,19 @@ class itemcart01 extends HTMLElement {
 
                       <input
                         type="number"
-                        id="Quantity"
-                        value="1"
+                        id="txtqtnCarrinho"
+                        value="${qtnProduto}"
                         class="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                       />
 
                       <button
+                        id="btnaumentarCarrinho"
                         type="button"
                         class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                       >
                         &plus;
                       </button>
+
                     </div>
                   </div>
 
@@ -259,6 +269,17 @@ class itemcart01 extends HTMLElement {
           
   
         `;
+
+      // Alterar quantidade do input de quantidade do produto
+
+    const btnaumentarCarrinho = document.getElementById('btnaumentarCarrinho')
+    const btndiminuirCarrinho = document.getElementById('btndiminuirCarrinho')
+    const txtqtnCarrinho = document.getElementById('txtqtnCarrinho')
+
+    btnaumentarCarrinho.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('aumentar',txtqtnCarrinho) })
+    btndiminuirCarrinho.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('diminuir',txtqtnCarrinho) })
+
+
     }
   }
   

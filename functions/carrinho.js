@@ -16,3 +16,12 @@ export function dropdownCarrinhoNavbar(){
     
 
 }
+
+// Funcao para adicionar produto ao carrinho
+export function adicionarCarrinho(objProduto){
+
+     
+
+   
+
+}

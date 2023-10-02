@@ -45,7 +45,7 @@ class avatar01 extends HTMLElement {
             class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-teal-50 hover:text-gray-700"
             role="menuitem"
             >
-            Dados de Acesso
+            Meus favoritos
             </a>
 
             <a
@@ -53,7 +53,15 @@ class avatar01 extends HTMLElement {
             class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-teal-50 hover:text-gray-700"
             role="menuitem"
             >
-            Meus Dados
+            Meus pedidos
+            </a>
+
+            <a
+            href="#"
+            class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-teal-50 hover:text-gray-700"
+            role="menuitem"
+            >
+            Trocar senha
             </a>
 
             <a

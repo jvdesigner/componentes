@@ -24,7 +24,7 @@ export function formatDate(inputDate) {
 
   
     // Formata a data no formato desejado
-    const formattedDate = `${months[month]} ${day}, ${year}`;
+    const formattedDate = `${day} ${months[month]} de ${year}`;
   
     return formattedDate;
   }

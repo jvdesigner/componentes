@@ -111,7 +111,8 @@ funcoes_loading.mostrarLoading();
 
 // printar localstorage
 
-//funcoes_localstorage.MostrarDadosLocalstorage();
+funcoes_localstorage.MostrarDadosLocalstorage();
+//localStorage.clear()
 
 // Chame a função para calcular e imprimir o tamanho de armazenamento
 //funcoes_localstorage.getLocalStorageSize();
