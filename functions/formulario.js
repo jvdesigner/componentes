@@ -47,7 +47,7 @@ export function validarFormulario(formulario) {
   
 export function zerarValoresDoFormulario(formulario) {
     
-    const elementosDeEntrada = formulario.querySelectorAll('input');
+    const elementosDeEntrada = formulario.querySelectorAll('input'||'textarea');
     const alertas = formulario.querySelectorAll('.clsalertinput');
   
     elementosDeEntrada.forEach(elemento => {

@@ -881,7 +881,7 @@ class cards07 extends HTMLElement {
 <!-- Codigo -->
       
 <!-- comentarios -->
-    <article class="p-6 text-base bg-white rounded-lg outline outline-1 outline-gray-300 shadow">
+    <article class="p-6 text-base bg-white rounded-lg outline outline-1 outline-gray-300 shadow hover:scale-[1.02]">
 
         <footer class="flex justify-between items-center mb-2">
           

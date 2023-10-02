@@ -535,6 +535,8 @@ class formcomentario extends HTMLElement {
 
       btnenviarcomentario.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formcomentario) });
 
+      
+
   }
 }
 
