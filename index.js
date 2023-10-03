@@ -125,8 +125,6 @@ funcoes_localstorage.MostrarDadosLocalstorage();
 
 funcoes_carrinho.atualizarCarrinho()
 
-
-
 /* Anotacoes
 
 // =====================================  Cookies | Localstorage | SessionStorage  ============================================= //

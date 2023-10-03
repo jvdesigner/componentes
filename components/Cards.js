@@ -584,7 +584,10 @@ class cards05 extends HTMLElement {
     });
 
     // Adicionar produto ao carrinho
-    this.querySelector('.btnadicionarCarrinho').addEventListener('click',()=>{ funcoes_carrinho.adicionarCarrinho(objProduto,'adicionar') });
+    this.querySelector('.btnadicionarCarrinho').addEventListener('click', ()=>{ 
+       funcoes_carrinho.adicionarCarrinho(objProduto,'adicionar') ;
+      funcoes_carrinho.dropdownCarrinhoNavbar()
+    });
 
   }
 

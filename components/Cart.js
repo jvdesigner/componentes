@@ -26,6 +26,8 @@ class cart01 extends HTMLElement {
 
   <div  class="block shrink-0  relative ">
 
+  <div id="navcart2" class="-z-10 fixed hidden bg-white/60 top-0 left-0 max-lg:-left-40 h-screen w-[200vw]"></div>
+
   <span class="sr-only">carrinho</span>
 
   <svg id="btnnavcart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 cursor-pointer stroke-gray-600"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
@@ -61,17 +63,17 @@ class cart01 extends HTMLElement {
 
                   <div class="flex justify-between">
                     <dt>Subtotal</dt>
-                    <dd>R$ 0,00</dd>
+                    <dd id="subtotalCarrinho">R$ 0,00</dd>
                   </div>
 
                   <div class="flex justify-between">
-                    <dt>Desconto</dt>
-                    <dd>-R$ 0,00</dd>
+                    <dt >Desconto</dt>
+                    <dd id="descontoCarrinho">-R$ 0,00</dd>
                   </div>
 
                   <div class="flex justify-between !text-base font-medium pt-4">
                     <dt>Total</dt>
-                    <dd>R$ 0,00</dd>
+                    <dd id="totalCarrinho">R$ 0,00</dd>
                   </div>
 
                 </dl>
@@ -132,6 +134,9 @@ class cart01 extends HTMLElement {
       // Chamar funcao ao clicar no carrinho
       btnnavcart.addEventListener('click', ()=> { funcoes_carrinho.dropdownCarrinhoNavbar() });
 
+      // Chamar funcao ao clicar no carrinho
+      navcart2.addEventListener('click', ()=> { funcoes_carrinho.dropdownCarrinhoNavbar() });
+
 
     }
   }
@@ -147,8 +152,10 @@ class itemcart01 extends HTMLElement {
 
       const srcimagem = this.getAttribute('srcimagem') || 'https://i.ibb.co/StwXZqq/Image.png';
       const nomeProduto = this.getAttribute('nomeProduto') || 'Produto';
+      const idProduto = this.getAttribute('idProduto');
       const precoProduto = this.getAttribute('precoProduto') || '0,00';
       const qtnProduto = this.getAttribute('qtnProduto') || '1';
+      const totalProduto = this.getAttribute('totalProduto') || '0,00';
   
       this.innerHTML = `
       
@@ -196,7 +203,7 @@ class itemcart01 extends HTMLElement {
 
                       <input
                         type="number"
-                       
+                        disabled
                         value="${qtnProduto}"
                         class="txtqtnCarrinho h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                       />
@@ -246,7 +253,7 @@ class itemcart01 extends HTMLElement {
 
                     <div class="font-semibold">
                       <dt class="inline">Total:</dt>
-                      <dd class="inline">R$ 0,00</dd>
+                      <dd class="inline">R$ ${totalProduto}</dd>
                     </div>
                     </dl>
                     

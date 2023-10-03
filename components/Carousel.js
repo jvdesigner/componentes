@@ -846,7 +846,7 @@ customElements.define("carousel-06", carousel06);
   <!-- Codigo -->
   
   
-    <div class="swiper mySwiper carrossel9 p-2 max-h-[300px] min-h-[300px] overflow-hidden">
+    <div class="swiper mySwiper carrossel9 p-2 min-h-[150px] max-h-[250px] overflow-hidden">
   
         <div id="galeriaItensCarrinho" class="swiper-wrapper">Carrinho Vazio
   
@@ -868,11 +868,11 @@ customElements.define("carousel-06", carousel06);
   
         var swiper9 = new Swiper(".carrossel9", {
   
-            slidesPerView: 2,
+            slidesPerView: 1,
   
             speed: 700,
   
-            spaceBetween: 4,
+            spaceBetween: 2,
   
             grabCursor: true,
 
@@ -885,29 +885,31 @@ customElements.define("carousel-06", carousel06);
             breakpoints: {
 
               300: {
-                  slidesPerView: 2,
+                  slidesPerView: 1.5,
                   spaceBetween: 2,
                 },
 
             640: {
-              slidesPerView: 2,
+              slidesPerView: 1.5,
               spaceBetween: 2,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 1.5,
               spaceBetween: 4,
             },
             1024: {
-              slidesPerView: 2,
+              slidesPerView: 1.5,
               spaceBetween: 4,
             },
 
           },
 
-        
-            
   
           });
+
+          
+
+
   
   
     }
