@@ -91,7 +91,7 @@ class navbar01 extends HTMLElement {
       </div>
 
       <div class="flex items-center gap-4 max-md:scale-95">
-        <div class="flex gap-4 ">
+        <div class="flex gap-4 hidden">
 
           <div
           id="btnEntrar"
