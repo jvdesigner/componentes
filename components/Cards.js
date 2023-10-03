@@ -791,9 +791,10 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
 
 </div>
 
-<form class="mt-10 gap-4 flex max-md:flex-col">
+<div class="mt-10 gap-4 flex max-md:flex-col">
 
   <button
+    id="btnadicionarCarrinho"
     class="flex items-center justify-center gap-4 max-md:gap-2 w-full md:w-1/2 rounded text-white bg-teal-600  p-2 md:p-3 text-base max-md:text-sm font-medium transition hover:scale-[1.02] hover:bg-teal-700"
   >
   <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 11 11" fill="none">
@@ -811,7 +812,7 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
 
 
 
-</form>
+</div>
 
   
 
@@ -850,6 +851,12 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
 
     // funcao para mostrar descricao do produto
     funcoes_produtos.mostrarDescricao(txtdescricao)
+
+    // Adicionar produto ao carrinho
+    this.querySelector('#btnadicionarCarrinho').addEventListener('click', ()=>{ 
+      funcoes_carrinho.adicionarCarrinho(localobjProduto,'adicionar') ;
+     funcoes_carrinho.dropdownCarrinhoNavbar()
+   });
 
 
 

@@ -149,7 +149,7 @@ export function removerItemDoCarrinho(idParaRemover) {
     }
 }
 
-
+// função para calcular total no carrinho
 export function calcularTotalCarrinho() {
 
   // elemento de subtotal da interface
@@ -180,6 +180,37 @@ export function calcularTotalCarrinho() {
   descontoCarrinho.textContent = "-R$ " + desconto.toFixed(2); // Arredonda o desconto para duas casas decimais e retorna como string
   totalCarrinho.textContent = "R$ " + total.toFixed(2); // Arredonda o total para duas casas decimais e retorna como string
 }
+
+// função para limpar carrinho
+export function limparCarrinho(){
+
+  // Salvar o carrinho atualizado no localStorage
+  localStorage.setItem("carrinho",'{}');
+
+  // chama a funcao para atualizar a interface do carrinho
+  atualizarCarrinho()
+
+}
+
+// função para criar alerta de limpar carrinho
+export function alertaLimparCarrinho() {
+
+  // Converter carrinho em um objeto
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
+
+  // retornar se o carrinho estiver vazio
+  if (carrinho === null || Object.keys(carrinho).length === 0) {return}
+
+  // Crie um elemento "alert-03"
+  const alertaElement = document.createElement('div');
+
+  alertaElement.innerHTML='<alert-03></alert-03>'
+
+  // Adicione o elemento "alert-03" ao corpo do documento
+  document.body.appendChild(alertaElement);
+
+}
+
 
   
   
