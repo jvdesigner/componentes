@@ -94,6 +94,8 @@ async function gerarCardsProdutos(nCards){
     let varMedidaProduto;
     let varPrecoProduto;
     let varEstrelaProduto;
+    let vardescricaoProduto;
+    let varCategoriaProduto;
 
     // remover elementos da galeria
 
@@ -126,6 +128,10 @@ async function gerarCardsProdutos(nCards){
         varPrecoProduto = getRandomDecimal(1.0, 20.0);
 
         varEstrelaProduto = getRandomInt(1, 5);
+
+        varCategoriaProduto = 'categoria x';
+
+        vardescricaoProduto = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.';
 
         // adicionar elementos da galeria
 

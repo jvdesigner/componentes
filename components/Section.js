@@ -373,25 +373,38 @@ class section07 extends HTMLElement {
       
 <section class="h-screen max-lg:h-full flex max-lg:flex-col items-center max-lg:justify-center max-lg:px-4  py-8 lg:py-16 antialiased max-lg:mb-20">
 
-    <article class="w-full flex flex max-lg:flex-col items-start max-lg:justify-center">
+    <article class="w-full flex-col items-start max-lg:justify-center">
 
-    <rating-03 class=" w-[40%] max-lg:w-full flex items-center flex-col max-lg:mb-10"></rating-03>
+    <div class="flex max-lg:flex-col mb-2 max-lg:gap-4 max-lg:mb-8">
+
+      <rating-03 class=" w-[40%] max-lg:w-full flex items-center flex-col max-lg:mb-10"></rating-03>
 
     
-    <div class=" w-1/2 max-lg:w-full mx-auto ">
+      <div class=" w-1/2 max-lg:w-full mx-auto ">
 
-        <!-- titulo -->
-        <div class="flex justify-between items-center mb-6">
+          <!-- titulo -->
+          <div class="flex flex-col gap-2 mb-4">
 
-            <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Avaliações (20)</h2>
+            <p class="text-lg lg:text-xl font-bold text-teal-600">Comentário</p>
 
-        </div>
+              <rating-04></rating-04>
 
-        <form-comentario></form-comentario>
+          </div>
+
+          <form-comentario></form-comentario>
+
+      </div>
+
+    </div>
+
+
+      <div class="px-28 max-lg:px-0">
+      
+        <p class="text-lg lg:text-xl font-bold text-gray-900 mb-4">Avaliações (20)</p>
 
         <carousel-08></carousel-08>
 
-    </div>
+      </div>
 
     </article>
     

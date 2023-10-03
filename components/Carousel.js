@@ -757,8 +757,8 @@ customElements.define("carousel-06", carousel06);
     
   <!-- Codigo -->
   
-  
-    <div class="swiper mySwiper carrossel8 h-96 max-lg:h-[500px] max-lg:mt-10 p-2">
+    
+    <div class="swiper mySwiper carrossel8 h-96 max-lg:h-[500px] max-lg:mt-10 p-2 overflow-x-visible">
   
         <div class="swiper-wrapper">
   
@@ -789,7 +789,7 @@ customElements.define("carousel-06", carousel06);
   
             spaceBetween: 4,
   
-            grabCursor: true,
+            //grabCursor: true,
 
             freeMode:true,
 
@@ -813,7 +813,7 @@ customElements.define("carousel-06", carousel06);
               spaceBetween: 4,
             },
             1024: {
-              slidesPerView: 2.2,
+              slidesPerView: 2.6,
               spaceBetween: 4,
             },
 

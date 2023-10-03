@@ -33,6 +33,8 @@ import * as compAlert from './components/Alerts.js'
 
 import * as compRating from './components/Rating.js'
 
+import * as compSkeleton from './components/Skeleton.js'
+
 
 
 // ===================================== Importar Funcoes ============================================= //

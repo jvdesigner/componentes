@@ -430,7 +430,7 @@ class cards05 extends HTMLElement {
     const idProduto = this.getAttribute('idProduto') || 1;
     const numeroEstrelas = this.getAttribute('numeroEstrelas') || 5;
     const descricaoProduto = this.getAttribute('descricaoProduto') || 
-    ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.';
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.';
     const CategoriaProduto = this.getAttribute('CategoriaProduto') || 'Categoria';
 
     // dados do produto em obj
@@ -472,11 +472,13 @@ class cards05 extends HTMLElement {
   </svg>
 </button>
 
+
 <img
   src="${srcimagem}"
   alt=""
   class="h-64 max-2xl:h-48 max-xl:h-48 max-lg:h-44 max-md:h-36 max-sm:h-28 w-full object-cover transition duration-500 group-hover:scale-105 imagemProduto"
 />
+
 
 <div class="relative border border-gray-100 bg-white p-6 max-md:p-2">
   
@@ -896,7 +898,7 @@ class cards07 extends HTMLElement {
 <!-- Codigo -->
       
 <!-- comentarios -->
-    <article class="p-6 text-base bg-white rounded-lg outline outline-1 outline-gray-300 shadow hover:scale-[1.02]">
+    <article class="p-6 text-base bg-white/80 rounded-lg outline outline-1 outline-gray-300 shadow hover:scale-[1.02]">
 
         <footer class="flex justify-between items-center mb-2">
           
