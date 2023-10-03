@@ -1,4 +1,8 @@
 
+// =================================== IMPORTAR FUNCOES =============================================== //
+
+import * as funcoes_carrinho from './carrinho.js'
+
 
 
 // =================================== FUNCOES =============================================== //
@@ -80,7 +84,7 @@ export function preencherEstrelas(numeroEstrelas,card) {
 
 
 // Função para alterar quantidade do input 
-// parametros >> numero de estrelas
+// parametros >> aumentar ou diminuir | txtinput
 // retorno >> null
 
 export function alterarQuantidade(tipo,inputQuantity) {
@@ -97,6 +101,43 @@ export function alterarQuantidade(tipo,inputQuantity) {
 
     }
   }
+
+// Função para alterar quantidade do input com base no bloco pai 
+// parametros >> numero de estrelas
+// retorno >> null
+
+export function alterarQuantidadePai(blocoPai,objProduto) {
+
+  const btndiminuirCarrinho = blocoPai.querySelector('.btndiminuirCarrinho')
+  const btnaumentarCarrinho = blocoPai.querySelector('.btnaumentarCarrinho')
+  const txtqtnCarrinho = blocoPai.querySelector('.txtqtnCarrinho')
+
+  btndiminuirCarrinho.addEventListener('click',()=>{ 
+
+    if( txtqtnCarrinho.value ==='1' ){return}
+    
+    alterarQuantidade('diminuir',txtqtnCarrinho) ;
+
+    funcoes_carrinho.adicionarCarrinho(objProduto,'diminuir')
+  
+  })
+
+
+  btnaumentarCarrinho.addEventListener('click',()=>{ 
+    
+    alterarQuantidade('aumentar',txtqtnCarrinho) ;
+
+
+
+    funcoes_carrinho.adicionarCarrinho(objProduto,'adicionar')
+  
+  })
+
+
+
+
+  
+}
 
 
 // Função para efeito de selecao de tabs das categorias dos produtos na galeria

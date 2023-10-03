@@ -833,6 +833,91 @@ customElements.define("carousel-06", carousel06);
   
   // ================================================================================== //
 
+  // == Componente de carrossel 09 == //
+
+  class carousel09 extends HTMLElement {
+    constructor() {
+      super();
+  
+      this.innerHTML = `
+      
+            
+    
+  <!-- Codigo -->
+  
+  
+    <div class="swiper mySwiper carrossel9 p-2 max-h-[300px] min-h-[300px] overflow-hidden">
+  
+        <div id="galeriaItensCarrinho" class="swiper-wrapper">Carrinho Vazio
+  
+        
+            
+  
+        </div>
+  
+    </div>
+  
+  
+  
+  <!-- Codigo -->
+          
+  
+        `;
+          
+
+  
+        var swiper9 = new Swiper(".carrossel9", {
+  
+            slidesPerView: 2,
+  
+            speed: 700,
+  
+            spaceBetween: 4,
+  
+            grabCursor: true,
+
+            freeMode:true,
+
+            mousewheel: true,
+
+            direction: "vertical",
+
+            breakpoints: {
+
+              300: {
+                  slidesPerView: 2,
+                  spaceBetween: 2,
+                },
+
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 2,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 4,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 4,
+            },
+
+          },
+
+        
+            
+  
+          });
+  
+  
+    }
+  }
+  
+  customElements.define("carousel-09", carousel09);
+  
+  
+  // ================================================================================== //
+
   
   
   

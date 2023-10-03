@@ -434,7 +434,7 @@ class cards05 extends HTMLElement {
     const CategoriaProduto = this.getAttribute('CategoriaProduto') || 'Categoria';
 
     // dados do produto em obj
-    const objProduto = { id:idProduto , imagem:srcimagem , nome:nomeProduto , preco:precoProduto, medida:medidaProduto, peso:pesoProduto , classificacao:numeroEstrelas , descricao:descricaoProduto , categoria:CategoriaProduto };
+    const objProduto = { id:idProduto , imagem:srcimagem , nome:nomeProduto , preco:precoProduto, medida:medidaProduto, peso:pesoProduto , classificacao:numeroEstrelas , descricao:descricaoProduto , categoria:CategoriaProduto};
 
     // variavel preenchimento do icone de favorito
     let preenchimentoFavorito="";
@@ -584,7 +584,7 @@ class cards05 extends HTMLElement {
     });
 
     // Adicionar produto ao carrinho
-    this.querySelector('.btnadicionarCarrinho').addEventListener('click',()=>{ funcoes_carrinho.adicionarCarrinho(objProduto) });
+    this.querySelector('.btnadicionarCarrinho').addEventListener('click',()=>{ funcoes_carrinho.adicionarCarrinho(objProduto,'adicionar') });
 
   }
 

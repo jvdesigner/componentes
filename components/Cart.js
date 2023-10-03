@@ -45,9 +45,9 @@ class cart01 extends HTMLElement {
 
           <div class="mt-8">
 
-            <ul id="galeriaItensCarrinho" class="space-y-10 text-center">
+            <ul  class="space-y-10 text-center">
 
-              Carrinho Vazio
+              <carousel-09></carousel-09>
 
                 
 
@@ -187,24 +187,24 @@ class itemcart01 extends HTMLElement {
                     <div class="flex items-center border border-gray-200 rounded">
 
                       <button
-                        id="btndiminuirCarrinho"
+                      
                         type="button"
-                        class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
+                        class="btndiminuirCarrinho w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                       >
                         &minus;
                       </button>
 
                       <input
                         type="number"
-                        id="txtqtnCarrinho"
+                       
                         value="${qtnProduto}"
-                        class="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                        class="txtqtnCarrinho h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                       />
 
                       <button
-                        id="btnaumentarCarrinho"
+                        
                         type="button"
-                        class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
+                        class=" btnaumentarCarrinho w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                       >
                         &plus;
                       </button>
@@ -212,7 +212,9 @@ class itemcart01 extends HTMLElement {
                     </div>
                   </div>
 
-                  <button class="text-gray-600 transition hover:text-red-600">
+                  <button 
+                    
+                    class="iconRemoveitem text-gray-600 transition hover:text-red-600">
                     <span class="sr-only">Remove item</span>
 
                     <svg
@@ -270,20 +272,11 @@ class itemcart01 extends HTMLElement {
   
         `;
 
-      // Alterar quantidade do input de quantidade do produto
-
-    const btnaumentarCarrinho = document.getElementById('btnaumentarCarrinho')
-    const btndiminuirCarrinho = document.getElementById('btndiminuirCarrinho')
-    const txtqtnCarrinho = document.getElementById('txtqtnCarrinho')
-
-    btnaumentarCarrinho.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('aumentar',txtqtnCarrinho) })
-    btndiminuirCarrinho.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('diminuir',txtqtnCarrinho) })
-
-
     }
+
   }
   
-  customElements.define("itemcart-01", itemcart01);
+customElements.define("itemcart-01", itemcart01);
   
   
   // ================================================================================== //

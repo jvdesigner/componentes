@@ -44,6 +44,8 @@ import * as funcoes_loading from './functions/loading.js'
 
 import * as funcoes_localstorage from './functions/localstorage.js'
 
+import * as funcoes_carrinho from './functions/carrinho.js'
+
 
 
 // ===================================== ADICIONAR EVENTO ============================================= //
@@ -109,13 +111,21 @@ window.addEventListener('load',()=>{ funcoes_loading.ocultarLoading() })
 
 funcoes_loading.mostrarLoading();
 
+
 // printar localstorage
 
 funcoes_localstorage.MostrarDadosLocalstorage();
+
 //localStorage.clear()
 
 // Chame a função para calcular e imprimir o tamanho de armazenamento
 //funcoes_localstorage.getLocalStorageSize();
+
+// atualizar carrinho
+
+funcoes_carrinho.atualizarCarrinho()
+
+
 
 /* Anotacoes
 
