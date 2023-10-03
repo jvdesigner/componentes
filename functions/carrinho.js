@@ -70,6 +70,8 @@ export function atualizarCarrinho() {
       galeriaItensCarrinho.textContent ='Carrinho Vazio';
       galeriaItensCarrinho.classList.remove('text-start');
       galeriaItensCarrinho.classList.add('text-center');
+      //atualizar total no carrinho
+      calcularTotalCarrinho()
       return;
   }
 
