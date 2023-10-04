@@ -13,7 +13,11 @@
             getDocs      ,
             query        , 
             where        ,
-            limit 
+            limit        ,
+            orderBy      ,
+            startAfter   ,
+            startAt      ,
+            endAt 
     } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 
@@ -52,9 +56,7 @@ export async function  adicionarDocumento(col,objeto){
     try{
 
         const documento = await addDoc(col , objeto );
-        //console.log("Documento criado com sucesso! ID:", documento.id);
-        //console.log(documento)
-        //return documento
+        
     }
 
     catch (error) {
@@ -67,18 +69,26 @@ export async function  adicionarDocumento(col,objeto){
 }
 
 
-
-
 //funcao para consultar base
 //parametros >> query
 //retorno >> documentos
-export async function consultarBase(q){
+export async function consultarBase(col,indiceInicial, indiceFinal){
     
+    const q = query( col  )
+  
     const querySnapshot = await getDocs(q);
+
+    if (indiceInicial >= 0 && indiceFinal < querySnapshot.docs.length) {
+
+      const documentos = querySnapshot.docs.slice(indiceInicial, indiceFinal + 1); // +1 para incluir o documento final
+      return documentos;
+
+    }
 
     return querySnapshot;
   
 }
+
 
 // funcao para retornar total de produtos
 // parametros >> colecao
@@ -93,7 +103,7 @@ export async function totalProdutos(){
 }
 
 //consultas
-export const queryProduto01 = query(colProdutos,limit(8))
+//export const queryProduto01 = query(colProdutos,limit(8))
 
 
 
