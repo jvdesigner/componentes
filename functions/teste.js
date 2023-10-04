@@ -1,4 +1,7 @@
 
+// =================================== IMPORTAR FUNCOES =============================================== //
+
+import * as funcoes_firebase from './firebase.js'
 
 // =================================== FUNCOES =============================================== //
 
@@ -34,8 +37,6 @@ async function gerarImagensUnsplash(query,qnt){
     }
 }
   
-
-
 // Gerar numero inteiro aleatorio
 // Paramentros >> numero minimo (min) e maximo (max)
 // Retorno >> numero inteiro
@@ -45,8 +46,6 @@ function getRandomInt(min, max) {
     // Multiplique pelo intervalo desejado (max - min + 1) e adicione o mínimo (min) para obter um número inteiro aleatório no intervalo.
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
-
 
 // Gerar numero decimal aleatorio
 // Paramentros >> numero minimo (min) e maximo (max)
@@ -59,8 +58,6 @@ function getRandomInt(min, max) {
     // Use toFixed(2) para arredondar para 2 casas decimais.
     return parseFloat(randomDecimal.toFixed(2));
   }
-
-
 
 // Gerar ID
 // Paramentros >> quantidade de caracteres (length)
@@ -78,12 +75,8 @@ function generateRandomUID(length) {
     return uid;
 }
 
-
-
-
 // Gerar cards galeria de produtos com dados aleatórios
 // Parametro >> quantidade de cards da galeria
-
 async function gerarCardsProdutos(nCards){
 
     let varIdProduto;
@@ -167,4 +160,110 @@ async function gerarCardsProdutos(nCards){
 }
 
 //window.addEventListener('load',()=>{ gerarCardsProdutos(8) })
+
+// Função para Cadastrar produto
+async function cadastrarProduto(nProdutos){
+
+    //gerar lista de imagens
+    let varListaUrlImagem;
+    await gerarImagensUnsplash('organic foods', nProdutos).then(urls => {varListaUrlImagem = urls});
+
+    for (let i = 0; i < nProdutos; i++) {
+  
+      // dados do produto
+      const objProduto = { 
+
+        imagem            : varListaUrlImagem[i] , 
+        nome              : 'Produto'+i ,
+        categoria         : 'Categoria'+i, 
+        preco             :  getRandomDecimal(1.0, 20.0), 
+        medida            : 'kg', 
+        peso              : getRandomInt(1, 5) , 
+        classificacao     : 5 , 
+        descricao         : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.' 
+        
+      };
+
+      // cadastrar produto
+      await funcoes_firebase.adicionarDocumento( funcoes_firebase.colProdutos , objProduto )
+
+    }
+
+    //retorno
+    console.log('Produtos cadastrados!!')
+
+}
+
+//cadastrarProduto(10)
+
+// Função para consultar produtos
+async function atualizarGaleriaProdutos(){
+
+  //elemento pai
+  const elementoPai = document.getElementById('galeriaProdutos');
+
+  //zerar pai
+  removerFilhosComponente(elementoPai);
+
+  // retornar documentos
+  const q = await funcoes_firebase.queryProduto01
+  const documentos = await funcoes_firebase.consultarBase( q )
+  
+  documentos.forEach((doc) => {
+
+    //dados produto
+    let idProduto = doc.id
+    let dados = doc.data()
+
+    // adicionar elementos da galeria
+    const elementoFilho = document.createElement('div');
+    elementoFilho.innerHTML=`
+    
+    <cards-05 
+        idProduto=${idProduto}
+        srcimagem=${dados.imagem}
+        nomeProduto=${dados.nome}
+        pesoProduto=${dados.peso}
+        medidaProduto="${dados.medida}"
+        precoProduto=${dados.preco}
+        numeroEstrelas=${dados.classificacao}
+        >
+    </cards-05>
+    
+    
+    `;
+
+    elementoPai.appendChild(elementoFilho);
+  
+  
+  });
+
+  funcoes_firebase.totalProdutos().then((result)=>{ localStorage.setItem('totalProdutos', result); })
+
+  //console.log( localStorage.getItem('totalProdutos') )
+
+}
+
+atualizarGaleriaProdutos()
+
+// remover filhos do componente
+function removerFilhosComponente(elementoPai){
+
+  const elementosFilhos = elementoPai.children;
+
+  
+  for (let i = elementosFilhos.length - 1; i >= 0; i--) {
+      const elementoFilho = elementosFilhos[i];
+      elementoPai.removeChild(elementoFilho);
+  }
+
+
+
+}
+
+
+
+
+
+
 

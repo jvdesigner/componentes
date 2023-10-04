@@ -35,7 +35,7 @@
   </li>
 
   <li
-      class="cursor-pointer block h-8 w-8 rounded border border-gray-100 bg-teal-600 hover:-translate-y-1 text-center leading-8 text-white"
+      class="cursor-pointer block h-8 w-8 rounded border  border-gray-100 bg-teal-600 hover:-translate-y-1 text-center leading-8 text-white"
     >
       1
    

@@ -110,22 +110,19 @@ window.addEventListener('load',()=>{ funcoes_loading.ocultarLoading() })
 
 
 // Mostrar carregando
-
 funcoes_loading.mostrarLoading();
 
-
 // printar localstorage
-
 funcoes_localstorage.MostrarDadosLocalstorage();
+
+// atualizar carrinho
+funcoes_carrinho.atualizarCarrinho()
 
 //localStorage.clear()
 
 // Chame a função para calcular e imprimir o tamanho de armazenamento
 //funcoes_localstorage.getLocalStorageSize();
 
-// atualizar carrinho
-
-funcoes_carrinho.atualizarCarrinho()
 
 /* Anotacoes
 
