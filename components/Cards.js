@@ -472,12 +472,13 @@ class cards05 extends HTMLElement {
   </svg>
 </button>
 
-
+<div class="relative blockimagem">
 <img
   src="${srcimagem}"
   alt=""
   class="h-64 max-2xl:h-48 max-xl:h-48 max-lg:h-44 max-md:h-36 max-sm:h-28 w-full object-cover transition duration-500 group-hover:scale-105 imagemProduto"
-/>
+/><skeleton-image class="h-full w-full absolute top-0 skeleton"></skeleton-image>
+</div>
 
 
 <div class="relative border border-gray-100 bg-white p-6 max-md:p-2">
@@ -590,6 +591,13 @@ class cards05 extends HTMLElement {
        funcoes_carrinho.adicionarCarrinho(objProduto,'adicionar') ;
       funcoes_carrinho.dropdownCarrinhoNavbar()
     });
+
+    //controlar esqueleton imagem
+    const blockimagem = this.querySelector('.blockimagem')
+    const imagem = blockimagem.querySelector('img')
+    const esqueleto = blockimagem.querySelector('.skeleton')
+
+    imagem.addEventListener('load',()=>{ esqueleto.classList.remove('flex');esqueleto.classList.add('hidden') })
 
   }
 

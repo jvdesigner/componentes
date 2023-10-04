@@ -29,6 +29,9 @@ function removerFilhosComponente(elementoPai){
 // Função para Cadastrar produto
 async function cadastrarProduto(nProdutos){
 
+  //categoria de produtos
+    const categorias = ["Frutas", "Legumes", "Vegetais", "Laticínios"];
+
     //gerar lista de imagens
     let varListaUrlImagem;
     await funcoes_dadosAleatorios.gerarImagensUnsplash('organic foods', nProdutos).then(urls => {varListaUrlImagem = urls});
@@ -39,8 +42,8 @@ async function cadastrarProduto(nProdutos){
       const objProduto = { 
 
         imagem            : varListaUrlImagem[i] , 
-        nome              : 'Produto '+i ,
-        categoria         : 'Categoria '+i, 
+        nome              : 'Produto ' + i ,
+        categoria         : funcoes_dadosAleatorios.listaAleatorio(categorias),
         preco             :  funcoes_dadosAleatorios.getRandomDecimal(1.0, 20.0), 
         medida            : 'kg', 
         peso              : funcoes_dadosAleatorios.getRandomInt(1, 5) , 
@@ -49,8 +52,8 @@ async function cadastrarProduto(nProdutos){
         
       };
 
-      // cadastrar produto
-      await funcoes_firebase.adicionarDocumento( funcoes_firebase.colProdutos , objProduto )
+      //cadastrar produto
+      try{ await funcoes_firebase.adicionarDocumento( funcoes_firebase.colProdutos , objProduto )} catch{break}
 
     }
 
@@ -78,9 +81,9 @@ function pagInicialFinal(npag){
 
    }
 
-  console.log('pagina: '+npag)
+  /*console.log('pagina: '+npag)
   console.log( 'Inicial: ' + nInicial )
-  console.log( 'Final: ' + nFinal )
+  console.log( 'Final: ' + nFinal )*/
 
   return [nInicial,nFinal]
 
@@ -88,9 +91,13 @@ function pagInicialFinal(npag){
 
 
 // Função para consultar produtos
-async function atualizarGaleriaProdutos(npag){
+async function atualizarGaleriaProdutos(npag,col){
 
   funcoes_loading.mostrarLoading
+
+  //componente tabs
+  const componenteTabProdutos = document.getElementById('componenteTabProdutos');
+  componenteTabProdutos.style.display="none"
 
   //elemento pai
   const elementoPai = document.getElementById('galeriaProdutos');
@@ -102,7 +109,7 @@ async function atualizarGaleriaProdutos(npag){
   const indices = pagInicialFinal(npag)
 
   // retornar documentos
-  const col = await funcoes_firebase.colProdutos
+  //const col = await funcoes_firebase.queryProduto01
   const documentos = await funcoes_firebase.consultarBase( col , indices[0] , indices[1] )
   
   documentos.forEach((doc) => {
@@ -110,7 +117,7 @@ async function atualizarGaleriaProdutos(npag){
     //dados produto
     let idProduto = doc.id
     let dados = doc.data()
-    console.log(idProduto)
+    //console.log(idProduto)
 
     // adicionar elementos da galeria
     const elementoFilho = document.createElement('div');
@@ -139,13 +146,15 @@ async function atualizarGaleriaProdutos(npag){
 
   //console.log( localStorage.getItem('totalProdutos') )
 
+  componenteTabProdutos.style.display="flex"
+
   funcoes_loading.ocultarLoading
 
 }
 
 
 // função para apresentar tabs da galeria de produtos
-function mostrarTabGaleriaProdutos() {
+function mostrarTabGaleriaProdutos(col) {
 
   //localstorage pag selecionada
   localStorage.setItem('pagselecionadaProdutos','1')
@@ -165,10 +174,10 @@ function mostrarTabGaleriaProdutos() {
   // retornar se estiver vazio
   if (totalElementos==0) { componenteTabProdutos.style.display='none';return }
 
-  console.log('Total produtos ' + totalElementos);
+  /*console.log('Total produtos ' + totalElementos);
   console.log('Total por pagina ' + totalporpag);
   console.log('Total paginas ' + totalPag);
-  console.log('Total paginas obj ' + npag);
+  console.log('Total paginas obj ' + npag);*/
 
   // mostrar setas
   if( totalPag > 4 ){
@@ -196,7 +205,7 @@ function mostrarTabGaleriaProdutos() {
 
     const nAtualizado = parseInt(obj.textContent);
 
-    obj.addEventListener('click',()=>{ atualizarGaleriaProdutos(parseInt(obj.textContent)) })
+    obj.addEventListener('click',()=>{ atualizarGaleriaProdutos(parseInt(obj.textContent),col) })
 
     obj.addEventListener('click',()=>{ 
 
@@ -290,9 +299,9 @@ function altercorTab(objliPagina,obj){
 }
 
 // função para continuar a cor da tab selecionada
-function altercorTab2(objliPagina){
+async function altercorTab2(objliPagina){
 
-  const nLi = localStorage.getItem('pagselecionadaProdutos')
+  const nLi = await localStorage.getItem('pagselecionadaProdutos')
 
 
       objliPagina.forEach((li) => {
@@ -318,13 +327,13 @@ function altercorTab2(objliPagina){
 
 // =================================== EXECUTAR =============================================== //
 
+const col = await funcoes_firebase.queryProduto01
 
+//await cadastrarProduto(60)
 
-//await cadastrarProduto(8)
+await atualizarGaleriaProdutos(1,col)
 
-await atualizarGaleriaProdutos(1)
-
-mostrarTabGaleriaProdutos()
+mostrarTabGaleriaProdutos(col)
 
 
 

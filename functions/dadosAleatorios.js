@@ -21,7 +21,7 @@ export async function gerarImagensUnsplash(query,qnt){
 
     if (Array.isArray(data)) {
       // Verifique se a resposta é uma matriz de fotos
-      urls = data.map(photo => photo.urls.full);
+      urls = data.map(photo => photo.urls.small);
     } else {
       // Caso contrário, a resposta única é tratada como uma única URL
       urls = [data.urls.thumb];
@@ -71,3 +71,16 @@ export function generateRandomUID(length) {
 
   return uid;
 }
+
+
+
+// Retornar valor aleatorio da lista
+// Paramentros >> lista
+// Retorno >> valor
+export function listaAleatorio(lista) {
+
+  const indiceAleatorio = Math.floor(Math.random() * lista.length);
+
+  return lista[indiceAleatorio];
+}
+

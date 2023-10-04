@@ -17,7 +17,8 @@
             orderBy      ,
             startAfter   ,
             startAt      ,
-            endAt 
+            endAt        ,
+            deleteDoc
     } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
 
@@ -74,7 +75,7 @@ export async function  adicionarDocumento(col,objeto){
 //retorno >> documentos
 export async function consultarBase(col,indiceInicial, indiceFinal){
     
-    const q = query( col  )
+    const q = col
   
     const querySnapshot = await getDocs(q);
 
@@ -93,7 +94,6 @@ export async function consultarBase(col,indiceInicial, indiceFinal){
 // funcao para retornar total de produtos
 // parametros >> colecao
 // retorno >> total
-
 export async function totalProdutos(){
     
     const querySnapshot = await getDocs(colProdutos);
@@ -102,8 +102,9 @@ export async function totalProdutos(){
   
 }
 
+
 //consultas
-//export const queryProduto01 = query(colProdutos,limit(8))
+export const queryProduto01 = query(colProdutos,orderBy("nome"))
 
 
 
