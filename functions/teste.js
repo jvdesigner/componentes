@@ -244,7 +244,7 @@ async function atualizarGaleriaProdutos(){
 
 }
 
-atualizarGaleriaProdutos()
+//atualizarGaleriaProdutos()
 
 // remover filhos do componente
 function removerFilhosComponente(elementoPai){
@@ -261,7 +261,23 @@ function removerFilhosComponente(elementoPai){
 
 }
 
+// controlar paginacao da galeria de produtos
+function alterarTabGaleriaProdutos(){
 
+  const totalElementos = localStorage.getItem('totalProdutos')
+  const totalporpag = 8
+  const totalPag = parseInt(totalElementos/totalporpag)
+
+  if(!totalElementos){return}
+
+  console.log('Total produtos' + totalElementos)
+  console.log('Total por pagina' + totalporpag)
+  console.log('Total paginas' + totalPag)
+
+
+}
+
+//alterarTabGaleriaProdutos()
 
 
 

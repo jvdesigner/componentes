@@ -16,7 +16,7 @@
   <!-- Codigo -->
         
   <div class="flex justify-center gap-1 text-xs font-medium pb-2 mx-auto mt-10 max-md:mt-0 max-md:mb-28 mb-20 scale-110 max-md:scale-100">
-  <li
+  <li id="proximaPagina"
       class="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 hover:-translate-y-1"
     >
       <span class="sr-only">Prev Page</span>
@@ -61,7 +61,7 @@
 
   </li>
 
-  <li
+  <li id="anteriorPagina"
       class="cursor-pointer inline-flex h-8 w-8 items-center justify-center hover:-translate-y-1 rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180"
     >
       <span class="sr-only">Next Page</span>
@@ -85,6 +85,9 @@
           
   
         `;
+
+
+
     }
   }
   
