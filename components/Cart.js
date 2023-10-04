@@ -137,6 +137,8 @@ class cart01 extends HTMLElement {
   
         `;
 
+        btnnavcart.style.fill='none'
+
       // Chamar funcao ao clicar no carrinho
       btnnavcart.addEventListener('click', ()=> { funcoes_carrinho.dropdownCarrinhoNavbar() });
 

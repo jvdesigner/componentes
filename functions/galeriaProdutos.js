@@ -67,7 +67,7 @@ async function cadastrarProduto(nProdutos){
 function pagInicialFinal(npag){
 
   const nCards = 8
-  const nInicial = ( nCards * npag ) - nCards
+  let nInicial = ( nCards * npag ) - nCards
   let nFinal = ( nCards * npag ) - 1
 
   const totalElementos = parseInt(localStorage.getItem('totalProdutos'));
@@ -79,11 +79,13 @@ function pagInicialFinal(npag){
     nFinal = nFinal - diferenca -1
 
 
+
+
    }
 
-  /*console.log('pagina: '+npag)
+  console.log('pagina: '+npag)
   console.log( 'Inicial: ' + nInicial )
-  console.log( 'Final: ' + nFinal )*/
+  console.log( 'Final: ' + nFinal )
 
   return [nInicial,nFinal]
 
@@ -104,6 +106,13 @@ async function atualizarGaleriaProdutos(npag,col){
 
   //zerar pai
   removerFilhosComponente(elementoPai);
+
+  //total colecao
+  await funcoes_firebase.totalProdutos(col).then((result)=>{ localStorage.setItem('totalProdutos', result); })
+
+  console.log(localStorage.getItem('totalProdutos'))
+
+  //console.log( localStorage.getItem('totalProdutos') )
 
   //numero da pagina
   const indices = pagInicialFinal(npag)
@@ -131,6 +140,7 @@ async function atualizarGaleriaProdutos(npag,col){
         medidaProduto="${dados.medida}"
         precoProduto=${dados.preco}
         numeroEstrelas=${dados.classificacao}
+        CategoriaProduto="${dados.categoria}"
         >
     </cards-05>
     
@@ -142,9 +152,9 @@ async function atualizarGaleriaProdutos(npag,col){
   
   });
 
-  funcoes_firebase.totalProdutos().then((result)=>{ localStorage.setItem('totalProdutos', result); })
+  await mostrarTabGaleriaProdutos(col)
 
-  //console.log( localStorage.getItem('totalProdutos') )
+
 
   componenteTabProdutos.style.display="flex"
 
@@ -174,10 +184,10 @@ function mostrarTabGaleriaProdutos(col) {
   // retornar se estiver vazio
   if (totalElementos==0) { componenteTabProdutos.style.display='none';return }
 
-  /*console.log('Total produtos ' + totalElementos);
+  console.log('Total produtos ' + totalElementos);
   console.log('Total por pagina ' + totalporpag);
   console.log('Total paginas ' + totalPag);
-  console.log('Total paginas obj ' + npag);*/
+  console.log('Total paginas obj ' + npag);
 
   // mostrar setas
   if( totalPag > 4 ){
@@ -193,9 +203,14 @@ function mostrarTabGaleriaProdutos(col) {
   // apresentar as tabs
   for (let i = 0; i < npag; i++) {
 
-    if(i==npag){break}
-
     const obj = objliPagina[i];
+
+    if(i+1>totalPag){
+
+      obj.classList.remove('block');
+      obj.classList.add('hidden');
+    }
+    else{
 
     obj.classList.add('block');
 
@@ -203,19 +218,19 @@ function mostrarTabGaleriaProdutos(col) {
 
     obj.textContent = i + 1;
 
-    const nAtualizado = parseInt(obj.textContent);
-
-    obj.addEventListener('click',()=>{ atualizarGaleriaProdutos(parseInt(obj.textContent),col) })
+    obj.addEventListener('click',async ()=>{ atualizarGaleriaProdutos(parseInt(obj.textContent), col ) })
 
     obj.addEventListener('click',()=>{ 
 
-      altercorTab(objliPagina,obj)
+    altercorTab(objliPagina,obj)
       
      })
 
     //console.log(i);
 
     //console.log(obj)
+
+    }
   }
 
   // aumentar paginas
@@ -325,15 +340,24 @@ async function altercorTab2(objliPagina){
 
 
 
+
+
+
+
+
+
+
+
 // =================================== EXECUTAR =============================================== //
+
+//await cadastrarProduto(30)
 
 const col = await funcoes_firebase.queryProduto01
 
-//await cadastrarProduto(60)
-
 await atualizarGaleriaProdutos(1,col)
 
-mostrarTabGaleriaProdutos(col)
+
+
 
 
 

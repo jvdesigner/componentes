@@ -180,7 +180,7 @@ customElements.define("section-03", section03);
 
   <form-search></form-search>
 
-  <carousel-07 class="flex items-center"></carousel-07>
+  <carousel-07 id="compCategoriaProdutos" class="flex items-center"></carousel-07>
 
   <section id="galeriaProdutos" class="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-3 gap-0 max-md:gap-x-2 max-md:gap-y-6 px-10 max-md:px-0 pb-20 max-md:pb-10 pt-8 max-md:pt-0 ">
 
