@@ -29,8 +29,8 @@ export async function gerarImagensUnsplash(query,qnt){
 
     return urls;
   } catch (error) {
-    console.error('Erro ao buscar imagens:', error);
-    return [];
+    console.log('Erro ao buscar imagens:'+error.message);
+    return ['https://i.ibb.co/bNsRrrb/Image.png'];
   }
 }
 

@@ -323,7 +323,7 @@ class formsearch extends HTMLElement {
           </div>
 
           <div class="flex items-center justify-between gap-2 w-full">
-          <input type="text" id="simple-search" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white outline-none focus:border-teal-600" placeholder="Pesquisar">
+          <input autocomplete="off" type="text" id="simple-search" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white outline-none focus:border-teal-600" placeholder="Pesquisar">
           <button id="btnBuscarProduto" class="relative inline-flex items-center justify-center outline outline-1  overflow-hidden px-0.5 text-xs font-medium text-teal-600 rounded-lg group bg-gradient-to-br from-green-400 to-teal-600 group-hover:from-green-400 group-hover:to-teal-600 hover:text-white  focus:ring-4 focus:outline-none focus:ring-green-200 "><span class="relative px-3 py-2 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">Pesquisar</span></button>
           </div>
         </div>

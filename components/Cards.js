@@ -85,6 +85,9 @@ customElements.define("cards-01", cards01);
     ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.';
     const CategoriaProduto = this.getAttribute('CategoriaProduto') || 'Categoria';
 
+    // dados do produto em obj
+    const objProduto = { id:idProduto , imagem:srcimagem , nome:nomeProduto , preco:precoProduto, medida:medidaProduto, peso:pesoProduto , classificacao:numeroEstrelas , descricao:descricaoProduto , categoria:CategoriaProduto};
+
       let preenchimentoFavorito="";
 
       // Preencher o icone de favoritos de estiver na lista de favoritos
@@ -118,12 +121,14 @@ customElements.define("cards-01", cards01);
       />
     </svg>
   </button>
-
+  
+  <div class="relative blockimagem">
   <img
     src="${srcimagem}"
     alt=""
     class="imagemProduto h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-  />
+  /><skeleton-image class="h-full w-full absolute top-0 skeleton"></skeleton-image>
+  </div>
 
   <div class="relative border border-gray-100 bg-white p-6">
     
@@ -193,16 +198,16 @@ customElements.define("cards-01", cards01);
 
     <p class="mt-4 text-2xl text-gray-700 font-semibold">R$ ${precoProduto}</p>
 
-    <form class="mt-10">
+    <div class="mt-10">
       <button
-        class="flex justify-center gap-4 w-full rounded text-white bg-teal-600 p-4 text-base font-medium transition hover:scale-[1.02]"
+        class="btnadicionarCarrinho flex justify-center gap-4 w-full rounded text-white bg-teal-600 p-4 text-base font-medium transition hover:scale-[1.02]"
       >
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 11 11" fill="none">
   <path d="M0.482422 0.929688H1.31645C1.83412 0.929688 2.24155 1.37546 2.19841 1.88834L1.80057 6.66243C1.78504 6.84739 1.80809 7.03355 1.86827 7.20913C1.92845 7.38471 2.02444 7.54587 2.15016 7.68241C2.27589 7.81895 2.4286 7.92788 2.59863 8.00231C2.76865 8.07675 2.95229 8.11505 3.13789 8.11479H8.24272C8.93295 8.11479 9.5369 7.54919 9.58963 6.86375L9.84847 3.2688C9.90599 2.47312 9.30203 1.82603 8.50156 1.82603H2.31345M3.83771 3.80565H9.58963M7.31283 10.5162C7.47173 10.5162 7.62413 10.4531 7.7365 10.3407C7.84886 10.2284 7.91199 10.076 7.91199 9.91706C7.91199 9.75816 7.84886 9.60576 7.7365 9.49339C7.62413 9.38103 7.47173 9.3179 7.31283 9.3179C7.15392 9.3179 7.00152 9.38103 6.88916 9.49339C6.77679 9.60576 6.71367 9.75816 6.71367 9.91706C6.71367 10.076 6.77679 10.2284 6.88916 10.3407C7.00152 10.4531 7.15392 10.5162 7.31283 10.5162ZM3.47821 10.5162C3.63712 10.5162 3.78952 10.4531 3.90188 10.3407C4.01425 10.2284 4.07737 10.076 4.07737 9.91706C4.07737 9.75816 4.01425 9.60576 3.90188 9.49339C3.78952 9.38103 3.63712 9.3179 3.47821 9.3179C3.31931 9.3179 3.16691 9.38103 3.05454 9.49339C2.94218 9.60576 2.87906 9.75816 2.87906 9.91706C2.87906 10.076 2.94218 10.2284 3.05454 10.3407C3.16691 10.4531 3.31931 10.5162 3.47821 10.5162Z" stroke="white" stroke-width="0.71899" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
         Adicionar
       </button>
-    </form>
+    </div>
   </div>
 </div>
           
@@ -221,19 +226,24 @@ customElements.define("cards-01", cards01);
      // Adicionar ao localstorage as informacoes do Produto selecionado
     this.querySelector('.imagemProduto').addEventListener('click',()=>{
 
-      localStorage.setItem('localImagemProduto', srcimagem);
-      localStorage.setItem('localNomeProduto', nomeProduto);
-      localStorage.setItem('localDescricaoProduto', descricaoProduto);
-      localStorage.setItem('localPrecoProduto', precoProduto);
-      localStorage.setItem('localMedidaProduto', medidaProduto);
-      localStorage.setItem('localidProduto',idProduto);
-      localStorage.setItem('localPesoProduto', pesoProduto);
-      localStorage.setItem('localEstrelasProduto', numeroEstrelas);
-      localStorage.setItem('localCategoriaProduto', CategoriaProduto);
+      localStorage.setItem('localobjProduto', JSON.stringify(objProduto));
   
       window.location.href = "../html/detalhesProduto.html";
   
       });
+
+      // Adicionar produto ao carrinho
+    this.querySelector('.btnadicionarCarrinho').addEventListener('click', ()=>{ 
+      funcoes_carrinho.adicionarCarrinho(objProduto,'adicionar') ;
+     funcoes_carrinho.dropdownCarrinhoNavbar()
+   });
+
+   //controlar esqueleton imagem
+   const blockimagem = this.querySelector('.blockimagem')
+   const imagem = blockimagem.querySelector('img')
+   const esqueleto = blockimagem.querySelector('.skeleton')
+
+   imagem.addEventListener('load',()=>{ esqueleto.classList.remove('flex');esqueleto.classList.add('hidden') })
 
 
 

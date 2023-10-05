@@ -70,9 +70,10 @@ import * as funcoes_loading from './loading.js'
 
 //categoria de produtos
 const categorias = ["Frutas", "Legumes", "Vegetais", "Laticínios"];
+const categorias2 = ["Fruits", "Vegetables", "Vegetables", "Dairy"];
 
 // medida de produtos
-const medidas = ["kg","L","unid","g","ml"]
+const medidas = ["kg","L","unid","g"]
 
 //componenete paginacao
 const componenteTabProdutos = document.getElementById('componenteTabProdutos')
@@ -130,21 +131,29 @@ async function cadastrarProduto(nProdutos){
 
     //gerar lista de imagens
     let varListaUrlImagem;
-    await funcoes_dadosAleatorios.gerarImagensUnsplash('Organic Food', nProdutos).then(urls => {varListaUrlImagem = urls});
+    
 
     // criar objeto de produtos   
     for (let i = 0; i < nProdutos; i++) {
+
+      
+      const vCategoria = funcoes_dadosAleatorios.itemAleatorio(categorias)
+      const vCategoria2 = categorias2[categorias.indexOf(vCategoria)]
+
+
+      //pegar foto
+      await funcoes_dadosAleatorios.gerarImagensUnsplash(vCategoria2, 1).then(urls => {varListaUrlImagem = urls});
   
       // dados do produto
       const objProduto = { 
 
-        imagem            : varListaUrlImagem[i] , 
-        nome              : 'Produto ' + i ,
-        categoria         :  funcoes_dadosAleatorios.itemAleatorio(categorias),
+        imagem            : varListaUrlImagem[0] , 
+        nome              : vCategoria + ' ' + i ,
+        categoria         :  vCategoria,
         preco             :  funcoes_dadosAleatorios.getRandomDecimal(1.0, 20.0), 
         medida            : funcoes_dadosAleatorios.itemAleatorio(medidas),
-        peso              : funcoes_dadosAleatorios.getRandomInt(1, 5) , 
-        classificacao     : 5 , 
+        peso              : funcoes_dadosAleatorios.getRandomInt(1, 10) , 
+        classificacao     : funcoes_dadosAleatorios.getRandomInt(1, 5) , 
         descricao         : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.' 
         
       };
@@ -158,6 +167,7 @@ async function cadastrarProduto(nProdutos){
     console.log(nProdutos + ' Produtos cadastrados!!')
 
 }
+
 
 // funcao para consultar produtos
 async function consultarProdutos(){
@@ -175,7 +185,7 @@ async function consultarProdutos(){
     
     elementoGaleriaVazia.innerHTML=`  
     
-    <div id="compGaleriaVazia" class="absolute h-full w-full flex flex-col items-center justify-center  text-teal-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <div id="compGaleriaVazia" class="absolute translate-y-40 h-full w-full flex flex-col items-center justify-center  text-teal-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>Galeria vazia</div>
     
     `
@@ -447,9 +457,13 @@ function adicionarEventoBusca(){
 
   btnBuscarProduto.addEventListener('click',()=>{
 
-    if(campoBusca.value===' '||campoBusca.value===''||!campoBusca.value){;return}
+    const txtBusca = campoBusca.value
 
-    q = query(col, where("nome", ">=", campoBusca.value), where("nome", "<", campoBusca.value + "z"));
+    if(txtBusca===' '||txtBusca===''||!txtBusca){;return}
+
+    const txtMaiuscula = txtBusca.charAt(0).toUpperCase() + txtBusca.slice(1)
+
+    q = query(col, where("nome", ">=",txtMaiuscula), where("nome", "<", txtMaiuscula + "z"));
 
       //zerar pagina
       localStorage.setItem('paginaGaleriaProdutos',1)
@@ -488,6 +502,7 @@ function adicionarEventoBusca(){
 
 // cadastrar produtos
 //await cadastrarProduto(1)
+
 
 //eventos
 colocarEventosPaginacao()
