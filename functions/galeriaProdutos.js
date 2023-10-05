@@ -1,41 +1,111 @@
 
+
+// =================================== IMPORTAR FIREBASE =============================================== //
+
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+
+import { 
+          getFirestore ,
+          collection   , 
+          addDoc       ,
+          getDocs      ,
+          query        , 
+          where        ,
+          limit        ,
+          orderBy      ,
+          startAfter   ,
+          startAt      ,
+          endAt        ,
+          deleteDoc
+  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+
+
+// =================================== VARIAVEIS FIREBASE =============================================== //
+
+// dados do app
+const firebaseConfig = {
+  apiKey: "AIzaSyB0uycpyo_NkxKSH4AQi_tnjQ2eJ-e7aAE",
+  authDomain: "ecommerceduplicado.firebaseapp.com",
+  projectId: "ecommerceduplicado",
+  storageBucket: "ecommerceduplicado.appspot.com",
+  messagingSenderId: "779797115103",
+  appId: "1:779797115103:web:9f4e4ce2f48af9e8f8796a"
+};
+
+// dados do app
+const firebaseConfig2 = {
+  apiKey: "AIzaSyAb9pv_fUvoeYShp3vZbxbT1ur7C7fJUeU",
+  authDomain: "ecommerce-ff132.firebaseapp.com",
+  projectId: "ecommerce-ff132",
+  storageBucket: "ecommerce-ff132.appspot.com",
+  messagingSenderId: "991605978710",
+  appId: "1:991605978710:web:5a9cd758caccd7426fedf7"
+};
+
+// variavel app
+const app = initializeApp(firebaseConfig);
+
+// variavel banco
+const db = getFirestore(app);
+
+// variavel colecao
+const col = collection(db, "produto")
+
+
+
 // =================================== IMPORTAR FUNCOES =============================================== //
 
-import * as funcoes_firebase from './firebase.js'
+
 
 import * as funcoes_dadosAleatorios from './dadosAleatorios.js'
 
-import * as funcoes_loading from './loading.js'
+
+
+// =================================== VARIAVEIS =============================================== //
+
+//categoria de produtos
+const categorias = ["Frutas", "Legumes", "Vegetais", "Laticínios"];
+
+// medida de produtos
+const medidas = ["kg","L","unid","g","ml"]
+
+//componenete paginacao
+const componenteTabProdutos = document.getElementById('componenteTabProdutos')
+
+// objetos de  paginacao >> 4 no total
+const liPagina = componenteTabProdutos.querySelectorAll('.liPagina')
+
+// obj pagina anterior
+const anteriorPagina = componenteTabProdutos.querySelector('#anteriorPagina')
+
+// obj proxima pagina
+const proximaPagina = document.querySelector('#proximaPagina')
+
+// numero de tabs
+const numeroTabs = liPagina.length
+
+//total de paginas
+let paginasTotais = 10
+
+// pagina selecionada
+let nSelecionado = 1
 
 
 // =================================== FUNCOES =============================================== //
 
 
-// remover filhos do componente
-function removerFilhosComponente(elementoPai){
-
-  const elementosFilhos = elementoPai.children;
-
-  
-  for (let i = elementosFilhos.length - 1; i >= 0; i--) {
-      const elementoFilho = elementosFilhos[i];
-      elementoPai.removeChild(elementoFilho);
-  }
-
-
-
-}
-
 // Função para Cadastrar produto
+// Parametro >> numero de produtos
 async function cadastrarProduto(nProdutos){
-
-  //categoria de produtos
-    const categorias = ["Frutas", "Legumes", "Vegetais", "Laticínios"];
 
     //gerar lista de imagens
     let varListaUrlImagem;
     await funcoes_dadosAleatorios.gerarImagensUnsplash('organic foods', nProdutos).then(urls => {varListaUrlImagem = urls});
 
+    // criar objeto de produtos   
     for (let i = 0; i < nProdutos; i++) {
   
       // dados do produto
@@ -43,9 +113,9 @@ async function cadastrarProduto(nProdutos){
 
         imagem            : varListaUrlImagem[i] , 
         nome              : 'Produto ' + i ,
-        categoria         : funcoes_dadosAleatorios.listaAleatorio(categorias),
+        categoria         :  funcoes_dadosAleatorios.itemAleatorio(categorias),
         preco             :  funcoes_dadosAleatorios.getRandomDecimal(1.0, 20.0), 
-        medida            : 'kg', 
+        medida            : funcoes_dadosAleatorios.itemAleatorio(medidas),
         peso              : funcoes_dadosAleatorios.getRandomInt(1, 5) , 
         classificacao     : 5 , 
         descricao         : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.' 
@@ -53,308 +123,150 @@ async function cadastrarProduto(nProdutos){
       };
 
       //cadastrar produto
-      try{ await funcoes_firebase.adicionarDocumento( funcoes_firebase.colProdutos , objProduto )} catch{break}
+      try{ await addDoc( col , objProduto )} catch(error){console.log(error.message);break}
 
     }
 
     //retorno
-    console.log('Produtos cadastrados!!')
-
-}
-
-// funcao para definir inicial e final com base na pagina
-
-function pagInicialFinal(npag){
-
-  const nCards = 8
-  let nInicial = ( nCards * npag ) - nCards
-  let nFinal = ( nCards * npag ) - 1
-
-  const totalElementos = parseInt(localStorage.getItem('totalProdutos'));
-
-  if( nFinal>totalElementos ){ 
-
-    const diferenca = nFinal-totalElementos
-
-    nFinal = nFinal - diferenca -1
-
-
-
-
-   }
-
-  console.log('pagina: '+npag)
-  console.log( 'Inicial: ' + nInicial )
-  console.log( 'Final: ' + nFinal )
-
-  return [nInicial,nFinal]
+    console.log(nProdutos + ' Produtos cadastrados!!')
 
 }
 
 
-// Função para consultar produtos
-async function atualizarGaleriaProdutos(npag,col){
-
-  funcoes_loading.mostrarLoading
-
-  //componente tabs
-  const componenteTabProdutos = document.getElementById('componenteTabProdutos');
-  componenteTabProdutos.style.display="none"
-
-  //elemento pai
-  const elementoPai = document.getElementById('galeriaProdutos');
-
-  //zerar pai
-  removerFilhosComponente(elementoPai);
-
-  //total colecao
-  await funcoes_firebase.totalProdutos(col).then((result)=>{ localStorage.setItem('totalProdutos', result); })
-
-  console.log(localStorage.getItem('totalProdutos'))
-
-  //console.log( localStorage.getItem('totalProdutos') )
-
-  //numero da pagina
-  const indices = pagInicialFinal(npag)
-
-  // retornar documentos
-  //const col = await funcoes_firebase.queryProduto01
-  const documentos = await funcoes_firebase.consultarBase( col , indices[0] , indices[1] )
-  
-  documentos.forEach((doc) => {
-
-    //dados produto
-    let idProduto = doc.id
-    let dados = doc.data()
-    //console.log(idProduto)
-
-    // adicionar elementos da galeria
-    const elementoFilho = document.createElement('div');
-    elementoFilho.innerHTML=`
+// funcao para retornar total de documentos
+// parametros >> colecao
+// retorno >> total
+async function totalDocumentos(colecao){
     
-    <cards-05 
-        idProduto=${idProduto}
-        srcimagem=${dados.imagem}
-        nomeProduto="${dados.nome}"
-        pesoProduto=${dados.peso}
-        medidaProduto="${dados.medida}"
-        precoProduto=${dados.preco}
-        numeroEstrelas=${dados.classificacao}
-        CategoriaProduto="${dados.categoria}"
-        >
-    </cards-05>
-    
-    
-    `;
+  const querySnapshot = await getDocs(colecao);
 
-    elementoPai.appendChild(elementoFilho);
+  return querySnapshot.size;
+
+}
+
+
+// =================================== PAGINACAO =============================================== //
+
+// funcao para controlar cor da tab de paginacao selecionado
+function controlarNumercaoPaginacao( nSelecionado ){
+
   
-  
+  //remover cor dos componentes e colocar o selecionado
+
+  liPagina.forEach((element) => {
+
+      const txtnumeracao = parseInt(element.textContent.trim())
+
+      if( txtnumeracao === nSelecionado ){ 
+
+          element.classList.remove('bg-white')
+          element.classList.remove('text-gray-900')
+          element.classList.add('bg-teal-600')
+          element.classList.add('text-white')
+       }
+       else{
+          element.classList.remove('text-white')
+          element.classList.add('bg-white')
+          element.classList.add('text-gray-900')
+       }
+      
   });
 
-  await mostrarTabGaleriaProdutos(col)
 
-
-
-  componenteTabProdutos.style.display="flex"
-
-  funcoes_loading.ocultarLoading
 
 }
 
+// funcao para colocar evento nos componentes da paginacao
+function colocarEventosPaginacao(){
 
-// função para apresentar tabs da galeria de produtos
-function mostrarTabGaleriaProdutos(col) {
+  //adicionar evento nas tabs
+  liPagina.forEach((element) => {
 
-  //localstorage pag selecionada
-  localStorage.setItem('pagselecionadaProdutos','1')
+      element.addEventListener('click',()=>{
+          
+          const txtnumeracao = parseInt(element.textContent.trim())
 
-  // elementos
-  const componenteTabProdutos = document.getElementById('componenteTabProdutos');
-  const objProximapagina = document.getElementById('proximaPagina');
-  const objAnteriorpagina = document.getElementById('anteriorPagina');
-  const objliPagina = document.querySelectorAll('.liPagina');
-  const npag = objliPagina.length;
+          controlarNumercaoPaginacao( txtnumeracao )
 
-  // páginas
-  const totalElementos = localStorage.getItem('totalProdutos');
-  const totalporpag = 8;
-  const totalPag = Math.ceil(parseFloat(totalElementos / totalporpag));
-
-  // retornar se estiver vazio
-  if (totalElementos==0) { componenteTabProdutos.style.display='none';return }
-
-  console.log('Total produtos ' + totalElementos);
-  console.log('Total por pagina ' + totalporpag);
-  console.log('Total paginas ' + totalPag);
-  console.log('Total paginas obj ' + npag);
-
-  // mostrar setas
-  if( totalPag > 4 ){
-
-    objProximapagina.classList.remove('hidden')
-    objAnteriorpagina.classList.remove('hidden')
-
-    objProximapagina.classList.add('inline-flex')
-    objAnteriorpagina.classList.add('inline-flex')
-
-  }
-
-  // apresentar as tabs
-  for (let i = 0; i < npag; i++) {
-
-    const obj = objliPagina[i];
-
-    if(i+1>totalPag){
-
-      obj.classList.remove('block');
-      obj.classList.add('hidden');
-    }
-    else{
-
-    obj.classList.add('block');
-
-    obj.classList.remove('hidden');
-
-    obj.textContent = i + 1;
-
-    obj.addEventListener('click',async ()=>{ atualizarGaleriaProdutos(parseInt(obj.textContent), col ) })
-
-    obj.addEventListener('click',()=>{ 
-
-    altercorTab(objliPagina,obj)
+      })
       
-     })
+  });
 
-    //console.log(i);
-
-    //console.log(obj)
-
-    }
-  }
-
-  // aumentar paginas
-  objProximapagina.addEventListener('click',()=>{
-
-    //alterar cor tab
-    altercorTab2(objliPagina)
-
-    const ultimoFilhoTexto = objliPagina[npag-1]
-
-    for (let i = 0; i < totalPag; i++) {
-
-      let limite = parseInt( ultimoFilhoTexto.textContent)
-
-      if(limite==totalPag || i == totalPag){break}
-
-  
-      const obj = objliPagina[i];
-
-      if(!obj){break}
-
-      const nAtualizado = parseInt(obj.textContent) + 1
-  
-      obj.textContent = nAtualizado;
-
-  
-    }
-
-
+  // evento na proxima pagina
+  proximaPagina.addEventListener('click',()=>{ 
+    adicionarPaginacao();
+    
   })
 
-  // Diminuir páginas
-  objAnteriorpagina.addEventListener('click', () => {
-
-    //alterar cor tab
-    altercorTab2(objliPagina)
-
-    objliPagina.forEach((obj)=>{
-
-      
-
-      if( parseInt(obj.textContent)>1 && objliPagina[3].textContent !== '4' ){
-
-        obj.textContent =  parseInt(obj.textContent) - 1
-
-      }
-
-
-    })
-
- 
-
-});
+  // evento na pagina anterior
+  proximaPagina.addEventListener('click',()=>{ 
+    subtrairPaginacao();
+  })
 
 
 
 }
 
-// função para alterar a cor da tab selecionada
-function altercorTab(objliPagina,obj){
+//funcao para adicionar paginacao
+function adicionarPaginacao(){
+  
 
-  const nLi = obj.textContent
+  const ultimoFilho = liPagina[numeroTabs - 1];
+  const limite = parseInt( ultimoFilho.textContent.trim() )
 
-  localStorage.setItem('pagselecionadaProdutos',nLi)
+  liPagina.forEach( (element) => {
 
+    const numeracao = parseInt(element.textContent)
+    
+    if( limite <= paginasTotais){element.textContent=numeracao+1}
 
-      objliPagina.forEach((li) => {
-        if(li.textContent!==nLi)
-        {li.classList.remove('bg-teal-600');
-        li.classList.add('bg-white');
-        li.classList.remove('text-white')
-        li.classList.add('text-gray-900')}
-        else{
-          li.classList.remove('bg-white');
-          li.classList.add('bg-teal-600')
-          li.classList.remove('text-gray-900')
-          li.classList.add('text-white')
-        }
-      })
+  });
+
 
 }
 
-// função para continuar a cor da tab selecionada
-async function altercorTab2(objliPagina){
+//funcao para subtrair paginacao
+function subtrairPaginacao(){
 
-  const nLi = await localStorage.getItem('pagselecionadaProdutos')
+  let txtnumeracao
 
+  liPagina.forEach((element) => {
 
-      objliPagina.forEach((li) => {
-        if(li.textContent!==nLi)
-        {li.classList.remove('bg-teal-600');
-        li.classList.add('bg-white');
-        li.classList.remove('text-white')
-        li.classList.add('text-gray-900')}
-        else{
-          li.classList.remove('bg-white');
-          li.classList.add('bg-teal-600')
-          li.classList.remove('text-gray-900')
-          li.classList.add('text-white')
-        }
-      })
+    txtnumeracao = parseInt(element.textContent.trim())
+
+    if( txtnumeracao === 1){return}
+
+    element.textContent = txtnumeracao - 1
+
+    
+  });
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // =================================== EXECUTAR =============================================== //
 
-//await cadastrarProduto(30)
+// cadastrar produtos
+//await cadastrarProduto(2)
 
-const col = await funcoes_firebase.queryProduto01
+// Retornar total de produtos
+//totalDocumentos(col).then((result)=>{ console.log( 'Total de Produtos: '+ result) })
 
-await atualizarGaleriaProdutos(1,col)
+
+// cor na paginacao
+controlarNumercaoPaginacao( nSelecionado )
+
+//eventos
+colocarEventosPaginacao()
+
+
+
+
+
+
+
+
 
 
 

@@ -23,8 +23,6 @@
 
 
 
-// =================================== VARIAVEIS =============================================== //
-
 // dados do app
 /*const firebaseConfig = {
     apiKey: "AIzaSyAb9pv_fUvoeYShp3vZbxbT1ur7C7fJUeU",

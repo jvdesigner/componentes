@@ -73,14 +73,25 @@ export function generateRandomUID(length) {
 }
 
 
+// funcao para remover filhos do componente
+// parametro >> elemento pai
+export function removerFilhosComponente(elementoPai){
 
-// Retornar valor aleatorio da lista
-// Paramentros >> lista
-// Retorno >> valor
-export function listaAleatorio(lista) {
+  while (elementoPai.firstChild) {
+    elementoPai.removeChild(elementoPai.firstChild);
+  }
 
+}
+
+// Função para retornar uma categoria aleatória
+// parametro >> lista
+// retorno >> item da lista
+export function itemAleatorio(lista) {
+
+  // Gerar um índice aleatório dentro do intervalo de 0 ao comprimento da lista de categorias
   const indiceAleatorio = Math.floor(Math.random() * lista.length);
 
+  // Retornar a categoria correspondente ao índice aleatório
   return lista[indiceAleatorio];
 }
 
