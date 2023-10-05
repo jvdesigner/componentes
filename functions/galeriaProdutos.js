@@ -93,7 +93,13 @@ const numeroTabs = liPagina.length
 let paginasTotais
 
 //total de cards na galeria
-let totalCards = 8
+let totalCards
+if (window.innerWidth < 768) {
+  totalCards = 9
+} else {
+  totalCards = 8
+}
+
 
 //total de produtos
 let totalProdutos 
@@ -453,7 +459,7 @@ function adicionarEventoBusca(){
 
   })
 
-  campoBusca.addEventListener('keyup',()=>{
+  campoBusca.addEventListener('input',()=>{
 
     if(campoBusca.value===' '||campoBusca.value===''||!campoBusca.value){
 
