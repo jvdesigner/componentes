@@ -51,7 +51,7 @@ class navbar01 extends HTMLElement {
             <li class="hover:-translate-y-2  ">
               <a
                 class="text-${telainicio}-500 transition hover:text-gray-500/75"
-                href="../index.html"
+                href="../ecommerce/index.html"
               >
                 Início
               </a>
