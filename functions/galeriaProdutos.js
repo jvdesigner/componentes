@@ -46,7 +46,7 @@ const firebaseConfig2 = {
 };
 
 // variavel app
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig2);
 
 // variavel banco
 const db = getFirestore(app);
@@ -105,11 +105,14 @@ let nSelecionado = parseInt(localStorage.getItem('paginaGaleriaProdutos'||1))
 //componente categoria
 const compCategoriaProdutos = document.getElementById('compCategoriaProdutos')
 
-//componente galeria vazia
-const constcompGaleriaVazia = document.getElementById('compGaleriaVazia')
 
 //componente galeria
 const galeriaProdutos = document.getElementById('galeriaProdutos')
+
+//componente pesquisa
+const formsearchproduto = document.getElementById('formsearchproduto')
+const campoBusca = formsearchproduto.querySelector('input')
+const btnBuscarProduto = document.getElementById('btnBuscarProduto')
 
 
 // =================================== FUNCOES =============================================== //
@@ -121,7 +124,7 @@ async function cadastrarProduto(nProdutos){
 
     //gerar lista de imagens
     let varListaUrlImagem;
-    await funcoes_dadosAleatorios.gerarImagensUnsplash('organic foods', nProdutos).then(urls => {varListaUrlImagem = urls});
+    await funcoes_dadosAleatorios.gerarImagensUnsplash('Organic Food', nProdutos).then(urls => {varListaUrlImagem = urls});
 
     // criar objeto de produtos   
     for (let i = 0; i < nProdutos; i++) {
@@ -153,21 +156,38 @@ async function cadastrarProduto(nProdutos){
 // funcao para consultar produtos
 async function consultarProdutos(){
 
+  //zerar galeria
+  funcoes_dadosAleatorios.removerFilhosComponente(galeriaProdutos)
+
   //total de produtos
   await totalDocumentos(q).then((result)=>{ totalProdutos = result;console.log('Total produtos: '+result)  })
 
   //verificar se existem produtos cadastrados
   if( totalProdutos === 0 || !totalProdutos ){
-    constcompGaleriaVazia.classList.remove('hidden');
-    constcompGaleriaVazia.classList.add('flex');
+    
+    const elementoGaleriaVazia = document.createElement('div')
+    
+    elementoGaleriaVazia.innerHTML=`  
+    
+    <div id="compGaleriaVazia" class="absolute h-full w-full flex flex-col items-center justify-center  text-teal-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>Galeria vazia</div>
+    
+    `
+
+    galeriaProdutos.appendChild(elementoGaleriaVazia)
+  
+    console.log('galeria vazia')
+    //ocultar filtro de categoria e paginacao e pesquisa
+    compCategoriaProdutos.classList.remove('flex');
+    compCategoriaProdutos.classList.add('hidden');
+    componenteTabProdutos.classList.remove('flex');
+    componenteTabProdutos.classList.add('hidden');
+
     return
   }
 
   //mostrar carregando
   funcoes_loading.mostrarLoading()
-
-  //zerar galeria
-  funcoes_dadosAleatorios.removerFilhosComponente(galeriaProdutos)
 
   //calcular indices de busca
   nSelecionado = parseInt(localStorage.getItem('paginaGaleriaProdutos'||1))
@@ -195,6 +215,7 @@ async function consultarProdutos(){
 
     <cards-05
       idProduto="${idProduto}"
+      nomeProduto="${dadosProduto.nome}"
       srcimagem="${dadosProduto.imagem}"
       precoProduto=${dadosProduto.preco}
       medidaProduto="${dadosProduto.medida}"
@@ -211,11 +232,14 @@ async function consultarProdutos(){
 
   })
 
-  //mostrar filtro de categoria e paginacao
+  //mostrar filtro de categoria e paginacao e pesquisa
   compCategoriaProdutos.classList.remove('hidden');
   compCategoriaProdutos.classList.add('flex');
   componenteTabProdutos.classList.remove('hidden');
   componenteTabProdutos.classList.add('flex');
+  formsearchproduto.classList.remove('hidden');
+  formsearchproduto.classList.add('flex');
+  
 
   //calcular total de paginas
   paginasTotais = Math.ceil( totalProdutos / totalCards )
@@ -250,7 +274,7 @@ async function consultarProdutos(){
   console.log('paginasTotais: '+paginasTotais)
 
   // cor na paginacao
-  controlarCorPaginacao()
+   controlarCorPaginacao()
 
 
   //ocultar carregando
@@ -408,20 +432,64 @@ function adcionarEventoCategorias(){
 
 }
 
+// =================================== BUSCA =============================================== //
+
+// funcao para adicionar evento de busca
+function adicionarEventoBusca(){
+
+  campoBusca.value = ''
+
+  btnBuscarProduto.addEventListener('click',()=>{
+
+    if(campoBusca.value===' '||campoBusca.value===''||!campoBusca.value){;return}
+
+    q = query(col, where("nome", ">=", campoBusca.value), where("nome", "<", campoBusca.value + "z"));
+
+      //zerar pagina
+      localStorage.setItem('paginaGaleriaProdutos',1)
+      nSelecionado = parseInt(localStorage.getItem('paginaGaleriaProdutos'||1))
+
+    consultarProdutos()
+
+  })
+
+  campoBusca.addEventListener('keyup',()=>{
+
+    if(campoBusca.value===' '||campoBusca.value===''||!campoBusca.value){
+
+      q=query(col,orderBy('nome'));
+
+      //zerar pagina
+      localStorage.setItem('paginaGaleriaProdutos',1)
+      nSelecionado = parseInt(localStorage.getItem('paginaGaleriaProdutos'||1))
+
+    consultarProdutos()
+
+
+
+    }
+
+    
+
+  })
+
+}
+
 
 // =================================== EXECUTAR =============================================== //
 
 
 
 // cadastrar produtos
-//await cadastrarProduto(2)
+//await cadastrarProduto(1)
 
 //eventos
 colocarEventosPaginacao()
 adcionarEventoCategorias()
+adicionarEventoBusca()
 
 // consultar base
-let q=query(col);
+let q=query(col,orderBy('nome'));
 consultarProdutos()
 
 //alerta
