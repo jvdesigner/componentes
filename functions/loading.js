@@ -53,4 +53,37 @@ export function ocultarLoading(){
 }
 
 
+//alerta02
+export async function criarAlerta02(titulo,mensagem,cor){
+
+    const elementoPai = document.querySelector('body');
+    const novoElemento = document.createElement('div');
+
+    novoElemento.innerHTML=`
+    <alert-02
+    cor = ${cor}
+    titulo = '${titulo}'
+    mensagem = '${mensagem}'
+    ></alert-02>
+    `;
+
+    elementoPai.appendChild(novoElemento);
+
+    document.documentElement.style.overflowY = 'hidden'
+
+    const btnFecharalert = document.getElementById('btnFecharalert')
+
+    btnFecharalert.addEventListener('click',()=>{
+
+        novoElemento.remove()
+
+        document.documentElement.style.overflowY = 'auto'
+
+    })
+
+
+
+}
+
+
   

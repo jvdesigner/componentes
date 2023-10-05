@@ -178,13 +178,13 @@ customElements.define("section-03", section03);
 
 <div class=" px-4 mx-auto lg:px-12 w-full mt-10 relative">
 
-  <form-search></form-search>
+  <form-search class="hidden"></form-search>
 
-  <carousel-07 id="compCategoriaProdutos" class="flex items-center"></carousel-07>
+  <carousel-07 id="compCategoriaProdutos" class="hidden items-center"></carousel-07>
 
   <section id="galeriaProdutos" class="grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-3 gap-0 max-md:gap-x-2 max-md:gap-y-6 px-10 max-md:px-0 pb-20 max-md:pb-10 pt-8 max-md:pt-0 ">
 
-  <div class="absolute h-full w-full flex flex-col items-center justify-center  text-teal-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <div id="compGaleriaVazia" class="absolute h-full w-full hidden flex-col items-center justify-center  text-teal-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>Galeria vazia</div>
       
 

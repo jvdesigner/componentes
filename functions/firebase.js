@@ -80,20 +80,13 @@ export async function  adicionarDocumento(col,objeto){
 //funcao para consultar base
 //parametros >> query
 //retorno >> documentos
-export async function consultarBase(col,indiceInicial, indiceFinal){
-    
-    const q = col
+export async function consultarBase(q,indiceInicial, indiceFinal){
   
     const querySnapshot = await getDocs(q);
 
+    const documentos = querySnapshot.docs.slice(indiceInicial, indiceFinal + 1); // +1 para incluir o documento final
 
-
-      const documentos = querySnapshot.docs.slice(indiceInicial, indiceFinal + 1); // +1 para incluir o documento final
-      return documentos;
-
-    
-
-    return querySnapshot;
+    return documentos;
   
 }
 

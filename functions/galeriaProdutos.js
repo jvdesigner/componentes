@@ -62,6 +62,8 @@ const col = collection(db, "produto")
 
 import * as funcoes_dadosAleatorios from './dadosAleatorios.js'
 
+import * as funcoes_loading from './loading.js'
+
 
 
 // =================================== VARIAVEIS =============================================== //
@@ -79,7 +81,7 @@ const componenteTabProdutos = document.getElementById('componenteTabProdutos')
 const liPagina = componenteTabProdutos.querySelectorAll('.liPagina')
 
 // obj pagina anterior
-const anteriorPagina = componenteTabProdutos.querySelector('#anteriorPagina')
+const anteriorPagina = document.querySelector('#anteriorPagina')
 
 // obj proxima pagina
 const proximaPagina = document.querySelector('#proximaPagina')
@@ -88,10 +90,26 @@ const proximaPagina = document.querySelector('#proximaPagina')
 const numeroTabs = liPagina.length
 
 //total de paginas
-let paginasTotais = 10
+let paginasTotais
+
+//total de cards na galeria
+let totalCards = 8
+
+//total de produtos
+let totalProdutos 
 
 // pagina selecionada
-let nSelecionado = 1
+localStorage.setItem('paginaGaleriaProdutos',1)
+let nSelecionado = parseInt(localStorage.getItem('paginaGaleriaProdutos'||1))
+
+//componente categoria
+const compCategoriaProdutos = document.getElementById('compCategoriaProdutos')
+
+//componente galeria vazia
+const constcompGaleriaVazia = document.getElementById('compGaleriaVazia')
+
+//componente galeria
+const galeriaProdutos = document.getElementById('galeriaProdutos')
 
 
 // =================================== FUNCOES =============================================== //
@@ -132,6 +150,114 @@ async function cadastrarProduto(nProdutos){
 
 }
 
+// funcao para consultar produtos
+async function consultarProdutos(){
+
+  //total de produtos
+  await totalDocumentos(q).then((result)=>{ totalProdutos = result;console.log('Total produtos: '+result)  })
+
+  //verificar se existem produtos cadastrados
+  if( totalProdutos === 0 || !totalProdutos ){
+    constcompGaleriaVazia.classList.remove('hidden');
+    constcompGaleriaVazia.classList.add('flex');
+    return
+  }
+
+  //mostrar carregando
+  funcoes_loading.mostrarLoading()
+
+  //zerar galeria
+  funcoes_dadosAleatorios.removerFilhosComponente(galeriaProdutos)
+
+  //calcular indices de busca
+  nSelecionado = parseInt(localStorage.getItem('paginaGaleriaProdutos'||1))
+  const indiceInicial = ( totalCards * nSelecionado) - totalCards
+  const indiceFinal = ( totalCards * nSelecionado) - 1
+
+  console.log('indiceInicial: '+indiceInicial)
+  console.log('indiceFinal: '+indiceFinal)
+
+  //pegar o bloco na base de dados
+  const querySnapshot = await getDocs(q);
+  const documentos = await querySnapshot.docs.slice(indiceInicial, indiceFinal+1); 
+
+  //percorrer documentos
+  documentos.forEach((doc)=>{
+
+    const idProduto = doc.id
+    const dadosProduto = doc.data()
+
+    console.log(doc.id)
+
+    const novoElemento = document.createElement('div');
+
+    novoElemento.innerHTML=`
+
+    <cards-05
+      idProduto="${idProduto}"
+      srcimagem="${dadosProduto.imagem}"
+      precoProduto=${dadosProduto.preco}
+      medidaProduto="${dadosProduto.medida}"
+      pesoProduto=${dadosProduto.peso}
+      numeroEstrelas=${dadosProduto.classificacao}
+      CategoriaProduto"${dadosProduto.categoria}"
+      descricaoProduto"${dadosProduto.descricao}"
+    ></cards-05>
+    
+    `
+
+    galeriaProdutos.appendChild(novoElemento);
+
+
+  })
+
+  //mostrar filtro de categoria e paginacao
+  compCategoriaProdutos.classList.remove('hidden');
+  compCategoriaProdutos.classList.add('flex');
+  componenteTabProdutos.classList.remove('hidden');
+  componenteTabProdutos.classList.add('flex');
+
+  //calcular total de paginas
+  paginasTotais = Math.ceil( totalProdutos / totalCards )
+
+  //editar paginas
+  let i=1;
+  liPagina.forEach((element)=>{  
+
+    if( i > paginasTotais ){ element.classList.remove('flex');element.classList.add('hidden') }
+    else{element.classList.remove('hidden');element.classList.add('flex','items-center','justify-center');
+    if( nSelecionado === 1 ) {element.textContent = i;}}
+
+    i++
+
+
+  });
+
+  //editar controle paginacao
+  if( paginasTotais <= numeroTabs ){ 
+    anteriorPagina.classList.remove('flex') 
+    proximaPagina.classList.remove('flex')
+    anteriorPagina.classList.add('hidden') 
+    proximaPagina.classList.add('hidden')
+  }
+  else{
+    anteriorPagina.classList.remove('hidden') 
+    proximaPagina.classList.remove('hidden')
+    anteriorPagina.classList.add('flex') 
+    proximaPagina.classList.add('flex')
+  }
+  console.log('numeroTabs: '+numeroTabs)
+  console.log('paginasTotais: '+paginasTotais)
+
+  // cor na paginacao
+  controlarCorPaginacao()
+
+
+  //ocultar carregando
+  funcoes_loading.ocultarLoading()
+
+}
+
 
 // funcao para retornar total de documentos
 // parametros >> colecao
@@ -145,10 +271,12 @@ async function totalDocumentos(colecao){
 }
 
 
+
+
 // =================================== PAGINACAO =============================================== //
 
 // funcao para controlar cor da tab de paginacao selecionado
-function controlarNumercaoPaginacao( nSelecionado ){
+function controlarCorPaginacao(){
 
   
   //remover cor dos componentes e colocar o selecionado
@@ -174,7 +302,7 @@ function controlarNumercaoPaginacao( nSelecionado ){
 
 
 
-}
+};
 
 // funcao para colocar evento nos componentes da paginacao
 function colocarEventosPaginacao(){
@@ -186,7 +314,13 @@ function colocarEventosPaginacao(){
           
           const txtnumeracao = parseInt(element.textContent.trim())
 
-          controlarNumercaoPaginacao( txtnumeracao )
+          localStorage.setItem('paginaGaleriaProdutos',txtnumeracao)
+
+          nSelecionado = parseInt(localStorage.getItem('paginaGaleriaProdutos'||1))
+
+          controlarCorPaginacao();
+
+          consultarProdutos()
 
       })
       
@@ -195,12 +329,14 @@ function colocarEventosPaginacao(){
   // evento na proxima pagina
   proximaPagina.addEventListener('click',()=>{ 
     adicionarPaginacao();
+    controlarCorPaginacao()
     
   })
 
   // evento na pagina anterior
-  proximaPagina.addEventListener('click',()=>{ 
+  anteriorPagina.addEventListener('click',()=>{ 
     subtrairPaginacao();
+    controlarCorPaginacao()
   })
 
 
@@ -214,11 +350,11 @@ function adicionarPaginacao(){
   const ultimoFilho = liPagina[numeroTabs - 1];
   const limite = parseInt( ultimoFilho.textContent.trim() )
 
+  if( limite === paginasTotais){return}
+
   liPagina.forEach( (element) => {
 
-    const numeracao = parseInt(element.textContent)
-    
-    if( limite <= paginasTotais){element.textContent=numeracao+1}
+      element.textContent = parseInt(element.textContent)+1;
 
   });
 
@@ -228,15 +364,14 @@ function adicionarPaginacao(){
 //funcao para subtrair paginacao
 function subtrairPaginacao(){
 
-  let txtnumeracao
+  const primeiroFilho = liPagina[0];
+  const limite = parseInt( primeiroFilho.textContent.trim() )
+
+  if( limite === 1){return}
 
   liPagina.forEach((element) => {
 
-    txtnumeracao = parseInt(element.textContent.trim())
-
-    if( txtnumeracao === 1){return}
-
-    element.textContent = txtnumeracao - 1
+    element.textContent = parseInt(element.textContent)-1
 
     
   });
@@ -245,20 +380,54 @@ function subtrairPaginacao(){
 }
 
 
+// =================================== CATEGORIA =============================================== //
+
+//funcao para adicionar evento nas categorias
+function adcionarEventoCategorias(){
+
+  const botoes = compCategoriaProdutos.querySelectorAll('button')
+
+  botoes.forEach((element)=>{
+  
+        element.addEventListener('click',async ()=>{
+
+          localStorage.setItem('paginaGaleriaProdutos',1)
+
+          const txtCategoria = element.textContent.trim()
+
+          if(txtCategoria=='Todas'){q=query(col,orderBy('nome'))}
+          else{q=query(col,where('categoria','==',txtCategoria),orderBy('nome'));}
+
+
+          consultarProdutos()
+
+
+      })
+
+})
+
+}
+
+
 // =================================== EXECUTAR =============================================== //
+
+
 
 // cadastrar produtos
 //await cadastrarProduto(2)
 
-// Retornar total de produtos
-//totalDocumentos(col).then((result)=>{ console.log( 'Total de Produtos: '+ result) })
-
-
-// cor na paginacao
-controlarNumercaoPaginacao( nSelecionado )
-
 //eventos
 colocarEventosPaginacao()
+adcionarEventoCategorias()
+
+// consultar base
+let q=query(col);
+consultarProdutos()
+
+//alerta
+//funcoes_loading.criarAlerta02('Atenção','Falha em atualizar a galeria','red')
+
+
 
 
 

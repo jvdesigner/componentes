@@ -15,7 +15,7 @@
     
   <!-- Codigo -->
         
-  <div id="componenteTabProdutos" class="flex justify-center gap-1 text-xs font-medium pb-2 mx-auto mt-10 max-md:mt-0 max-md:mb-28 mb-20 scale-110 max-md:scale-100 z-20">
+  <div id="componenteTabProdutos" class="hidden justify-center gap-1 text-xs font-medium pb-2 mx-auto mt-10 max-md:mt-0 max-md:mb-28 mb-20 scale-110 max-md:scale-100 z-20">
   <li id="anteriorPagina"
       class="cursor-pointer flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 hover:-translate-y-1"
     >

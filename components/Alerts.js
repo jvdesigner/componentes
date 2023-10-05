@@ -70,6 +70,10 @@ customElements.define("alert-01", alert01);
 class alert02 extends HTMLElement {
     constructor() {
       super();
+
+      const cor = this.getAttribute('cor') || 'green';
+      const titulo = this.getAttribute('titulo') || 'Email enviado com sucesso!';
+      const mensagem = this.getAttribute('mensagem') || 'Recebemos seu email e entraremos em contato em breve.';
   
       this.innerHTML = `
 
@@ -79,13 +83,13 @@ class alert02 extends HTMLElement {
     
   <!-- Codigo -->
         
-  <div class="bg-white/60 fixed top-0 right-0 left-0 z-50 hidden justify-center items-center w-screen h-screen max-lg:px-8 ">
+  <div id="compAlert" class="bg-white/60 fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-screen h-screen max-lg:px-8 ">
 
   <div role="alert" class="max-w-sm scale-110 max-lg:scale-100 rounded-xl border border-gray-100 drop-shadow-xl bg-white p-4 animate__animated  animate__zoomIn">
     
     <div class="flex items-start gap-4">
   
-      <span class="text-green-600">
+      <span class="text-${cor}-600">
   
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -105,14 +109,14 @@ class alert02 extends HTMLElement {
       </span>
   
       <div class="flex-1">
-        <strong class="block font-medium text-green-600"> Email enviado com sucesso! </strong>
+        <strong id="tituloAlert" class="block font-medium text-${cor}-600"> ${titulo} </strong>
   
-        <p class="mt-1 text-sm text-gray-700">
-          Recebemos seu email e entraremos em contato em breve.
+        <p id="textoAlert" class="mt-1 text-sm text-gray-700">
+        ${mensagem}
         </p>
       </div>
   
-      <button class="text-gray-500 transition hover:text-gray-600">
+      <button id="btnFecharalert" class="text-gray-500 transition hover:text-gray-600">
         <span class="sr-only">Dismiss popup</span>
   
         <svg
@@ -140,6 +144,8 @@ class alert02 extends HTMLElement {
           
   
         `;
+
+
     }
   }
   
