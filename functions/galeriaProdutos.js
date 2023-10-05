@@ -70,7 +70,7 @@ import * as funcoes_loading from './loading.js'
 
 //categoria de produtos
 const categorias = ["Frutas", "Legumes", "Vegetais", "Laticínios"];
-const categorias2 = ["Fruits", "Vegetables", "Vegetables", "Dairy"];
+const categorias2 = ["Fruits", "Vegetables", "Vegetables", "cheese"];
 
 // medida de produtos
 const medidas = ["kg","L","unid","g"]
@@ -501,7 +501,7 @@ function adicionarEventoBusca(){
 
 
 // cadastrar produtos
-//await cadastrarProduto(1)
+await cadastrarProduto(5)
 
 
 //eventos

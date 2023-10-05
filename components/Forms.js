@@ -5,6 +5,8 @@ import * as funcoes_login from '../functions/login.js'
 
 import * as funcoes_formulario from '../functions/formulario.js'
 
+import * as funcoes_loading from '../functions/loading.js'
+
 
 
 // =================================== COMPONENTES =============================================== //
@@ -375,6 +377,7 @@ class formsuporte extends HTMLElement {
           id = "formsuporte"
           class="space-y-4 md:space-y-6" 
           autocomplete="off"
+          action="https://formsubmit.co/nogueirajva@gmail.com" method="POST"
         >
 
             <div class="mb-6 blockinput">
@@ -387,6 +390,7 @@ class formsuporte extends HTMLElement {
 
                 <input 
                   autocomplete="off" 
+                  name="Email"
                   type="email" 
                   maxlength="100" 
                   id="txtEmailContato" 
@@ -406,7 +410,8 @@ class formsuporte extends HTMLElement {
                   >Assunto
                 </label>
 
-                <input 
+                <input
+                  name="Assunto" 
                   autocomplete="off" 
                   type="text" 
                   maxlength="100" 
@@ -427,7 +432,8 @@ class formsuporte extends HTMLElement {
                   >Mensagem
                 </label>
 
-                <textarea 
+                <textarea
+                  name="Mensagem"  
                   autocomplete="off"
                   maxlength="500" 
                   id="txtMensagemContato"
@@ -440,11 +446,13 @@ class formsuporte extends HTMLElement {
 
             </div>
 
+            <input type="hidden" name="_next" value="https://jvdesigner.github.io/ecommerce/html/suporte.html">
+
 
       
             <button 
               id="btnenviarcontato" 
-              type="button" 
+              type="submit" 
               class=" w-full  text-white bg-teal-600 hover:bg-teal-700 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:scale-[1.02] hover:scale-[1.02] "
               >Enviar
             </button>
@@ -478,7 +486,19 @@ class formsuporte extends HTMLElement {
 
       // validar campos obrigatorio no formulario de suporte
 
-      btnenviarcontato.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formsuporte) });
+      btnenviarcontato.addEventListener('click', ()=>{ 
+        
+        const resposta = funcoes_formulario.validarFormulario(formsuporte) 
+
+        if(resposta){
+
+           funcoes_loading.criarAlerta02('Email enviado!','Recebemos seu email e logo iremos retornar','green')
+
+
+        }
+      
+      
+      });
 
   }
 }

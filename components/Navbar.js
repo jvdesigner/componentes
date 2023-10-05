@@ -48,36 +48,36 @@ class navbar01 extends HTMLElement {
 
           <ul class="flex items-center gap-6 text-sm">
 
-            <li class="hover:-translate-y-2  ">
+            <li class="hover:-translate-y-0.5">
               <a
-                class="text-${telainicio}-500 transition hover:text-gray-500/75"
+                class="text-${telainicio}-500 transition hover:text-teal-600"
                 href="../index.html"
               >
                 Início
               </a>
             </li>
 
-            <li class="hover:-translate-y-2">
+            <li class="hover:-translate-y-0.5">
               <a
-                class="text-${telasobre}-500 transition hover:text-gray-500/75"
+                class="text-${telasobre}-500 transition hover:text-teal-600"
                 href="/html/sobre.html"
               >
                 Sobre
               </a>
             </li>
 
-            <li class="hover:-translate-y-2">
+            <li class="hover:-translate-y-0.5">
               <a
-                class="text-${telaprodutos}-500 transition hover:text-gray-500/75"
+                class="text-${telaprodutos}-500 transition hover:text-teal-600"
                 href="/html/produtos.html"
               >
                 Produtos
               </a>
             </li>
 
-            <li class="hover:-translate-y-2">
+            <li class="hover:-translate-y-0.5">
               <a
-                class="text-${telasuporte}-500 transition hover:text-gray-500/75"
+                class="text-${telasuporte}-500 transition hover:text-teal-600"
                 href="/html/suporte.html"
               >
                 Suporte
@@ -139,6 +139,7 @@ class navbar01 extends HTMLElement {
 
           <cart-01></cart-01>
           <avatar-01 class="hidden"></avatar-01>
+          <avatar-02></avatar-02>
           
         </div>
 

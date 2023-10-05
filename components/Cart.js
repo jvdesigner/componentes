@@ -24,13 +24,17 @@ class cart01 extends HTMLElement {
   <!-- Codigo -->
         
 
-  <div  class="block shrink-0  relative">
+  <div  class="block shrink-0  relative group/carrinho">
 
   <div id="navcart2" class="bg-white/60 fixed top-0 right-0 left-0 max-md:-left-96 max-md:w-[200vw] z-50 hidden justify-center items-center w-screen  h-screen max-lg:px-8"></div>
 
   <span class="sr-only">carrinho</span>
 
-  <svg id="btnnavcart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 cursor-pointer stroke-gray-600"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
+  <svg id="btnnavcart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 cursor-pointer stroke-gray-600 hover:stroke-teal-600"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
+
+  <div class="absolute p-4 opacity-[0.9] bg-white text-teal-600 rounded-2xl whitespace-nowrap hidden text-xs -bottom-14 -right-8 lg:group-hover/carrinho:flex shadow">
+    Meu Carrinho
+  </div>
 
 
   <div id="navcart" class="hidden p-2 w-[40vw] max-lg:w-[70vw] max-md:w-[100vw] max-md:translate-x-16 drop-shadow-xl rounded-xl bg-white absolute right-0 translate-y-4 z-50 max-md:translate-x-20">
