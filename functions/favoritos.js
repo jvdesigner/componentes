@@ -104,7 +104,7 @@ async function consultarFavoritos() {
 
     // lista favoritos
     const listaFavoritos = await localStorage.getItem('favoritos');
-    const listaConvertida = JSON.parse(listaFavoritos);
+    const listaConvertida = JSON.parse(listaFavoritos).reverse();
   
     // container favoritos
     const containerFavoritos = document.getElementById('containerFavoritos');
@@ -127,6 +127,7 @@ async function consultarFavoritos() {
     // iterar na lista de favoritos
     for (let j = 0; j < listaConvertida.length; j++) {
        idProdutofavorito = listaConvertida[j];
+       console.log(idProdutofavorito)
       const docRef = doc(db, "produto", idProdutofavorito);
       const docSnap = await getDoc(docRef);
       const dados = docSnap.data();
