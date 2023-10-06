@@ -399,7 +399,7 @@ async function cadastrarAvaliacao(){
 
   })
 
-  if(i===0){ funcoes_loading.criarAlerta02('Atenção!','Classifique o produto no formulario','red') ; return}
+  if(i===0){ funcoes_loading.criarAlerta02('Atenção!','Classifique o produto no formulario','red','alert') ; return}
   
   // validar campo de comentario
   // formulario
@@ -426,7 +426,7 @@ async function cadastrarAvaliacao(){
   //cadastrar comentario
   try{ 
     await addDoc( col , objComentario ) ;
-    funcoes_loading.criarAlerta02('Obrigado!','Recebemos sua classificação!','green');
+    funcoes_loading.criarAlerta02('Obrigado!','Recebemos sua classificação!','green','ok');
     zerarFormularioComentario()
   } 
   catch(error){console.log(error.message)}

@@ -331,6 +331,58 @@ class section07 extends HTMLElement {
 customElements.define("section-07", section07);
 
 
+// == Componente de section 07 == //
+
+class section08 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+<section class="w-screen h-screen mx-auto max-w-screen-xl py-24 px-6 ">
+
+      <header class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-10">
+
+          <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-teal-600 ">Meus Favoritos</h2>
+          
+          <p class="font-normal text-gray-500 sm:text-xl ">Aqui estão seus produtos preferidos! 👍</p>
+
+          <div class="hidden translate-y-40 h-full w-full flex flex-col items-center justify-center  text-teal-600 text-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>Galeria vazia</div>
+
+      </header> 
+
+      <section class="flex flex-col gap-10">
+      
+        <article>
+
+          <h2 class="mb-4 text-2xl lg:text-4xl tracking-tight font-semibold text-teal-600 ">Frutas</h2>
+
+          <!--CARROSSEL-->
+          <carousel-10></carousel-10>
+
+        </article>
+
+
+      </section>
+      
+
+</section>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("section-08", section08);
+
+
   
   
   

@@ -3,6 +3,8 @@
 
  import * as funcoes_perfil from '../functions/perfil.js'
 
+ import * as funcoes_favoritos from '../functions/favoritos.js'
+
 
 // ================================== COMPONENTES ================================================ //
 
@@ -106,6 +108,8 @@ class avatar02 extends HTMLElement {
   constructor() {
     super();
 
+    const cor = this.getAttribute('cor');
+
     this.innerHTML = `
     
           
@@ -113,14 +117,14 @@ class avatar02 extends HTMLElement {
 <!-- Codigo -->
       
 
-<a href="#" class="relative  w-7 flex items-center group/favorito mx-auto">
+<div id="iconeFavorito" class="relative  w-7 flex items-center group/favorito mx-auto">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     stroke-width="1.5"
     stroke="currentColor"
-    class="h-8 w-8 max-lg:h-7 max-lg:w-7 max-md:h-6 max-md:w-6 hover:scale-[1.02] hover:stroke-teal-600 stroke-gray-600 fill-none "
+    class="h-8 w-8 max-lg:h-7 max-lg:w-7 max-md:h-6 max-md:w-6 hover:scale-[1.02] hover:stroke-teal-600 stroke-${cor}-600 fill-none "
   >
     <path
       stroke-linecap="round"
@@ -133,13 +137,17 @@ class avatar02 extends HTMLElement {
     Meus Favoritos
   </div>
 
-</a>
+</div>
           
           
 <!-- Codigo -->
         
 
       `;
+
+      const iconeFavorito = this.querySelector('#iconeFavorito')
+
+      iconeFavorito.addEventListener('click',()=>{ funcoes_favoritos.verificarFavoritos() })
 
 
   }

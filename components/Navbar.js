@@ -14,6 +14,7 @@ class navbar01 extends HTMLElement {
     const telasobre = this.getAttribute('telasobre')||'gray';
     const telaprodutos = this.getAttribute('telaprodutos')||'gray';
     const telasuporte = this.getAttribute('telasuporte')||'gray';
+    const telafavoritos = this.getAttribute('telafavoritos')||'gray';
 
 
     this.innerHTML = `
@@ -139,7 +140,7 @@ class navbar01 extends HTMLElement {
 
           <cart-01></cart-01>
           <avatar-01 class="hidden"></avatar-01>
-          <avatar-02></avatar-02>
+          <avatar-02 cor=${telafavoritos}></avatar-02>
           
         </div>
 

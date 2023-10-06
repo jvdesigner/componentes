@@ -854,7 +854,182 @@ customElements.define("carousel-06", carousel06);
   // ================================================================================== //
 
   
+  // == Componente de carrossel 10 == //
+
+class carousel10 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
   
+<!-- Codigo -->
+
+
+  <div class="swiper mySwiperx overflow-y-visible">
+
+      <div class="swiper-wrapper">
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+
+      <cards-05
+      class="swiper-slide"
+      idProduto="1"
+      nomeProduto="Morango"
+      srcimagem="https://images.unsplash.com/photo-1518635017498-87f514b751ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW9yYW5nb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+      precoProduto=5.00
+      medidaProduto="kg"
+      pesoProduto=1
+      numeroEstrelas=4
+      CategoriaProduto="Frutas"
+      descricaoProduto="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+      </cards-05>
+          
+
+      </div>
+
+  </div>
+
+
+
+<!-- Codigo -->
+        
+
+      `;
+
+      var swiper = new Swiper(".mySwiperx", {
+
+          slidesPerView: 1,
+
+          speed: 10000,
+
+          spaceBetween: 10,
+
+          grabCursor: true,
+
+          freeMode:true,
+
+          //mousewheel: true,
+          
+          breakpoints: {
+
+              300: {
+                  slidesPerView: 2.2,
+                  spaceBetween: 15,
+                },
+
+            640: {
+              slidesPerView: 2.2,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 4.5,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 4.5,
+              spaceBetween: 25,
+            },
+
+          },
+
+        });
+
+
+  }
+}
+
+customElements.define("carousel-10", carousel10);
   
   
   
