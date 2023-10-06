@@ -343,11 +343,11 @@ class section08 extends HTMLElement {
   
 <!-- Codigo -->
       
-<section class="w-screen h-screen mx-auto max-w-screen-xl py-24 px-6 ">
+<section class="w-screen h-screen  py-24 pr-6 pl-20 max-lg:pl-4 max-lg:pr-4  ">
 
       <header class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-10">
 
-          <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-teal-600 ">Meus Favoritos</h2>
+          <h2 id="titleFavoritos" class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-teal-600 ">Meus Favoritos</h2>
           
           <p class="font-normal text-gray-500 sm:text-xl ">Aqui estão seus produtos preferidos! 👍</p>
 
@@ -355,16 +355,9 @@ class section08 extends HTMLElement {
 
       </header> 
 
-      <section class="flex flex-col gap-10">
+      <section id="containerFavoritos" class="flex flex-col gap-10 max-lg:pb-40">
       
-        <article>
-
-          <h2 class="mb-4 text-2xl lg:text-4xl tracking-tight font-semibold text-teal-600 ">Frutas</h2>
-
-          <!--CARROSSEL-->
-          <carousel-10></carousel-10>
-
-        </article>
+        
 
 
       </section>

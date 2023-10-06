@@ -475,7 +475,7 @@ class cards05 extends HTMLElement {
 >
   <span class="sr-only">Wishlist</span>
 
-  <svg
+  <svg id="svgCurti"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
@@ -596,9 +596,11 @@ class cards05 extends HTMLElement {
     // Chama funcao para adicionar/remover o produto a lista de favoritos
      const colFavoritos = this.querySelector('.clsfavoritos')
      
-     colFavoritos.addEventListener('click', ()=> { 
+     colFavoritos.addEventListener('click', async ()=> { 
 
-      funcoes_produtos.gerenciarProdutoFavorito(idProduto);
+     console.log(idProduto)
+
+      await funcoes_produtos.gerenciarProdutoFavorito(idProduto);
       
       if (funcoes_produtos.isProdutoFavorito(idProduto)) { colFavoritos.classList.add("fill-teal-600")} 
       else{ colFavoritos.classList.remove("fill-teal-600")}

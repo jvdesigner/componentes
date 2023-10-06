@@ -24,6 +24,7 @@ export function gerenciarProdutoFavorito(valorIdProduto) {
 
     const indice = listaArray.indexOf(valorIdProduto);
 
+
     if (indice !== -1) {
         // O ID já existe na lista, então remova-o
         listaArray.splice(indice, 1);

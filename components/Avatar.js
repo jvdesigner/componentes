@@ -3,7 +3,6 @@
 
  import * as funcoes_perfil from '../functions/perfil.js'
 
- import * as funcoes_favoritos from '../functions/favoritos.js'
 
 
 // ================================== COMPONENTES ================================================ //
@@ -117,7 +116,7 @@ class avatar02 extends HTMLElement {
 <!-- Codigo -->
       
 
-<div id="iconeFavorito" class="relative  w-7 flex items-center group/favorito mx-auto">
+<div id="iconeFavorito" class="relative  w-7 flex items-center group/favorito mx-auto cursor-pointer">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -147,7 +146,7 @@ class avatar02 extends HTMLElement {
 
       const iconeFavorito = this.querySelector('#iconeFavorito')
 
-      iconeFavorito.addEventListener('click',()=>{ funcoes_favoritos.verificarFavoritos() })
+      iconeFavorito.addEventListener('click',()=>{ funcoes_perfil.verificarFavoritos() })
 
 
   }

@@ -59,8 +59,6 @@ export async function criarAlerta02(titulo,mensagem,cor,tipo){
     const elementoPai = document.querySelector('body');
     const novoElemento = document.createElement('div');
 
-    console.log(tipo)
-
     novoElemento.innerHTML=`
     <alert-02
     cor = ${cor}
