@@ -309,7 +309,7 @@ class section07 extends HTMLElement {
 
       <div class="px-28 max-lg:px-0">
       
-        <p class="text-lg lg:text-xl font-bold text-gray-900 mb-4">Avaliações (20)</p>
+        <p id="totalAvaliacoes" class="text-lg lg:text-xl font-bold text-gray-900 mb-4">Avaliações (20)</p>
 
         <carousel-08></carousel-08>
 

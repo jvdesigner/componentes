@@ -89,7 +89,7 @@ async function consultarProdutosPromocao(){
     const idProduto = doc.id
     const dadosProduto = doc.data()
 
-    console.log(doc.id)
+    //console.log(doc.id)
 
     const novoElemento = document.createElement('div');
 

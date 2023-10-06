@@ -153,7 +153,7 @@ async function cadastrarProduto(nProdutos){
         preco             :  funcoes_dadosAleatorios.getRandomDecimal(1.0, 20.0), 
         medida            : funcoes_dadosAleatorios.itemAleatorio(medidas),
         peso              : funcoes_dadosAleatorios.getRandomInt(1, 10) , 
-        classificacao     : funcoes_dadosAleatorios.getRandomInt(1, 5) , 
+        classificacao     : 0 , //funcoes_dadosAleatorios.getRandomInt(1, 5)
         descricao         : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nobis,quia soluta quisquam voluptatem nemo.Lorem ipsum dolor sit amet consectetur adipisicing elit.' 
         
       };
@@ -176,7 +176,10 @@ async function consultarProdutos(){
   funcoes_dadosAleatorios.removerFilhosComponente(galeriaProdutos)
 
   //total de produtos
-  await totalDocumentos(q).then((result)=>{ totalProdutos = result;console.log('Total produtos: '+result)  })
+  await totalDocumentos(q).then((result)=>{ 
+    totalProdutos = result;
+  //  console.log('Total produtos: '+result)  
+  })
 
   //verificar se existem produtos cadastrados
   if( totalProdutos === 0 || !totalProdutos ){
@@ -210,8 +213,8 @@ async function consultarProdutos(){
   const indiceInicial = ( totalCards * nSelecionado) - totalCards
   const indiceFinal = ( totalCards * nSelecionado) - 1
 
-  console.log('indiceInicial: '+indiceInicial)
-  console.log('indiceFinal: '+indiceFinal)
+  //console.log('indiceInicial: '+indiceInicial)
+  //console.log('indiceFinal: '+indiceFinal)
 
   //pegar o bloco na base de dados
   const querySnapshot = await getDocs(q);
@@ -223,7 +226,7 @@ async function consultarProdutos(){
     const idProduto = doc.id
     const dadosProduto = doc.data()
 
-    console.log(doc.id)
+    //console.log(doc.id)
 
     const novoElemento = document.createElement('div');
 
@@ -286,8 +289,8 @@ async function consultarProdutos(){
     anteriorPagina.classList.add('flex') 
     proximaPagina.classList.add('flex')
   }
-  console.log('numeroTabs: '+numeroTabs)
-  console.log('paginasTotais: '+paginasTotais)
+  //console.log('numeroTabs: '+numeroTabs)
+  //console.log('paginasTotais: '+paginasTotais)
 
   // cor na paginacao
    controlarCorPaginacao()

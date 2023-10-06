@@ -221,7 +221,16 @@ customElements.define("cards-01", cards01);
      funcoes_produtos.preencherEstrelas(numeroEstrelas,this);
 
      // Chama funcao para adicionar/remover o produto a lista de favoritos
-     this.querySelector('.clsfavoritos').addEventListener('click', ()=> { funcoes_produtos.gerenciarProdutoFavorito(idProduto) } ) 
+     const colFavoritos = this.querySelector('.clsfavoritos')
+     
+     colFavoritos.addEventListener('click', ()=> { 
+
+      funcoes_produtos.gerenciarProdutoFavorito(idProduto);
+
+      if (funcoes_produtos.isProdutoFavorito(idProduto)) { colFavoritos.classList.add("fill-teal-600")} 
+      else{ colFavoritos.classList.remove("fill-teal-600")}
+
+    }) 
 
      // Adicionar ao localstorage as informacoes do Produto selecionado
     this.querySelector('.imagemProduto').addEventListener('click',()=>{
@@ -585,7 +594,16 @@ class cards05 extends HTMLElement {
   funcoes_produtos.preencherEstrelas(numeroEstrelas,this);
 
     // Chama funcao para adicionar/remover o produto a lista de favoritos
-  this.querySelector('.clsfavoritos').addEventListener('click', ()=> { funcoes_produtos.gerenciarProdutoFavorito(idProduto) } )
+     const colFavoritos = this.querySelector('.clsfavoritos')
+     
+     colFavoritos.addEventListener('click', ()=> { 
+
+      funcoes_produtos.gerenciarProdutoFavorito(idProduto);
+      
+      if (funcoes_produtos.isProdutoFavorito(idProduto)) { colFavoritos.classList.add("fill-teal-600")} 
+      else{ colFavoritos.classList.remove("fill-teal-600")}
+
+    }) 
 
     // Adicionar ao localstorage as informacoes do Produto selecionado
     this.querySelector('.imagemProduto').addEventListener('click',()=>{
@@ -637,15 +655,15 @@ class cards06 extends HTMLElement {
     const precoProduto = this.getAttribute('precoProduto') || parseFloat( localobjProduto['preco'] );
     const medidaProduto = this.getAttribute('medidaProduto') || localobjProduto['medida'];
     const pesoProduto = this.getAttribute('pesoProduto') || parseInt( localobjProduto['peso'] );
-    const idProduto = this.getAttribute('idProduto') || parseFloat( localobjProduto['id'] );
-    const numeroEstrelas = this.getAttribute('numeroEstrelas') || parseFloat( localobjProduto['classificacao'] );
+    const idProduto = this.getAttribute('idProduto') ||  localobjProduto['id'] ;
+    const numeroEstrelas = this.getAttribute('numeroEstrelas') || parseInt( localobjProduto['classificacao'] );
     const descricaoProduto = this.getAttribute('descricaoProduto') || localobjProduto['descricao'];
     const categoriaProduto = this.getAttribute('categoriaProduto') || localobjProduto['categoria'];
 
     let preenchimentoFavorito="";
 
     // Preencher o icone de favoritos de estiver na lista de favoritos
-  if (funcoes_produtos.isProdutoFavorito(idProduto.toString())) { preenchimentoFavorito = "fill-teal-600"}
+  if (funcoes_produtos.isProdutoFavorito(idProduto)) { preenchimentoFavorito = "fill-teal-600"}
 
   this.innerHTML = `
   
@@ -853,7 +871,16 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
   funcoes_produtos.preencherEstrelas(numeroEstrelas,this);
 
     // Chama funcao para adicionar/remover o produto a lista de favoritos
-  this.querySelector('.clsfavoritos').addEventListener('click', ()=> { funcoes_produtos.gerenciarProdutoFavorito(idProduto.toString()) } )
+    const colFavoritos = this.querySelector('.clsfavoritos')
+     
+    colFavoritos.addEventListener('click',  ()=> { 
+
+     funcoes_produtos.gerenciarProdutoFavorito(idProduto);
+     
+     if (funcoes_produtos.isProdutoFavorito(idProduto)) {  colFavoritos.classList.remove("fill-teal-600")} 
+     else{ colFavoritos.classList.add("fill-teal-600")}
+
+   }) 
 
 
     // Alterar quantidade do input de quantidade do produto

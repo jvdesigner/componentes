@@ -36,7 +36,7 @@ export function gerenciarProdutoFavorito(valorIdProduto) {
     const listaString = JSON.stringify(listaArray);
     localStorage.setItem("favoritos", listaString);
     
-    //alert(localStorage.getItem("favoritos"))
+    //console.log(localStorage.getItem("favoritos"))
 }
 
 

@@ -29,12 +29,12 @@ class rating01 extends HTMLElement {
         
 
   <!-- estrelas -->
-  <div class="flex items-center justify-center mt-4 w-full">
+  <div class="flex items-center justify-center mt-4 w-full compPercentualEstrelas">
 
       <a href="#" class="text-sm font-medium text-gray-600  hover:underline">${nEstrelas} </a>
 
       <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded ">
-          <div class="h-5 bg-teal-600 rounded" style="width: ${porcentagem}%"></div>
+          <div class="h-5 bg-teal-600 rounded graficobarra" style="width: ${porcentagem}%"></div>
       </div>
 
       <span class="text-sm font-medium text-gray-500 ">${porcentagem}%</span>
@@ -60,7 +60,10 @@ class rating02 extends HTMLElement {
       super();
 
 
-      const nEstrelas = this.getAttribute('nEstrelas')||'5';
+      const localobjProduto = JSON.parse(localStorage.getItem("localobjProduto"));
+      const numeroEstrelas = this.getAttribute('numeroEstrelas') || parseInt( localobjProduto['classificacao'] );
+        
+
   
       this.innerHTML = `
       
@@ -72,7 +75,7 @@ class rating02 extends HTMLElement {
   <div id="classificaoProduto" class=" flex items-center justify-center mb-6 w-full">
 
       
-     <p class="ml-2 text-4xl font-medium text-teal-600 mr-2">${nEstrelas}</p>
+     <p class="ml-2 text-4xl font-medium text-teal-600 mr-2">${numeroEstrelas}</p>
 
      <div class="grupoEstrelas flex items-center">
 
@@ -108,7 +111,7 @@ class rating02 extends HTMLElement {
         `;
 
         // Chama a função preencherEstrelas com o número de estrelas
-        funcoes_produtos.preencherEstrelas(nEstrelas,this);
+        funcoes_produtos.preencherEstrelas(numeroEstrelas,this);
 
 
     }
@@ -123,6 +126,8 @@ customElements.define("rating-02", rating02);
 class rating03 extends HTMLElement {
     constructor() {
       super();
+
+      
 
   
       this.innerHTML = `
@@ -151,9 +156,7 @@ class rating03 extends HTMLElement {
           
   
         `;
-
-
-
+        
     }
   }
   

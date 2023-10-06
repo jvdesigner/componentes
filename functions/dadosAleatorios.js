@@ -95,3 +95,18 @@ export function itemAleatorio(lista) {
   return lista[indiceAleatorio];
 }
 
+//Função para gerar data aleatoria
+export function gerarDataAleatoriaMinima() {
+  const dataAtual = new Date();
+  const anoAtual = dataAtual.getFullYear();
+  const mesAtual = dataAtual.getMonth() + 1; // Os meses são baseados em zero, então adicionamos 1.
+  const diaAtual = dataAtual.getDate();
+
+  const anoAleatorio = anoAtual + Math.floor(Math.random() * 1); // Gera um ano aleatório nos próximos 10 anos
+  const mesAleatorio = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0'); // Gera um mês aleatório entre 01 e 12
+  const diaAleatorio = String(Math.floor(Math.random() * 31) + 1).padStart(2, '0'); // Gera um dia aleatório entre 01 e 31
+
+  return `${anoAleatorio}/${mesAleatorio}/${diaAleatorio}`;
+}
+
+
