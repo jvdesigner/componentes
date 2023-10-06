@@ -672,7 +672,7 @@ class cards06 extends HTMLElement {
 <!-- Codigo -->
     
 
-<div class="flex max-md:flex-col md:gap-24">
+<div id="cardAvaliacao" class="flex max-md:flex-col md:gap-24">
 
 
 <div class="relative">

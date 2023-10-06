@@ -530,14 +530,14 @@ class formcomentario extends HTMLElement {
             placeholder="Escreva o que achou do produto...">
        </textarea>
 
-       <p id="alertainputclassificacao" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+       <p id="alertainputclassificacao" class="hidden mb-4 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
 
     </div>
     
     <button 
         id="btnenviarcomentario"
         type="button"
-        class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-teal-700 rounded-lg focus:ring-4 focus:ring-teal-200 hover:bg-teal-800">
+        class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800">
         Comentar
     </button>
 
@@ -560,9 +560,7 @@ class formcomentario extends HTMLElement {
       // zerar
       txtcomentario.value = null
 
-      // validar campos obrigatorio no formulario de suporte
-
-      btnenviarcomentario.addEventListener('click',()=>{ funcoes_formulario.validarFormulario(formcomentario) });
+      
 
       
 

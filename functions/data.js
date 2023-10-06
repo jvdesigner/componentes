@@ -28,6 +28,16 @@ export function formatDate(inputDate) {
   
     return formattedDate;
   }
+
+  // funcao que retorna a data atual
+export function obterDataAtual() {
+    const data = new Date();
+    const ano = data.getFullYear();
+    const mes = (data.getMonth() + 1).toString().padStart(2, '0'); // +1 porque os meses começam em 0
+    const dia = data.getDate().toString().padStart(2, '0');
+
+    return `${ano}/${mes}/${dia}`;
+}
   
 
 

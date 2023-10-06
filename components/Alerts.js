@@ -108,7 +108,7 @@ class alert02 extends HTMLElement {
   
       </span>
   
-      <div class="flex-1">
+      <div class="flex-1 space-y-4 mb-4">
         <strong id="tituloAlert" class="block font-medium text-${cor}-600"> ${titulo} </strong>
   
         <p id="textoAlert" class="mt-1 text-sm text-gray-700">

@@ -1,5 +1,7 @@
 
 
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
+
 // =================================== IMPORTAR FIREBASE =============================================== //
 
 
@@ -15,9 +17,6 @@ import {
           where        ,
           limit        ,
           orderBy      ,
-          startAfter   ,
-          startAt      ,
-          endAt        ,
           deleteDoc    ,
           updateDoc    ,
           doc
@@ -64,7 +63,13 @@ const col = collection(db, "avaliacoes")
 
 import * as funcoes_dadosAleatorios from './dadosAleatorios.js'
 
+import * as funcoes_produtos from './produtos.js'
+
 import * as funcoes_loading from './loading.js'
+
+import * as funcoes_formulario from './formulario.js'
+
+import * as funcoes_data from './data.js'
 
 
 
@@ -100,7 +105,7 @@ async function cadastraravaliacoes(navaliacoes){
     }
 
     //retorno
-    console.log(navaliacoes + ' Avaliacoes cadastrados!!')
+    //console.log(navaliacoes + ' Avaliacoes cadastrados!!')
 
 }
 
@@ -136,8 +141,10 @@ async function totalDocumentos(colecao){
   }
 
 // funcao para calcular porcentagem de classificacao
-
 async function calculcarPorcentagemClassificacao(){
+
+    //funcao para atualizar comentarios
+    apresentarAvaliacoes()
 
     //componente percentual estrela
     const compPercentualEstrelas = document.querySelectorAll('.compPercentualEstrelas')
@@ -174,31 +181,38 @@ async function calculcarPorcentagemClassificacao(){
     //iniciar variavel lista de percentuais
     const objClassificacaoProduto = []
 
+    //percorrer avaliacoes e colocar na lista
     querySnapshot.forEach((doc)=>{ objClassificacaoProduto.push(doc.data())})
 
+    // colocar total de avaliações no elemento
     document.getElementById('totalAvaliacoes').textContent = 'Avaliações ('+ totalAvaliacoes + ')'
 
+    // retornar os percentuais
     const objpercentual = calcularPercentuaisDeClassificacao(objClassificacaoProduto)
 
+    calcularMediaDeClassificacao(objClassificacaoProduto,idProduto)
+
     let i = 5;
+    let porcentagem
     //percorrer grafico
     compPercentualEstrelas.forEach((element)=>{
-        const porcentagem = objpercentual[i]
+      
+      if(!objpercentual[i]){ porcentagem = '0'}else{ porcentagem = objpercentual[i]}
         element.querySelector('.graficobarra').style.width = porcentagem +"%"
         element.querySelector('span').textContent = porcentagem +"%"
         i--
     })
 
-    console.log(objClassificacaoProduto)
-    console.log(objpercentual)
+    /*console.log('objClassificacaoProduto: '+objClassificacaoProduto)
+    console.log("objpercentual: "+objpercentual)
     console.log('total documentos: '+ totalAvaliacoes)
-    console.log(idProduto)
+    console.log('objpercentual: '+idProduto)
+    console.log('totalAvaliacoes: '+totalAvaliacoes)*/
 
 
 }
 
 //funcao para calculcar o percentual das classificacoes
-
 function calcularPercentuaisDeClassificacao(avaliacoes) {
     // Inicializa um objeto para contar as avaliações de cada classificação
     const classificacoesContagem = {};
@@ -225,20 +239,242 @@ function calcularPercentuaisDeClassificacao(avaliacoes) {
       const contagem = classificacoesContagem[classificacao];
       const percentual = (contagem / totalAvaliacoes) * 100;
       percentuais[classificacao] = percentual.toFixed(0); // Arredonda para duas casas decimais
+      //console.log(percentual)
     }
-  
+    
     return percentuais;
+    
   }
 
+// funcao para calcular a media de classificacao
+async function calcularMediaDeClassificacao(avaliacoes,idProduto) {
+  let somaClassificacoes = 0; // Variável para somar todas as classificações
+
+  // Percorre as avaliações e soma todas as classificações
+  for (let i = 0; i < avaliacoes.length; i++) {
+    const classificacao = avaliacoes[i].classificacao;
+    somaClassificacoes += classificacao;
+  }
+
+  // Calcula o total de avaliações
+  const totalAvaliacoes = avaliacoes.length;
+
+  // Calcula a média das classificações
+  const mediaClassificacoes = (somaClassificacoes / totalAvaliacoes).toFixed(0);
+
+  //alterar classificacao
+
+  const documento = doc(db, "produto", idProduto);
+
+  // Set the "capital" field of the city 'DC'
+  updateDoc(documento, {
+    classificacao: mediaClassificacoes
+  });
+
+  //console.log('classificacao atualizada')
+
+  document.getElementById('txtclassificaoProduto').textContent = mediaClassificacoes
+
+  // atualiza as estrelas na interface
+  funcoes_produtos.preencherEstrelas(mediaClassificacoes,document.getElementById('cardAvaliacao'))
+  funcoes_produtos.preencherEstrelas(mediaClassificacoes,document.getElementById('classificaoProduto'))
+
+  
+}
+
+// funcao para cadastrar comentario
+async function apresentarAvaliacoes(){
+
+  // container avaliacoes
+  const paiCardsAvaliacoes = document.getElementById('paiCardsAvaliacoes')
+
+  //zerar container
+  funcoes_dadosAleatorios.removerFilhosComponente(paiCardsAvaliacoes)
+
+  //recuperar id do localstorage
+  const objproduto = JSON.parse(localStorage.getItem('localobjProduto'))
+
+  // id do prduto
+  const idProduto = objproduto['id']
+
+  // retornar query
+  let q = query(col, where('idProduto','==',idProduto),orderBy('data','desc') );
+
+  // documentos da query
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach((doc)=>{
+    const dados = doc.data()
+
+    const componenteCardComentario = document.createElement('div')
+    componenteCardComentario.classList.add('swiper-slide')
+
+    componenteCardComentario.innerHTML=`
+
+    <cards-07
+    nEstrelas=${dados.classificacao}
+    txtTexto=${dados.comentario}
+    txtData=${dados.data}
+    ></cards-07>
+
+    `
+
+    paiCardsAvaliacoes.appendChild(componenteCardComentario)
+
+    var swiper7 = new Swiper(".carrossel8", {
+  
+      slidesPerView: 2.8,
+
+      speed: 2000,
+
+      spaceBetween: 4,
+
+      //grabCursor: true,
+
+      freeMode:true,
+
+      mousewheel: true,
+
+      direction: "vertical",
+
+      breakpoints: {
+
+        300: {
+            slidesPerView: 2,
+            spaceBetween: 2,
+          },
+
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 2,
+      },
+      768: {
+        slidesPerView: 2.2,
+        spaceBetween: 2,
+      },
+      1024: {
+        slidesPerView: 2.6,
+        spaceBetween: 2,
+      },
+
+    },
+
+  
+      
+
+    });
+
+  })
+
+
+}
+
+//funcao para cadastrar uma avaliacao
+async function cadastrarAvaliacao(){
+
+  //recuperar id do localstorage
+  const objproduto = JSON.parse(localStorage.getItem('localobjProduto'))
+
+  // id do prduto
+  const idProduto = objproduto['id']
+
+
+  // verificar se as estrelas estao preenchidas
+
+  const estrelasFormAvaliacao = document.getElementById('estrelasFormAvaliacao')
+  const estrelas = estrelasFormAvaliacao.querySelectorAll('svg')
+
+  let i = 0
+
+  estrelas.forEach((estrela)=>{
+
+    if( estrela.classList.contains('text-teal-600') ){i ++}
+
+
+  })
+
+  if(i===0){ funcoes_loading.criarAlerta02('Atenção!','Classifique o produto no formulario','red') ; return}
+  
+  // validar campo de comentario
+  // formulario
+  const formcomentario = document.getElementById('formcomentario')
+
+  const validacao = funcoes_formulario.validarFormulario(formcomentario)
+
+  if(!validacao){return}
+
+  //cadastrar avaliacao
+
+  const objComentario = {
+
+    idProduto:idProduto,
+    data: funcoes_data.obterDataAtual(),
+    classificacao: i ,
+    comentario:document.getElementById('txtcomentario').value.trim()
+
+
+  }
+
+  //console.log(objComentario)
+
+  //cadastrar comentario
+  try{ 
+    await addDoc( col , objComentario ) ;
+    funcoes_loading.criarAlerta02('Obrigado!','Recebemos sua classificação!','green');
+    zerarFormularioComentario()
+  } 
+  catch(error){console.log(error.message)}
+
+  
+  
+
+
+}
+
+//  funcao adicionar evento no botao do formulario
+function adicionarEventoBotao(){
+
+  //botao formulario
+  const btnenviarcomentario = document.getElementById('btnenviarcomentario')
+
+  btnenviarcomentario.addEventListener('click',()=>{ cadastrarAvaliacao() })
+
+}
+
+// zerar formulario comentario
+function zerarFormularioComentario(){
+
+  // verificar se as estrelas estao preenchidas
+
+  const estrelasFormAvaliacao = document.getElementById('estrelasFormAvaliacao')
+  const estrelas = estrelasFormAvaliacao.querySelectorAll('svg')
+
+
+  estrelas.forEach((estrela)=>{
+
+    estrela.classList.remove('text-teal-600') 
+    estrela.classList.add('text-gray-300') 
+
+
+  })
+
+  document.getElementById('txtcomentario').value = null
+
+
+
+  calculcarPorcentagemClassificacao()
+
+}
   
 
 
 // =================================== EXECUTAR =============================================== //
 
 // cadastrar avaliacoes
-//await cadastraravaliacoes(2)
+//await cadastraravaliacoes(10)
 
 // calcular porcentagem
-//calculcarPorcentagemClassificacao()
+calculcarPorcentagemClassificacao()
 
-//zerarComentariosProdutos()
+//adicionar evento
+adicionarEventoBotao()

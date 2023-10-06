@@ -697,17 +697,11 @@ customElements.define("carousel-06", carousel06);
   <!-- Codigo -->
   
     
-    <div class="swiper mySwiper carrossel8 h-96 max-lg:h-[500px] max-lg:mt-10 p-2 overflow-x-visible">
+    <div  class="swiper mySwiper carrossel8 h-96 max-lg:h-[500px] max-lg:mt-10 p-2 overflow-x-visible">
   
-        <div class="swiper-wrapper">
-  
-        <cards-07 class="swiper-slide"></cards-07>
-        <cards-07 class="swiper-slide"></cards-07>
-        <cards-07 class="swiper-slide"></cards-07>
-        <cards-07 class="swiper-slide"></cards-07>
-            
-  
-        </div>
+       <div id="paiCardsAvaliacoes" class="swiper-wrapper" >
+
+       </div
   
     </div>
   
@@ -720,7 +714,7 @@ customElements.define("carousel-06", carousel06);
           
 
   
-        var swiper7 = new Swiper(".carrossel8", {
+        /*var swiper7 = new Swiper(".carrossel8", {
   
             slidesPerView: 2.8,
   
@@ -761,7 +755,7 @@ customElements.define("carousel-06", carousel06);
         
             
   
-          });
+          });*/
   
   
     }
