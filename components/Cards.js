@@ -982,7 +982,7 @@ class cards07 extends HTMLElement {
         </footer>
 
         <!-- comentario -->
-        <p class="text-gray-500 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, odio? Itaque maiores reprehenderit ea? Assumenda, perspiciatis cumque facere optio error, illo a, non nulla ullam ipsa et omnis magni veritatis.</p>
+        <p class="text-gray-500 w-full h-full">${txtTexto}</p>
 
     </article>
 

@@ -164,6 +164,9 @@ async function calculcarPorcentagemClassificacao(){
     // total de documentos
     const totalAvaliacoes = querySnapshot.size
 
+    // colocar total de avaliações no elemento
+    document.getElementById('totalAvaliacoes').textContent = 'Avaliações ('+ totalAvaliacoes + ')'
+
     //verificar se tem comentario
     if (totalAvaliacoes===0){
 
@@ -184,8 +187,7 @@ async function calculcarPorcentagemClassificacao(){
     //percorrer avaliacoes e colocar na lista
     querySnapshot.forEach((doc)=>{ objClassificacaoProduto.push(doc.data())})
 
-    // colocar total de avaliações no elemento
-    document.getElementById('totalAvaliacoes').textContent = 'Avaliações ('+ totalAvaliacoes + ')'
+    
 
     // retornar os percentuais
     const objpercentual = calcularPercentuaisDeClassificacao(objClassificacaoProduto)
@@ -313,11 +315,15 @@ async function apresentarAvaliacoes(){
 
     <cards-07
     nEstrelas=${dados.classificacao}
-    txtTexto=${dados.comentario}
+    txtTexto="${dados.comentario}"
     txtData=${dados.data}
     ></cards-07>
 
     `
+
+    //console.log(dados.classificacao)
+    //console.log(dados.comentario)
+    //console.log(dados.data)
 
     paiCardsAvaliacoes.appendChild(componenteCardComentario)
 
