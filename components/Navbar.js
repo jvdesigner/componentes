@@ -35,10 +35,11 @@ class navbar01 extends HTMLElement {
 
         <a class="block text-teal-600" href="index.html">
 
-        <img src="https://i.ibb.co/qxDhcrC/image-6.png" alt="">
+        <img class="" src="https://i.ibb.co/qxDhcrC/image-6.png" alt="">
+        <img class="w-32 hidden" src="https://i.ibb.co/QbGgZMs/image.png" alt="">
 
           
-
+        
         </a>
 
       </div>

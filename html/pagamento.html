@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sol Nascente</title>
+    
+    <link rel="icon" href="../folha.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <script type="module" src="../index.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+
+</head>
+
+<body class="snap-y snap-mandatory">
+
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    
+    <script>
+function gerarPix(){
+fetch('https://api.mercadopago.com/v1/payments', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer APP_USR-6781688030380061-100709-f2faf782b96a6db5775505e795e121fe-501341309',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    
+    
+"description": "Payment for product",
+"external_reference": "MP0001",
+"installments": 1,
+"metadata": {},
+"payer": {
+    "entity_type": null,
+    "first_name": "clientex",
+    "email": "nogueirajva@hotmail.com",
+    "identification": {
+      "type": "CPF",
+      "number": "95749019047"
+    }
+  }
+  ,
+    
+  
+
+"payment_method_id": "pix",
+"token": "d43a579e-2cbd-453f-915a-f7319903389f",
+"transaction_amount": 1
+
+    
+
+    
+    
+  }),
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  })
+  .catch(error => console.error('Error creating payment: ', error));
+}
+//gerarPix()
+
+    </script>
+  
+
+    
+    <navbar-01 telasobre="teal"></navbar-01>
+
+    <form-login></form-login>
+    
+    <div class="h-screen w-screen flex flex-col items-center justify-center gap-4 text-xl font-semibold">
+        <p>Pagamento Pix</p>
+        <img class="w-1/4" id="imgPix" src=''>
+        <form id="form-checkout" action="/process_payment" method="post" class="p-4 rounded-xl shadow bg-white">
+            <div class="space-y-4">
+              <div>
+                <label for="payerFirstName">Nome</label>
+                <input id="form-checkout__payerFirstName" name="payerFirstName" type="text">
+              </div>
+              <select name="" id="form-checkout__identificationType"></select>
+            </div>
+          
+            <div>
+              <div class="mx-auto">
+                <input type="hidden" name="transactionAmount" id="transactionAmount" value="100">
+                <input type="hidden" name="description" id="description" value="Nome do Produto">
+                <br>
+                <button class="p-2 bg-blue-400 rounded-lg w-full text-white" type="submit">Pagar</button>
+              </div>
+            </div>
+          </form>
+          
+    </div>
+
+    <navbar-02 telasobre="teal"></navbar-02>
+
+    <script>
+
+
+        var vbase64=`
+        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
+        `
+        document.getElementById('imgPix').src = 'data:image/jpeg;base64,'+vbase64
+    
+    </script>
+
+   
+    
+</body>
+</html>
