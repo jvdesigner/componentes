@@ -71,31 +71,6 @@ import * as funcoes_produtos from "../functions/produtos.js";
 // =================================== FUNCOES =============================================== //
 
 
-//adicionar evento ao icone de favorito
-function adicionarEventoFavorito(){
-
-    const colFavoritos = document.querySelectorAll('.clsfavoritos')
-    
-    
-    colFavoritos.forEach((element)=>{
-
-
-        element.addEventListener('click',  ()=>{ 
-
-  
-
- 
-                window.location.reload();
-       
-              
-
-        
-        })
-    })
-
-
-}
-
 
 // consultar produtos favoritos
 async function consultarFavoritos() {
@@ -103,8 +78,10 @@ async function consultarFavoritos() {
     funcoes_loading.mostrarLoading()
 
     // lista favoritos
-    const listaFavoritos = await localStorage.getItem('favoritos');
-    const listaConvertida = JSON.parse(listaFavoritos).reverse();
+    const listaFavoritos =  localStorage.getItem('favoritos');
+    const listaConvertida = JSON.parse(listaFavoritos);
+
+    //console.log('lista 02 >>'+listaConvertida)
   
     // container favoritos
     const containerFavoritos = document.getElementById('containerFavoritos');
@@ -121,16 +98,18 @@ async function consultarFavoritos() {
       Vegetais: [],
       Laticínios: [],
     };
-
     let idProdutofavorito
+
   
     // iterar na lista de favoritos
     for (let j = 0; j < listaConvertida.length; j++) {
        idProdutofavorito = listaConvertida[j];
-       console.log(idProdutofavorito)
+       //console.log(idProdutofavorito+' '+j)
       const docRef = doc(db, "produto", idProdutofavorito);
       const docSnap = await getDoc(docRef);
       const dados = docSnap.data();
+
+      dados.id = idProdutofavorito;
   
       // adicionar categoria na lista
       // Verifique se a categoria do produto está definida e é uma categoria válida
@@ -160,7 +139,7 @@ async function consultarFavoritos() {
                             <h2 class="mb-4 text-2xl lg:text-4xl tracking-tight font-semibold text-teal-600 ">${categoria}</h2>
 
                                     
-                                <div class="swiper mySwiperx overflow-y-visible">
+                                <div class="swiper mySwiperx overflow-visible">
 
                                 <div class="swiper-wrapper">
 
@@ -180,11 +159,14 @@ async function consultarFavoritos() {
 
     //--------------------------------
 
+    
+
 
   
       // Percorrer os produtos dentro da categoria
       for (let i = 0; i < produtosDaCategoria.length; i++) {
         const produto = produtosDaCategoria[i];
+
 
         // criar cards
 
@@ -195,7 +177,7 @@ async function consultarFavoritos() {
 
                 <cards-05
                 
-                idProduto="${idProdutofavorito}"
+                idProduto='${produto.id}'
                 nomeProduto="${produto.nome}"
                 srcimagem="${produto.imagem}"
                 precoProduto=${produto.preco}
@@ -229,6 +211,7 @@ async function consultarFavoritos() {
         console.log(`Descrição: ${produto.descricao}`);*/
         // ... outras propriedades do produto
       }
+      
     }
 
     
@@ -272,7 +255,7 @@ async function consultarFavoritos() {
 
         });
 
-        await redirecionarListaVazia()
+         redirecionarListaVazia()
 
         
         
@@ -298,7 +281,27 @@ function redirecionarListaVazia(){
 
 }
   
+//funcao para adicionar evento
+function adicionarEvento(){
 
+  const colFavoritos = document.querySelectorAll('.clsfavoritos')
+
+colFavoritos.forEach(element => {
+
+  element.addEventListener('click',()=>{
+
+    
+
+      consultarFavoritos()
+
+
+
+  })
+  
+});
+
+
+}
 
 
 
@@ -306,6 +309,9 @@ function redirecionarListaVazia(){
 
 
 await consultarFavoritos()
-adicionarEventoFavorito()
 
+adicionarEvento()
+
+     
+    
 

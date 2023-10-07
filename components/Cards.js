@@ -602,8 +602,10 @@ class cards05 extends HTMLElement {
 
       await funcoes_produtos.gerenciarProdutoFavorito(idProduto);
       
-      if (funcoes_produtos.isProdutoFavorito(idProduto)) { colFavoritos.classList.add("fill-teal-600")} 
-      else{ colFavoritos.classList.remove("fill-teal-600")}
+      if (await funcoes_produtos.isProdutoFavorito(idProduto)) { colFavoritos.classList.add("fill-teal-600")} 
+      else{ colFavoritos.classList.remove("fill-teal-600")};
+
+      //if( window.location.href.endsWith('html/favoritos.html') ) {window.location.reload()}
 
     }) 
 

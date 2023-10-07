@@ -25,7 +25,7 @@ export async function verificarFavoritos(){
     const listaFavoritos = localStorage.getItem('favoritos')
     const listaConvertida = JSON.parse(listaFavoritos);
 
-    if(listaConvertida.length === 0){
+    if(!listaConvertida||listaConvertida.length === 0){
 
         funcoes_loading.criarAlerta02('Favoritos Vazio!','Sua lista de favoritos está vazia','red','alert')
         

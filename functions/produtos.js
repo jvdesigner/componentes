@@ -16,6 +16,7 @@ export function gerenciarProdutoFavorito(valorIdProduto) {
     let produtosFavoritos = localStorage.getItem("favoritos");
     let listaArray;
 
+
     if (produtosFavoritos === null) {
         listaArray = [];
     } else {
@@ -23,6 +24,8 @@ export function gerenciarProdutoFavorito(valorIdProduto) {
     }
 
     const indice = listaArray.indexOf(valorIdProduto);
+
+    console.log(valorIdProduto+' '+indice)
 
 
     if (indice !== -1) {
@@ -36,6 +39,7 @@ export function gerenciarProdutoFavorito(valorIdProduto) {
     // Atualiza a lista no localStorage
     const listaString = JSON.stringify(listaArray);
     localStorage.setItem("favoritos", listaString);
+    console.log('lista 01 >>'+listaString)
     
     //console.log(localStorage.getItem("favoritos"))
 }
