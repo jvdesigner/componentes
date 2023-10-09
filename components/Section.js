@@ -331,7 +331,7 @@ class section07 extends HTMLElement {
 customElements.define("section-07", section07);
 
 
-// == Componente de section 07 == //
+// == Componente de section 08 == //
 
 class section08 extends HTMLElement {
   constructor() {
@@ -374,6 +374,43 @@ class section08 extends HTMLElement {
 }
 
 customElements.define("section-08", section08);
+
+
+// == Componente de section 09 == //
+
+class section09 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+      
+<section class="h-screen w-screen flex flex-col items-center justify-evenly max-lg:px-10">
+
+    <stepper-01 class="flex items-center w-full sm:max-w-2xl"></stepper-01>
+
+    
+     
+
+</section>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+  }
+}
+
+customElements.define("section-09", section09);
 
 
   

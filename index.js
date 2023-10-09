@@ -35,6 +35,7 @@ import * as compRating from './components/Rating.js'
 
 import * as compSkeleton from './components/Skeleton.js'
 
+import * as compStepper from './components/Stepper.js'
 
 
 // ===================================== Importar Funcoes ============================================= //
