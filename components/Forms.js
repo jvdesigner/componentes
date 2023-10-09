@@ -568,6 +568,451 @@ class formcomentario extends HTMLElement {
 }
 
 customElements.define("form-comentario", formcomentario);
+
+
+// == Componente de form informaçoes pessoais == //
+
+class forminfopessoais extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+<form id="FormInfo" class=" w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-2xl  p-6 space-y-4 md:space-y-6 sm:p-8 animate__fadeIn animate__animated animate__fast-1s">
+
+     <h1 class=" text-xl max-lg:text-lg font-bold leading-tight tracking-tight text-teal-600">
+                  Informações Pessoais
+      </h1>
+
+    <div class="grid gap-4 max-lg:gap-0 mb-4 sm:grid-cols-2">
+
+        <div class="mb-6 blockinput">
+
+              <label for="txtNomeCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Nome</label>
+
+              <input autocomplete="off" type="text" id="txtNomeCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Nome"> 
+
+              <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+        </div>
+
+        <div class="mb-6 blockinput">
+
+              <label for="txtSobrenomeCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Sobrenome</label>
+
+              <input autocomplete="off" type="text" id="txtSobrenomeCliente" maxlength="200" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="sobrenome"> 
+
+              <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+        </div>
+
+        <div class="mb-6 blockinput">
+
+              <label for="txtEmailCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Email</label>
+
+              <input autocomplete="off" type="email" id="txtEmailCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="cliente@email.com"> 
+
+              <p id="alertainputemailcliente" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Email válido</p>
+
+        </div>
+
+        <div class="mb-6 blockinput">
+
+              <label for="txtdddCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Celular</label>
+
+              <div class="flex gap-1">
+
+              <div class=" blockinput relative">
+              <input autocomplete="off" type="text" id="txtdddCliente" maxlength="2" class="required bg-gray-50 border border-gray-500 text-gray-500 max-w-[40px] items-center  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="21">
+              <p id="alertdddCliente" class="hidden mt-2 text-sm text-gray-600 clsalertinput absolute">Formato inválido</p>
+              </div>
+              
+              <div class=" blockinput">
+              <input autocomplete="off" type="text" id="txtCelularCliente" maxlength="10" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="98876-0990"> 
+              <p id="alertCelularCliente" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Formato inválido</p>
+              </div>
+
+              </div>
+
+              
+
+        </div>
+
+      
+    </div>
+
+
+      <button type="button" class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:scale-[1.02] hidden">
+          Prosseguir
+      </button>
+
+
+</form>
+      
+
+          
+<!-- Codigo -->
+        
+
+      `;
+      
+
+  }
+}
+
+customElements.define("form-infopessoais", forminfopessoais);
+
+// == Componente de form endereço == //
+
+class formendereco extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+<form id="formendereco" class="hidden w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-2xl  p-6 space-y-4 md:space-y-6 sm:p-8 animate__fadeIn animate__animated animate__fast-1s">
+
+<h1 class=" text-xl max-lg:text-lg font-bold leading-tight tracking-tight text-teal-600">
+              Endereço
+  </h1>
+
+<div class="grid gap-4 max-md:gap-0 mb-4 sm:grid-cols-2">
+
+    <div class="flex gap-2">
+
+      <div class="mb-6 blockinput">
+
+            <label for="txtCidadeCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Cidade</label>
+
+            <input autocomplete="off" type="text" id="txtCidadeCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Cidade"> 
+
+            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+      </div>
+
+      <div class="mb-6 blockinput">
+
+            <label for="txtEstadoCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Estado</label>
+
+            <input autocomplete="off" type="text" id="txtEstadoCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Estado"> 
+
+            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+      </div>
+
+    </div>
+
+    <div class="flex gap-2">
+
+      <div class="mb-6 blockinput w-1/3">
+
+            <label for="txtCEPCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">CEP</label>
+
+            <input autocomplete="off" type="text" id="txtCEPCliente" maxlength="9" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="xxxxx-xxx"> 
+
+            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+      </div>
+
+      <div class="mb-6 blockinput">
+
+            <label for="txtBairroCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Bairro</label>
+
+            <input autocomplete="off" type="text" id="txtBairroCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Bairro"> 
+
+            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+      </div>
+
+     </div>
+
+    <div class="mb-6 blockinput">
+
+          <label for="txtRuaCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Rua</label>
+
+          <input autocomplete="off" type="text" id="txtRuaCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Rua"> 
+
+          <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+    </div>
+    
+    <div class="flex gap-2">
+
+      <div class="mb-6 blockinput w-1/3">
+
+            <label for="txtNúmeroCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Número</label>
+
+            <input autocomplete="off" type="text" id="txtNúmeroCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Número"> 
+
+            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+      </div>
+
+      <div class="mb-6 blockinput">
+
+            <label for="txtComplementoCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Complemento</label>
+
+            <input autocomplete="off" type="text" id="txtComplementoCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Complemento"> 
+
+            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+
+      </div>
+
+    </div>
+
+  
+</div>
+
+
+  <button type="button" class="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:scale-[1.02] hidden">
+      Prosseguir
+  </button>
+
+
+</form>
+      
+
+          
+<!-- Codigo -->
+        
+
+      `;
+      
+
+  }
+}
+
+customElements.define("form-endereco", formendereco);
+
+
+// == Componente de form resumo == //
+
+class formresumo extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+<form id="formresumo" class="hidden w-full backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-2xl  p-6 space-y-4 md:space-y-6 sm:p-8 animate__fadeIn animate__animated animate__fast-1s">
+
+<h1 class=" text-xl max-lg:text-lg font-bold leading-tight tracking-tight text-teal-600">
+              Resumo
+  </h1>
+  
+
+<section>
+
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 ">
+
+
+    <div class="mx-auto max-w-3xl">
+
+
+
+      <div class="mt-8">
+
+        <ul  class="space-y-10 text-center">
+
+          <carousel-09></carousel-09>
+
+          
+
+            
+
+        </ul>
+
+        <div class="mt-8 flex justify-end border-t border-gray-100 pt-8 ">
+
+          <div class="w-full space-y-4">
+
+            <dl class="space-y-0.5 text-sm text-gray-700">
+
+              <div class="flex justify-between">
+                <dt>Subtotal</dt>
+                <dd id="subtotalCarrinho">R$ 0,00</dd>
+              </div>
+
+              <div class="flex justify-between">
+                <dt>Frete</dt>
+                <dd id="Frete+Carrinho">R$ 15,00</dd>
+              </div>
+
+              <div class="flex justify-between">
+                <dt >Desconto</dt>
+                <dd id="descontoCarrinho">-R$ 0,00</dd>
+              </div>
+
+              <div class="flex justify-between !text-base font-medium pt-4">
+                <dt>Total</dt>
+                <dd id="totalCarrinho">R$ 0,00</dd>
+              </div>
+
+            </dl>
+
+            <div class="hidden justify-end">
+              <span
+                class="inline-flex items-center justify-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-indigo-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="-ms-1 me-1.5 h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"
+                  />
+                </svg>
+
+                <p class="whitespace-nowrap text-xs">2 Discounts Applied</p>
+              </span>
+            </div>
+
+            
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</form>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+      
+
+  }
+}
+
+customElements.define("form-resumo", formresumo);
+
+
+// == Componente de form pagamento == //
+
+class formpagamento extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+<form id="formpagamento" class="hidden w-full relative backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-2xl  p-6 space-y-4 md:space-y-6 sm:p-8 animate__fadeIn animate__animated animate__fast-1s">
+
+<dl class=" text-gray-900 divide-y space-y-2 w-full divide-gray-200 text-xs outline outline-1 rounded-lg outline-gray-300 p-4 drop-shadow-md bg-white absolute z-50 h-full top-0 left-0 hidden  animate__fadeInUp animate__animated animate__fast-1s">
+
+          <div class="flex flex-col pb-3">
+              <dt class="mb-1 text-gray-500  ">Nome</dt>
+              <dd class="text-xs font-semibold">Sol Nascente - produtos orgânicos</dd>
+          </div>
+
+          <div class="flex flex-col pb-3">
+              <dt class="mb-1 text-gray-500  mt-2">CPF</dt>
+              <dd class="text-xs font-semibold">***.578.876-**</dd>
+          </div>
+
+          <div class="flex flex-col pb-3">
+              <dt class="mb-1 text-gray-500  mt-2">Banco</dt>
+              <dd class="text-xs font-semibold">MERCADO PAGO</dd>
+          </div>
+
+          <div class="flex flex-col pb-3">
+              <dt class="mb-1 text-gray-500  mt-2">Dados bancários</dt>
+              <dd class="text-xs font-semibold">Agência: 6789</dd>
+              <dd class="text-xs font-semibold">Conta: 67897859490303984858</dd>
+          </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-auto rounded-md hover:outline-red-400 hover:stroke-red-400 cursor-pointer fixed right-4 top-0"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+
+</dl>
+
+  <h1 class=" text-xl max-lg:text-lg font-bold leading-tight tracking-tight text-teal-600 flex justify-between">
+                Pagamento
+
+  <div class="flex items-center p-2  text-sm text-teal-800 rounded-lg bg-blue-50 cursor-pointer hover:scale-[1.02]" role="alert">
+        <svg class="flex-shrink-0 inline w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium text-xs">Informações</span>
+        </div>
+      </div>
+  </h1>
+    
+
+  <section class=" flex flex-col  items-center gap-4 max-lg:gap-4 ">
+
+    <img class="w-1/2 max-w-[200px]" src="https://i.ibb.co/vcfqsfm/image.png" alt="">
+
+    <p class="font-medium mb-2 text-teal-600">Valor: R$10,00</p>
+
+    <p class=" mb-2 text-gray-400 text-xs">Expiram em 09/10/2023 18:00</p>
+
+      <div class="relative mb-6 flex max-md:flex-col gap-4 w-full max-w-lg  ">
+
+        <div class="flex w-full relative">
+
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
+
+        </div>
+
+        <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-12 p-2.5  cursor-text" disabled value="38273824-4648ujd939-ff33333333333333333333-nfufuhrufhurhf" >
+        
+        </div>
+
+      <button type="button" class="px-5 hover:scale-[1.02] justify-center gap-2 py-2.5 text-sm font-medium text-white inline-flex items-center bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center shadow-lg shadow-teal-500/50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg>Copiar</button>
+
+      
+         
+      </div>
+
+  </section>
+
+</form>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+      
+
+  }
+}
+
+customElements.define("form-pagamento", formpagamento);
+
     
     
   
