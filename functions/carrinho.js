@@ -4,6 +4,7 @@
  // ================================== IMPORTAR FUNCOES ================================================ //
 
  import * as funcoes_produtos from "../functions/produtos.js";
+ import * as funcoes_loading from "../functions/loading.js";
 
 
 // =================================== FUNCOES =============================================== //
@@ -210,6 +211,22 @@ export function alertaLimparCarrinho() {
 
   // Adicione o elemento "alert-03" ao corpo do documento
   document.body.appendChild(alertaElement);
+
+}
+
+//funcao ir para checkout
+export function irparaCheckout(){
+
+   // Converter carrinho em um objeto
+   let carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
+
+   // retornar se o carrinho estiver vazio
+   if (carrinho === null || Object.keys(carrinho).length === 0) {
+    funcoes_loading.criarAlerta02('Carrinho vazio','Adicione produtos no carrinho para realizar a compra','red','')
+    return
+  }
+
+   window.location.href="../html/checkout.html"
 
 }
 

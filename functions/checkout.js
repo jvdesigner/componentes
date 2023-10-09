@@ -24,7 +24,7 @@ function adicionarEvento() {
 
 
 
-            resultado = validarFormularios()
+            //resultado = validarFormularios()
 
             if(!resultado){return}
 
@@ -185,7 +185,6 @@ function validarFormularios(){
 
     // formulario informacoes pessoais
     const FormInfo = document.getElementById('FormInfo'); 
-
 
     if(FormInfo){ 
 

@@ -975,7 +975,7 @@ class formpagamento extends HTMLElement {
 
     <p class="font-medium mb-2 text-teal-600">Valor: R$10,00</p>
 
-    <p class=" mb-2 text-gray-400 text-xs">Expiram em 09/10/2023 18:00</p>
+    <p class=" mb-2 text-gray-400 text-xs">Expira em 09/10/2023 18:00</p>
 
       <div class="relative mb-6 flex max-md:flex-col gap-4 w-full max-w-lg  ">
 

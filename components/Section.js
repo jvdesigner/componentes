@@ -397,10 +397,10 @@ class section09 extends HTMLElement {
 
     <stepper-01 class="flex items-center w-full sm:max-w-2xl"></stepper-01>
 
-    <form-infopessoais  class="flex items-center w-full sm:max-w-2xl"></form-infopessoais>
+    <form-infopessoais  class="flex items-center w-full sm:max-w-2xl translate-y-10 max-lg:translate-y-10"></form-infopessoais>
     <form-endereco   class="flex items-center w-full sm:max-w-2xl"></form-endereco>
-    <form-resumo  class="flex items-center w-full sm:max-w-2xl"></form-resumo>
-    <form-pagamento  class="flex items-center w-full sm:max-w-2xl"></form-pagamento>
+    <form-resumo  class="flex items-center w-full sm:max-w-2xl max-lg:-translate-y-4"></form-resumo>
+    <form-pagamento  class="flex items-center w-full sm:max-w-2xl -translate-y-10 max-lg:-translate-y-20"></form-pagamento>
 
     <div class=" sm:max-w-2xl w-full">
       <p class="text-xs text-teal-600">Navegue pelo menu superior e preencha as informações necessárias nos formulários.</p>

@@ -112,12 +112,12 @@ class cart01 extends HTMLElement {
                 </div>
 
                 <div class="flex justify-end pt-4">
-                  <a
-                    href="#"
+                  <div
+                   id="btnConfirmar"
                     class="block rounded bg-teal-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-teal-600 hover:scale-105"
                   >
                     Confirmar
-                  </a>
+                  </div>
                 </div>
 
               </div>
@@ -152,6 +152,9 @@ class cart01 extends HTMLElement {
       // limpar carrinho
       const objlimparcarrinho = document.getElementById('objlimparcarrinho')
       objlimparcarrinho.addEventListener('click',()=>{ funcoes_carrinho.alertaLimparCarrinho() })
+
+      //ir para checkout
+      document.getElementById('btnConfirmar').addEventListener('click',()=>{ funcoes_carrinho.irparaCheckout() })
 
 
     }
