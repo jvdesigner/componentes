@@ -28,7 +28,7 @@ class hero01 extends HTMLElement {
   ></div>
 
   <div
-    class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
+    class="relative mx-auto max-w-screen-sm px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
   >
     <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right backdrop-blur-sm bg-white/80 p-10 rounded-lg drop-shadow-lg">
       <h1 class="text-3xl text-gray-900 font-extrabold sm:text-5xl">
