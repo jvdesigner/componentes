@@ -43,7 +43,7 @@ class stepper01 extends HTMLElement {
 
           </svg>
 
-          <p class="absolute -bottom-4 text-[10px] max-md:text-[8px] w-32 text-center text-teal-600 group-hover/endereco:block hidden animate__fadeInDown animate__animated animate__fast-1s">Meu Endereço</p>
+          <p class="absolute -bottom-4 text-[10px] max-md:text-[8px] w-32 text-center text-teal-600 group-hover/endereco:block hidden animate__fadeInDown animate__animated animate__fast-1s">Endereço</p>
 
       </div>
 

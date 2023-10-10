@@ -6,6 +6,7 @@ import * as funcoes_formulario from './formulario.js'
 // =================================== VARIAVEIS =============================================== //
 
 let resultado = true
+let prosseguirPara = 'endereco'
 
 // =================================== NAVEGACAO =============================================== //
 
@@ -22,7 +23,7 @@ function adicionarEvento() {
         // Adicionar evento de clique para controlar cores
         comStepperDiv.addEventListener('click',  (event) => {
 
-
+            
 
             //resultado = validarFormularios()
 
@@ -101,11 +102,11 @@ function esconderFormularios() {
 
 function mostrarFormularios(form) {
 
-        
 
-        //resultado = validarFormularios()
 
-        if(!resultado){return}
+        resultado = validarFormularios()
+
+        if(!resultado){return }
 
         esconderFormularios()
 
@@ -124,25 +125,34 @@ function mostrarFormSelecionado() {
     const formresumo = document.getElementById('formresumo');
     const formpagamento = document.getElementById('formpagamento');
 
+    
+
     divFormInfo.addEventListener('click', () => {
+        prosseguirPara = 'informacao'
         mostrarFormularios(FormInfo)
+ 
        
     });
 
     divFormendereco.addEventListener('click', () => {
+        prosseguirPara = 'endereco'
         mostrarFormularios(formendereco)
+  
 
     });
 
     divFormresumo.addEventListener('click', () => {
-
+        prosseguirPara = 'resumo'
         mostrarFormularios(formresumo)
+
+
        
     });
 
     divFormpagamento.addEventListener('click', () => {
-
+        prosseguirPara = 'pagamento'
         mostrarFormularios(formpagamento)
+
         
     });
 }
@@ -186,11 +196,17 @@ function validarFormularios(){
     // formulario informacoes pessoais
     const FormInfo = document.getElementById('FormInfo'); 
 
-    if(FormInfo){ 
+    // formulario endereco
+    const formendereco = document.getElementById('formendereco'); 
+
+    console.log(prosseguirPara)
+
+    if(!FormInfo.classList.contains('hidden')){ 
 
         // campo email
         const txtEmailCliente = document.getElementById('txtEmailCliente')
         const emailMessage = document.getElementById('alertainputemailcliente')
+
 
         // verificar campos vazios
         resultado =  funcoes_formulario.validarFormulario(FormInfo)
@@ -217,11 +233,13 @@ function validarFormularios(){
         //verificar campos de ddd e celular
 
         //campo ddd
-        const txtdddCliente = document.getElementById('txtdddCliente')
+        const txtdddCliente = document.getElementById('txtdddCliente');
         const alertdddCliente = document.getElementById('alertdddCliente')
+       
         //campo celular
         const txtcelularCliente = document.getElementById('txtCelularCliente')
         const alertcelularCliente = document.getElementById('alertCelularCliente')
+
         // Regex para validar o formato "9xxxx-xxxx"
         const regexCelular = /^[1-9]{1}[0-9]{3,4}-[0-9]{4}$/;
         // Regex para validar o DDD (opcional)
@@ -258,6 +276,69 @@ function validarFormularios(){
 
      }
 
+    else if(!formendereco.classList.contains('hidden')){
+
+
+        if(prosseguirPara=='informacao'){resultado=true ;return resultado}
+        
+        // campo CEP
+        const txtCEPCliente = document.getElementById('txtCEPCliente')
+        const alertatxtCEPCliente = document.getElementById('alertatxtCEPCliente')
+
+
+        // verificar campos vazios
+        resultado =  funcoes_formulario.validarFormulario(formendereco)
+
+        if(!resultado){return}
+
+        //validar CEP
+        const CEP = txtCEPCliente.value;
+        const regexCEP = /^\d{5}-\d{3}$/;
+
+        if (regexCEP.test(CEP)) {
+
+            alertaCampo(true,alertatxtCEPCliente,'CEP válido')
+   
+        } else {
+
+            alertaCampo(false,alertatxtCEPCliente,'Preencha o CEP no formato xxxxx-xxx')
+            resultado = false
+
+        }
+
+        if(!resultado){return}
+
+        //verificar campos de numero do endereco
+
+        //campo numero
+        const txtNumeroCliente = document.getElementById('txtNumeroCliente');
+        const alertaNumeroCliente = document.getElementById('alertaNumeroCliente')
+      
+        // Regex para validar o formato do numero
+        const regexNumeroEndereco = /^\d+$/;
+
+
+        // verificar 
+
+        if (regexNumeroEndereco.test(txtNumeroCliente.value)) {
+
+            alertaCampo(true,alertaNumeroCliente,'numero válido')
+   
+        } else {
+
+            alertaCampo(false,alertaNumeroCliente,'Preencha com numero')
+            resultado = false
+
+        }
+
+        if(!resultado){return}
+
+    
+
+
+     }
+
+     
 
      return resultado
 
@@ -286,6 +367,6 @@ celularInput.addEventListener('keyup', () => {
 // =================================== EXECUTAR =============================================== //
 
 //eventos
-adicionarEvento()
 mostrarFormSelecionado()
+adicionarEvento()
 adicionareventoCampoCelular()

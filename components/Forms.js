@@ -718,7 +718,7 @@ class formendereco extends HTMLElement {
 
             <input autocomplete="off" type="text" id="txtCEPCliente" maxlength="9" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="xxxxx-xxx"> 
 
-            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+            <p id="alertatxtCEPCliente" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
 
       </div>
 
@@ -748,11 +748,11 @@ class formendereco extends HTMLElement {
 
       <div class="mb-6 blockinput w-1/3">
 
-            <label for="txtNúmeroCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Número</label>
+            <label for="txtNumeroCliente" class="block mb-2 text-sm font-medium text-gray-500 0 ">Número</label>
 
-            <input autocomplete="off" type="text" id="txtNúmeroCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Número"> 
+            <input autocomplete="off" type="text" id="txtNumeroCliente" maxlength="100" class="required bg-gray-50 border border-gray-500 text-gray-500  placeholder-gray-300 text-sm rounded-lg focus:scale-105 block w-full p-2.5" placeholder="Número"> 
 
-            <p id="alertainputemail" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
+            <p id="alertaNumeroCliente" class="hidden mt-2 text-sm text-gray-600 clsalertinput">Campo Obrigatório</p>
 
       </div>
 
