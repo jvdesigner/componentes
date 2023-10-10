@@ -812,16 +812,16 @@ class formresumo extends HTMLElement {
   </h1>
   
 
-<section>
+<section class="">
 
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 ">
+  <div class="mx-auto max-w-screen-xl px-4 py-0  ">
 
 
     <div class="mx-auto max-w-3xl">
 
 
 
-      <div class="mt-8">
+      <div class="mt-8 ">
 
         <ul  class="space-y-10 text-center">
 
@@ -841,22 +841,22 @@ class formresumo extends HTMLElement {
 
               <div class="flex justify-between">
                 <dt>Subtotal</dt>
-                <dd id="subtotalCarrinho">R$ 0,00</dd>
+                <dd id="subtotalCarrinho2">R$ 0,00</dd>
               </div>
 
               <div class="flex justify-between">
                 <dt>Frete</dt>
-                <dd id="Frete+Carrinho">R$ 15,00</dd>
+                <dd id="Frete">R$ 15,00</dd>
               </div>
 
               <div class="flex justify-between">
                 <dt >Desconto</dt>
-                <dd id="descontoCarrinho">-R$ 0,00</dd>
+                <dd id="descontoCarrinho2">-R$ 0,00</dd>
               </div>
 
               <div class="flex justify-between !text-base font-medium pt-4">
                 <dt>Total</dt>
-                <dd id="totalCarrinho">R$ 0,00</dd>
+                <dd id="totalCarrinho2">R$ 0,00</dd>
               </div>
 
             </dl>
@@ -927,7 +927,7 @@ class formpagamento extends HTMLElement {
 
 <form id="formpagamento" class="hidden w-full relative backdrop-blur-sm bg-white rounded-lg drop-shadow-lg  md:mt-0 sm:max-w-2xl  p-6 space-y-4 md:space-y-6 sm:p-8 animate__fadeIn animate__animated animate__fast-1s">
 
-<dl class=" text-gray-900 divide-y space-y-2 w-full divide-gray-200 text-xs outline outline-1 rounded-lg outline-gray-300 p-4 drop-shadow-md bg-white absolute z-50 h-full top-0 left-0 hidden  animate__fadeInUp animate__animated animate__fast-1s">
+<dl id="modalInfoPagamento" class=" text-gray-900 divide-y space-y-2 w-full divide-gray-200 text-xs outline outline-1 rounded-lg outline-gray-300 p-4 drop-shadow-md bg-white absolute z-50 h-full top-0 left-0 hidden  animate__fadeInUp animate__animated animate__fast-1s">
 
           <div class="flex flex-col pb-3">
               <dt class="mb-1 text-gray-500  ">Nome</dt>
@@ -950,14 +950,14 @@ class formpagamento extends HTMLElement {
               <dd class="text-xs font-semibold">Conta: 67897859490303984858</dd>
           </div>
 
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-auto rounded-md hover:outline-red-400 hover:stroke-red-400 cursor-pointer fixed right-4 top-0"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          <svg id="objFecharmodalInfoPagamento" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-auto rounded-md hover:outline-red-400 hover:stroke-red-400 cursor-pointer fixed right-4 top-0 hover:scale-[1.02]"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
 
 </dl>
 
   <h1 class=" text-xl max-lg:text-lg font-bold leading-tight tracking-tight text-teal-600 flex justify-between">
                 Pagamento
 
-  <div class="flex items-center p-2  text-sm text-teal-800 rounded-lg bg-blue-50 cursor-pointer hover:scale-[1.02]" role="alert">
+  <div id="objAbrirmodalInfoPagamento" class="flex items-center p-2  text-sm text-teal-800 rounded-lg bg-blue-50 cursor-pointer hover:scale-[1.02]" role="alert">
         <svg class="flex-shrink-0 inline w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
           <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
         </svg>
@@ -973,9 +973,9 @@ class formpagamento extends HTMLElement {
 
     <img class="w-1/2 max-w-[200px]" src="https://i.ibb.co/vcfqsfm/image.png" alt="">
 
-    <p class="font-medium mb-2 text-teal-600">Valor: R$10,00</p>
+    <p id="txtValorPix" class="font-medium mb-2 text-teal-600">Valor: R$10,00</p>
 
-    <p class=" mb-2 text-gray-400 text-xs">Expira em 09/10/2023 18:00</p>
+    <p id="txtExpiracaoPix" class=" mb-2 text-gray-400 text-xs">Expira em 09/10/2023 18:00</p>
 
       <div class="relative mb-6 flex max-md:flex-col gap-4 w-full max-w-lg  ">
 
@@ -987,11 +987,11 @@ class formpagamento extends HTMLElement {
 
         </div>
 
-        <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-12 p-2.5  cursor-text" disabled value="38273824-4648ujd939-ff33333333333333333333-nfufuhrufhurhf" >
+        <input id="txtPix" type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-12 p-2.5  cursor-text" disabled value="38273824-4648ujd939-ff33333333333333333333-nfufuhrufhurhf" >
         
         </div>
 
-      <button type="button" class="px-5 hover:scale-[1.02] justify-center gap-2 py-2.5 text-sm font-medium text-white inline-flex items-center bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center shadow-lg shadow-teal-500/50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg>Copiar</button>
+      <button id="btnCopiarPix" type="button" class="px-5 hover:scale-[1.02] justify-center gap-2 py-2.5 text-sm font-medium text-white inline-flex items-center bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br  rounded-lg text-center shadow-lg shadow-teal-500/50"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" /></svg><p>Copiar</p></button>
 
       
          
@@ -1006,6 +1006,22 @@ class formpagamento extends HTMLElement {
         
 
       `;
+
+      const objAbrirmodalInfoPagamento = document.getElementById('objAbrirmodalInfoPagamento')
+      const objFecharmodalInfoPagamento = document.getElementById('objFecharmodalInfoPagamento')
+      const modalInfoPagamento = document.getElementById('modalInfoPagamento')
+
+      objAbrirmodalInfoPagamento.addEventListener('click',()=>{ 
+        modalInfoPagamento.classList.remove('hidden')
+        modalInfoPagamento.classList.add('block')
+       })
+
+       objFecharmodalInfoPagamento.addEventListener('click',()=>{ 
+        modalInfoPagamento.classList.remove('block')
+        modalInfoPagamento.classList.add('hidden')
+       })
+
+
       
 
   }

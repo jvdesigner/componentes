@@ -24,7 +24,7 @@ class cart01 extends HTMLElement {
   <!-- Codigo -->
         
 
-  <div  class="block shrink-0  relative group/carrinho">
+  <div  class="block shrink-0  relative group/carrinho ">
 
   <div id="navcart2" class="bg-white/60 fixed top-0 right-0 left-0 max-md:-left-96 max-md:w-[200vw] z-50 hidden justify-center items-center w-screen  h-screen max-lg:px-8"></div>
 
@@ -37,7 +37,7 @@ class cart01 extends HTMLElement {
   </div>
 
 
-  <div id="navcart" class="hidden p-2 w-[40vw] max-lg:w-[70vw] max-md:w-[100vw] max-md:translate-x-16 drop-shadow-xl rounded-xl bg-white absolute right-0 translate-y-4 z-50 max-md:translate-x-20">
+  <div id="navcart" class="hidden p-2 w-[40vw] max-lg:w-[70vw] max-md:w-[100vw] max-md:translate-x-16 drop-shadow-xl rounded-xl bg-white absolute right-0 translate-y-4 z-50 max-md:translate-x-20 ">
 
     <section>
 
@@ -114,7 +114,7 @@ class cart01 extends HTMLElement {
                 <div class="flex justify-end pt-4">
                   <div
                    id="btnConfirmar"
-                    class="block rounded bg-teal-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-teal-600 hover:scale-105"
+                    class="block cursor-pointer rounded bg-teal-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-teal-600 hover:scale-105"
                   >
                     Confirmar
                   </div>
@@ -306,6 +306,110 @@ customElements.define("itemcart-01", itemcart01);
   
   
   // ================================================================================== //
+
+  // == Componente de itemcart 01 == //
+
+class itemcart02 extends HTMLElement {
+  constructor() {
+    super();
+
+    const srcimagem = this.getAttribute('srcimagem') || 'https://i.ibb.co/StwXZqq/Image.png';
+    const nomeProduto = this.getAttribute('nomeProduto') || 'Produto';
+    const idProduto = this.getAttribute('idProduto');
+    const precoProduto = this.getAttribute('precoProduto') || '0,00';
+    const qtnProduto = this.getAttribute('qtnProduto') || '1';
+    const totalProduto = this.getAttribute('totalProduto') || '0,00';
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+      
+
+
+            <li class="flex items-center gap-4 border-b">
+              
+
+              
+              <div class="flex items-center gap-4  w-full">
+
+
+                <div class="flex flex-col items-center gap-4  w-full">
+
+                   
+                  <div class="flex items-center gap-4  w-full">
+
+                    <img
+                      src="${srcimagem}"
+                      alt=""
+                      class="h-16 w-16 rounded object-cover"
+                    />
+                    <div class="flex justify-between items-center   w-full">
+                      <h3 class="text-sm font-semibold text-gray-900">${nomeProduto}</h3>
+                      <div class="flex flex-1 items-center justify-end gap-2">
+              
+
+                <div class="max-md:scale-75">
+
+                  <div class="flex items-center rounded">
+
+                    <p class="border-none outline-none bg-transparent">
+                      
+                      ${qtnProduto} 
+
+                    </p>
+
+
+                  </div>
+                </div>
+
+               
+                      </div>
+                      
+                    </div>
+
+                  </div>
+
+                  <dl class="mt-0.5 space-y-1 text-xs text-gray-600 w-full text-start">
+                  <div>
+                    <dt class="inline">Unitário:</dt>
+                    <dd class="inline">R$ ${precoProduto}</dd>
+                  </div>
+
+                  <div class="font-semibold">
+                    <dt class="inline">Total:</dt>
+                    <dd class="inline">R$ ${totalProduto}</dd>
+                  </div>
+                  </dl>
+                  
+
+                <div>
+                
+                </div>
+
+
+                </div>
+                
+              
+              </div>
+
+              
+
+            </li>
+
+         
+          
+<!-- Codigo -->
+        
+
+      `;
+
+  }
+
+}
+
+customElements.define("itemcart-02", itemcart02);
   
   
   

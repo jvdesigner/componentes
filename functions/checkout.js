@@ -193,15 +193,22 @@ function alertaCampo(validacao,objalert,mensagem){
 // formularios
 function validarFormularios(){
 
+    resultado = true;return resultado
+
     // formulario informacoes pessoais
     const FormInfo = document.getElementById('FormInfo'); 
 
     // formulario endereco
     const formendereco = document.getElementById('formendereco'); 
 
+    // formulario resumo
+    const formresumo = document.getElementById('formresumo'); 
+
     console.log(prosseguirPara)
 
     if(!FormInfo.classList.contains('hidden')){ 
+
+        if(prosseguirPara!=='endereco'){resultado=false ;return resultado}
 
         // campo email
         const txtEmailCliente = document.getElementById('txtEmailCliente')
@@ -280,6 +287,8 @@ function validarFormularios(){
 
 
         if(prosseguirPara=='informacao'){resultado=true ;return resultado}
+
+        if(prosseguirPara=='pagamento'){resultado=false ;return resultado}
         
         // campo CEP
         const txtCEPCliente = document.getElementById('txtCEPCliente')
@@ -338,6 +347,10 @@ function validarFormularios(){
 
      }
 
+     else if(!formresumo.classList.contains('hidden')){
+        resultado=true ;return resultado
+     }
+
      
 
      return resultado
@@ -364,9 +377,204 @@ celularInput.addEventListener('keyup', () => {
 }
 
 
+// =================================== CARRINHO =============================================== //
+
+// Função para atualizar o carrinho
+function atualizarCarrinho() {
+
+    //form
+    const formresumo = document.getElementById('formresumo'); 
+
+    // galeria do carrinho
+    const galeriaItensCarrinho = formresumo.querySelector('#galeriaItensCarrinho');
+
+   
+  
+    // retornar do localstorage o carrinho
+    let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+  
+    // Remove os filhos da galeria
+    while (galeriaItensCarrinho.firstChild) {galeriaItensCarrinho.removeChild(galeriaItensCarrinho.firstChild);}
+  
+    // retornar se o carrinho estiver vazio
+    if (carrinho === null || Object.keys(carrinho).length === 0) {
+        // editar texto no carrinho na interface
+        galeriaItensCarrinho.textContent ='Carrinho Vazio';
+        galeriaItensCarrinho.classList.remove('text-start');
+        galeriaItensCarrinho.classList.add('text-center');
+        //atualizar total no carrinho
+        calcularTotalCarrinho()
+        return;
+    }
+  
+    // componente da interface
+    let componenteItensCarrinho;
+    let galeriaAtualizada;
+  
+    // percorrer objeto carrinho e criar a interface
+    for (const chave in carrinho) {
+        if (carrinho.hasOwnProperty(chave)) {
+            const informacaoProduto = carrinho[chave];
+  
+            componenteItensCarrinho = `
+                <itemcart-02
+                    class=""
+                    srcimagem="${informacaoProduto.imagem}"
+                    nomeProduto="${informacaoProduto.nome}"
+                    idProduto="${informacaoProduto.id}"
+                    precoProduto="${informacaoProduto.preco}"
+                    qtnProduto="${informacaoProduto.quantidade} ${informacaoProduto.medida}"
+                    totalProduto="${(parseInt(informacaoProduto.quantidade)*parseFloat(informacaoProduto.preco.replace(',', '.'))).toFixed(2)}"
+                ></itemcart-02>
+            `;
+  
+            galeriaAtualizada = document.createElement('div');
+            galeriaAtualizada.classList.add('swiper-slide');
+            galeriaAtualizada.innerHTML = componenteItensCarrinho;
+  
+            // Use appendChild para adicionar o componente à galeria
+            galeriaItensCarrinho.appendChild(galeriaAtualizada);
+  
+            // funcao para alterar a quantidade no carrinho pelo botao de aumentar e diminuir
+            // parametros >> componente do carrinho | objeto com os dados do carrinho
+            //funcoes_produtos.alterarQuantidadePai(galeriaAtualizada, informacaoProduto);
+  
+            
+  
+           
+        }
+    }
+  
+    // editar conteudo
+    // Verificar se a classe 'text-center' está presente antes de removê-la
+    if (galeriaItensCarrinho.classList.contains('text-center')) {galeriaItensCarrinho.classList.remove('text-center')}
+  
+    // Adicionar a classe 'text-start' se não estiver presente
+    if (!galeriaItensCarrinho.classList.contains('text-start')) {galeriaItensCarrinho.classList.add('text-start')}
+
+  
+    //atualizar total no carrinho
+    calcularTotalCarrinho()
+  
+  }
+
+// função para calcular total no carrinho
+function calcularTotalCarrinho() {
+
+    // elemento de subtotal da interface
+    const subtotalCarrinho = document.getElementById('subtotalCarrinho2');
+    const descontoCarrinho = document.getElementById('descontoCarrinho2');
+    const totalCarrinho = document.getElementById('totalCarrinho2');
+
+    const txtValorPix = document.getElementById('txtValorPix')
+  
+    // retornar do localstorage o carrinho
+    let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+  
+    let subtotal = 0;
+  
+    for (const chave in carrinho) {
+      if (carrinho.hasOwnProperty(chave)) {
+        const produto = carrinho[chave];
+        const preco = parseFloat(produto.preco.replace(',', '.')); // Converte o preço para um número com ponto decimal
+        const quantidade = parseInt(produto.quantidade);
+        subtotal += preco * quantidade;
+      }
+    }
+  
+  
+    const desconto = 0.00; // Você pode ajustar o valor do desconto conforme necessário
+  
+    const total = subtotal - desconto;
+  
+    subtotalCarrinho.textContent = "R$ " + subtotal.toFixed(2); // Arredonda o subtotal para duas casas decimais e retorna como string
+    descontoCarrinho.textContent = "-R$ " + desconto.toFixed(2); // Arredonda o desconto para duas casas decimais e retorna como string
+    totalCarrinho.textContent = "R$ " + total.toFixed(2); // Arredonda o total para duas casas decimais e retorna como string
+
+    txtValorPix.textContent = "Valor: R$ " + total.toFixed(2); // Arredonda o total para duas casas decimais e retorna como string
+  }
+
+// =================================== PAGAMENTO =============================================== //
+
+function copiarChavePix() {
+    const btnCopiarPix = document.getElementById('btnCopiarPix');
+    const btnCopiarPixTXT = btnCopiarPix.querySelector('p');
+    const txtPix = document.getElementById('txtPix');
+  
+    btnCopiarPix.addEventListener('click', async () => {
+      try {
+        // Cria um novo objeto ClipboardItem com o texto a ser copiado
+        const textItem = new ClipboardItem({ "text/plain": new Blob([txtPix.value], { type: "text/plain" }) });
+  
+        // Copia o objeto ClipboardItem para a área de transferência
+        await navigator.clipboard.write([textItem]);
+  
+        // Exibe uma mensagem de confirmação
+        btnCopiarPixTXT.textContent = 'Copiada';
+  
+        // Aguarda 2 segundos e depois reverte o texto para 'Copiar'
+        setTimeout(() => {
+            btnCopiarPixTXT.textContent = 'Copiar';
+        }, 2000);
+      } catch (err) {
+        // Se houve algum erro ao copiar o texto
+        alert('Ocorreu um erro ao copiar a chave Pix.');
+      }
+    });
+  }
+  
+
+//<script src="https://sdk.mercadopago.com/js/v2"></script>
+//document.getElementById('imgPix').src = 'data:image/jpeg;base64,'+vbase64
+
+function criarPagamento(){
+
+    fetch('https://api.mercadopago.com/v1/payments', {
+    
+      method: 'POST',
+    
+      headers: {
+        'Authorization': 'Bearer APP_USR-6781688030380061-100709-f2faf782b96a6db5775505e795e121fe-501341309',
+        'Content-Type': 'application/json',
+      },
+    
+      body: JSON.stringify({
+        
+        "description": "Payment for product",
+        "external_reference": "MP0001",
+        "installments": 1,
+        "metadata": {},
+        "payer": {
+          "entity_type": "individual",
+          "type": "customer",
+          "email": "test_user_123@testuser.com",
+          "identification": {
+            "type": "CPF",
+            "number": "95749019047"
+          }
+        },
+        "payment_method_id": "pix",
+        "token": "970bb42c-d23b-4c6c-82cd-ead090b9a53d",
+        "transaction_amount": 0.01
+      }),
+      
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data as needed
+      })
+      .catch(error => console.error('Error creating payment: ', error));
+    
+    
+    }
+    
+
+
 // =================================== EXECUTAR =============================================== //
 
 //eventos
 mostrarFormSelecionado()
 adicionarEvento()
 adicionareventoCampoCelular()
+atualizarCarrinho()
+copiarChavePix()
