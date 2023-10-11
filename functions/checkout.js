@@ -2,11 +2,16 @@
 // =================================== IMPORTAR FUNCOES =============================================== //
 
 import * as funcoes_formulario from './formulario.js'
+import * as funcoes_data from "../functions/data.js";
+import * as funcoes_loading from "../functions/loading.js";
 
 // =================================== VARIAVEIS =============================================== //
 
 let resultado = true
 let prosseguirPara = 'endereco'
+let objPix
+let statusPix
+let idPix
 
 // =================================== NAVEGACAO =============================================== //
 
@@ -193,7 +198,7 @@ function alertaCampo(validacao,objalert,mensagem){
 // formularios
 function validarFormularios(){
 
-    resultado = true;return resultado
+    //resultado = true;return resultado
 
     // formulario informacoes pessoais
     const FormInfo = document.getElementById('FormInfo'); 
@@ -288,7 +293,7 @@ function validarFormularios(){
 
         if(prosseguirPara=='informacao'){resultado=true ;return resultado}
 
-        if(prosseguirPara=='pagamento'){resultado=false ;return resultado}
+        if(prosseguirPara=='pagamento'){resultado=false }
         
         // campo CEP
         const txtCEPCliente = document.getElementById('txtCEPCliente')
@@ -347,9 +352,11 @@ function validarFormularios(){
 
      }
 
-     else if(!formresumo.classList.contains('hidden')){
-        resultado=true ;return resultado
-     }
+    else if(prosseguirPara=='pagamento'){
+        resultado=criarPagamento();
+        if(resultado){setInterval(verificarPagamento, 5000)}
+        return resultado
+    }
 
      
 
@@ -375,6 +382,8 @@ celularInput.addEventListener('keyup', () => {
   }
 });
 }
+
+
 
 
 // =================================== CARRINHO =============================================== //
@@ -484,15 +493,44 @@ function calcularTotalCarrinho() {
   
   
     const desconto = 0.00; // Você pode ajustar o valor do desconto conforme necessário
+    const frete = 0.00;
   
-    const total = subtotal - desconto;
+    const total = subtotal - desconto + frete;
   
     subtotalCarrinho.textContent = "R$ " + subtotal.toFixed(2); // Arredonda o subtotal para duas casas decimais e retorna como string
     descontoCarrinho.textContent = "-R$ " + desconto.toFixed(2); // Arredonda o desconto para duas casas decimais e retorna como string
     totalCarrinho.textContent = "R$ " + total.toFixed(2); // Arredonda o total para duas casas decimais e retorna como string
 
     txtValorPix.textContent = "Valor: R$ " + total.toFixed(2); // Arredonda o total para duas casas decimais e retorna como string
+
+
   }
+
+function retornarTotal(){
+
+     // retornar do localstorage o carrinho
+     let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+  
+     let subtotal = 0;
+   
+     for (const chave in carrinho) {
+       if (carrinho.hasOwnProperty(chave)) {
+         const produto = carrinho[chave];
+         const preco = parseFloat(produto.preco.replace(',', '.')); // Converte o preço para um número com ponto decimal
+         const quantidade = parseInt(produto.quantidade);
+         subtotal += preco * quantidade;
+       }
+     }
+   
+   
+     const desconto = 0.00; // Você pode ajustar o valor do desconto conforme necessário
+     const frete = 0.00;
+   
+     const total = subtotal - desconto + frete;
+   
+     return total.toFixed(2)
+
+}
 
 // =================================== PAGAMENTO =============================================== //
 
@@ -522,14 +560,160 @@ function copiarChavePix() {
       }
     });
   }
-  
+
+function gerarItens(){
+
+    // Converter carrinho em um objeto
+   let carrinho = JSON.parse(localStorage.getItem("carrinho")) || {};
+
+   //criar lista de itens do carrinho
+  let items = []
+  Object.values(carrinho).forEach((element) => {
+    
+    const objProduto= {
+      "id": element.id,
+      "title": element.nome,
+      "description": element.descricao,
+      "picture_url": element.imagem,
+      "category_id": element.categoria,
+      "quantity": element.quantidade,
+      "unit_price": element.preco,
+      "type": element.categoria,
+      "event_date": funcoes_data.obterDataAtual(),
+      "category_descriptor": {
+        "passenger": {},
+        "route": {}
+      }
+    }
+
+    items.push(objProduto)
+
+    //console.log(items)
+    
+  });
+
+  return items
+
+}
+
+function gerarInformacoesCliente(){
+
+    const txtNomeCliente = document.getElementById('txtNomeCliente')
+    const txtSobrenomeCliente = document.getElementById('txtSobrenomeCliente')
+    const txtEmailCliente = document.getElementById('txtEmailCliente')
+    const txtdddCliente = document.getElementById('txtdddCliente')
+    const txtCelularCliente = document.getElementById('txtCelularCliente')
+
+    const payer01= 
+
+    {
+      "first_name": txtNomeCliente.value,
+      "last_name": txtSobrenomeCliente.value,
+      "phone": {
+        "area_code": parseInt(txtdddCliente.value),
+        "number": txtCelularCliente.value
+      },
+      "address": {}
+    } 
+
+    const payer02= 
+ {
+    "entity_type": "individual",
+    "type": "customer",
+    "email": txtEmailCliente.value
+   
+  } 
+
+return [payer01,payer02]
+
+}
+
+function gerarEndereco(){
+
+    const Cidade = document.getElementById('txtCidadeCliente')
+    const Estado = document.getElementById('txtEstadoCliente')
+    const CEP = document.getElementById('txtCEPCliente')
+    const Bairro = document.getElementById('txtBairroCliente')
+    const Rua = document.getElementById('txtRuaCliente')
+    const numero = document.getElementById('txtNumeroCliente')
+    const complemento = document.getElementById('txtComplementoCliente')
+
+    const shipments= 
+
+    {
+        "receiver_address": {
+          "zip_code": CEP.value,
+          "state_name": Estado.value,
+          "city_name": Cidade.value,
+          "street_name": Rua.value+' | comp:'+complemento.value+'| bairro:'+Bairro,
+          "street_number": numero.value
+        }
+      }
+
+      return shipments
+
+
+
+}
+
+function gerarObjCriarPagamento(){
+
+    const itens = gerarItens()
+    const payer = gerarInformacoesCliente()
+    const endereco = gerarEndereco()
+    const total = retornarTotal()
+
+    const objCriarPagamento =
+
+    {
+
+        "additional_info": {
+      
+          "items": itens
+          
+          ,
+      
+          "payer": payer[0]
+          
+          ,
+      
+          "shipments": endereco
+      
+        }
+        
+        ,
+      
+        "description": "Payment for product",
+      
+        "payer": payer[1] 
+        ,
+      
+        "payment_method_id": "pix",
+        "token": "970bb42c-d23b-4c6c-82cd-ead090b9a53d",
+        "transaction_amount": parseFloat(total)
+
+      }
+
+      //console.log(JSON.stringify(objCriarPagamento))
+
+      return objCriarPagamento
+
+
+}
 
 //<script src="https://sdk.mercadopago.com/js/v2"></script>
 //document.getElementById('imgPix').src = 'data:image/jpeg;base64,'+vbase64
 
-function criarPagamento(){
+async function criarPagamento(){
 
-    fetch('https://api.mercadopago.com/v1/payments', {
+    let validacao = true
+
+    const objCriarPix = gerarObjCriarPagamento()
+
+    //console.log(objCriarPix)
+    //return
+
+   await  fetch('https://api.mercadopago.com/v1/payments', {
     
       method: 'POST',
     
@@ -538,35 +722,84 @@ function criarPagamento(){
         'Content-Type': 'application/json',
       },
     
-      body: JSON.stringify({
-        
-        "description": "Payment for product",
-        "external_reference": "MP0001",
-        "installments": 1,
-        "metadata": {},
-        "payer": {
-          "entity_type": "individual",
-          "type": "customer",
-          "email": "test_user_123@testuser.com",
-          "identification": {
-            "type": "CPF",
-            "number": "95749019047"
-          }
-        },
-        "payment_method_id": "pix",
-        "token": "970bb42c-d23b-4c6c-82cd-ead090b9a53d",
-        "transaction_amount": 0.01
-      }),
+      body: JSON.stringify(objCriarPix),
       
     })
       .then(response => response.json())
-      .then(data => {
-        // Handle the response data as needed
-      })
-      .catch(error => console.error('Error creating payment: ', error));
+      .then(data => { objPix = data; console.log(objPix)})
+      .catch(error => {console.error('Error creating payment: ', error);
+      funcoes_loading.criarAlerta02('Falha em gerar o pix','Favor falar com o suporte','red','alert');
+      validacao = false
+    });
+
+
+    // atualizar imagem pix
+    const imgQrCodePix = document.getElementById('imgQrCodePix')
+    const txtExpiracaoPix = document.getElementById('txtExpiracaoPix')
+    const txtPix = document.getElementById('txtPix')
+
+    statusPix = objPix.status;
+    console.log(statusPix); 
+
+    idPix = objPix.id
+    console.log(idPix);
+
+    const qrCode = objPix.point_of_interaction.transaction_data.qr_code;
+    console.log(qrCode); 
+
+    const qrCodeBase64 = objPix.point_of_interaction.transaction_data.qr_code_base64;
+    console.log(qrCodeBase64); 
+
+    const dateOfExpiration = objPix.date_of_expiration;
+    console.log(dateOfExpiration); 
+
+    imgQrCodePix.src = 'data:image/png;base64,'+qrCodeBase64
+
+    console.log('imgQrCodePix.scr: '+imgQrCodePix.scr)
+
+    txtExpiracaoPix.textContent = 'Expira em '+dateOfExpiration
+
+    txtPix.value = qrCode
+
+    
+
+    return validacao
     
     
     }
+
+async function verificarPagamento(){
+
+    await  fetch('https://api.mercadopago.com/v1/payments/'+idPix, {
+    
+        method: 'GET',
+    
+        headers: {
+        'Authorization': 'Bearer APP_USR-6781688030380061-100709-f2faf782b96a6db5775505e795e121fe-501341309',
+        
+        },
+
+        
+    })
+        .then(response => response.json())
+        .then(data => { objPix = data; console.log(objPix)})
+        .catch(error => {console.error('Error creating payment: ', error);
+        funcoes_loading.criarAlerta02('Falha em recuperar o pix','Favor falar com o suporte','red','alert');
+        validacao = false
+    });
+
+
+    statusPix = objPix.status;
+    console.log(statusPix); 
+
+    if(statusPix=='approved'){
+        alert('Pix Pago!!')
+    }
+    else{console.log('status: '+statusPix)}
+    
+    
+    }
+        
     
 
 

@@ -971,7 +971,7 @@ class formpagamento extends HTMLElement {
 
   <section class=" flex flex-col  items-center gap-4 max-lg:gap-4 ">
 
-    <img class="w-1/2 max-w-[200px]" src="https://i.ibb.co/vcfqsfm/image.png" alt="">
+    <img id="imgQrCodePix" class="w-1/2 max-w-[200px]" src="" alt="">
 
     <p id="txtValorPix" class="font-medium mb-2 text-teal-600">Valor: R$10,00</p>
 

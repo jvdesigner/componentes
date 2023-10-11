@@ -7,6 +7,7 @@
  import * as funcoes_loading from "../functions/loading.js";
 
 
+
 // =================================== FUNCOES =============================================== //
 
 // Funcao para mostrar carrinho da navbar
@@ -226,21 +227,7 @@ export function irparaCheckout(){
     return
   }
 
-  //criar lista de itens do carrinho
-  const novoCarrinho = {}
-  const listaPropriedades = []
-  Object.values(carrinho).forEach((Element)=>{ 
-    
-    Object.entries(Element).forEach(([chave, valor]) => { 
-      console.log( 'chave: '+chave ) 
-      console.log( 'valor: '+valor ) 
-    })
 
-    
-    
-  })
-  
-  return
 
    window.location.href="../html/checkout.html"
 
