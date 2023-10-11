@@ -971,7 +971,9 @@ class formpagamento extends HTMLElement {
 
   <section class=" flex flex-col  items-center gap-4 max-lg:gap-4 ">
 
+ 
     <img id="imgQrCodePix" class="w-1/2 max-w-[200px]" src="" alt="">
+    
 
     <p id="txtValorPix" class="font-medium mb-2 text-teal-600">Valor: R$10,00</p>
 
@@ -1020,6 +1022,8 @@ class formpagamento extends HTMLElement {
         modalInfoPagamento.classList.remove('block')
         modalInfoPagamento.classList.add('hidden')
        })
+
+     
 
 
       

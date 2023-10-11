@@ -419,6 +419,91 @@ class section09 extends HTMLElement {
 customElements.define("section-09", section09);
 
 
+// == Componente de section 10 == //
+
+class section10 extends HTMLElement {
+  constructor() {
+    super();
+
+    this.innerHTML = `
+    
+          
+  
+<!-- Codigo -->
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+      
+
+  <section class="h-screen w-screen flex items-center justify-center max-md:px-6">
+
+  <article
+    class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm max-w-sm mx-auto drop-shadow-xl "
+  >
+  <div class="relative blockimagem">
+    <img
+      id="imagemEnvio"
+      alt="Office"
+      src="https://ouch-cdn2.icons8.com/ZANB7SWHgBaK-jQZ8ymEq6rqkN8n4zteScpYYJAMZLU/rs:fit:368:381/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMjMw/L2MzNzU4Njg0LThk/MzctNDRjMC1hMWYz/LWViZGVkNjliMTYw/Yy5wbmc.png"
+      class=" w-[60%] p-6 mx-auto "
+    /><skeleton-image class="h-full w-full absolute top-0 skeleton"></skeleton-image>
+    </div>
+
+
+    <div class="p-4 sm:p-6">
+      <h4 id="codigoPedido" class="text-xs font-medium text-gray-600 mb-2">
+          
+      </h4>
+      <h3 class="text-lg font-medium text-gray-900 mb-2">
+          Status de envio
+      </h3>
+      <div>
+        <h2 id="txtstatusEnvio" class="text-base font-medium  ">
+         
+        </h2>
+      
+      </div>
+
+      <p class="mt-4 line-clamp-3 font-semibold text-sm/relaxed text-teal-600 mb-6">
+        Salve esse link para acompanhar o status do seu pedido
+      </p>
+
+      <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 mb-6">
+        Ficou com dúvida? Fale com o  
+      <a href="/html/suporte.html" class="underline text-teal-600">
+        Suporte
+      </a>
+      </p>
+
+      <a id="linkVoltar" href="../../index.html" class=" underline text-sm text-teal-700">
+        Voltar ao Inicio
+      </a>
+
+      
+    </div>
+  </article>
+
+</section>
+
+          
+<!-- Codigo -->
+        
+
+      `;
+      //controlar esqueleton imagem
+    const blockimagem = this.querySelector('.blockimagem')
+    const imagem = blockimagem.querySelector('img')
+    const esqueleto = blockimagem.querySelector('.skeleton')
+
+    imagem.addEventListener('load',()=>{ esqueleto.classList.remove('flex');esqueleto.classList.add('hidden') })
+  }
+}
+
+customElements.define("section-10", section10);
+
+
   
   
   

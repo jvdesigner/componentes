@@ -1,4 +1,58 @@
 
+// =================================== IMPORTAR FIREBASE =============================================== //
+
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+
+import { 
+          getFirestore ,
+          collection   , 
+          addDoc       ,
+          getDocs      ,
+          query        , 
+          where        ,
+          limit        ,
+          orderBy      ,
+          setDoc,doc,
+          deleteDoc
+  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+
+
+// =================================== VARIAVEIS FIREBASE =============================================== //
+
+// dados do app
+const firebaseConfig = {
+  apiKey: "AIzaSyB0uycpyo_NkxKSH4AQi_tnjQ2eJ-e7aAE",
+  authDomain: "ecommerceduplicado.firebaseapp.com",
+  projectId: "ecommerceduplicado",
+  storageBucket: "ecommerceduplicado.appspot.com",
+  messagingSenderId: "779797115103",
+  appId: "1:779797115103:web:9f4e4ce2f48af9e8f8796a"
+};
+
+// dados do app
+const firebaseConfig2 = {
+  apiKey: "AIzaSyAb9pv_fUvoeYShp3vZbxbT1ur7C7fJUeU",
+  authDomain: "ecommerce-ff132.firebaseapp.com",
+  projectId: "ecommerce-ff132",
+  storageBucket: "ecommerce-ff132.appspot.com",
+  messagingSenderId: "991605978710",
+  appId: "1:991605978710:web:5a9cd758caccd7426fedf7"
+};
+
+// variavel app
+const app = initializeApp(firebaseConfig2);
+
+// variavel banco
+const db = getFirestore(app);
+
+// variavel colecao
+const col = collection(db, "pedidos")
+
+
+
 // =================================== IMPORTAR FUNCOES =============================================== //
 
 import * as funcoes_formulario from './formulario.js'
@@ -706,6 +760,8 @@ function gerarObjCriarPagamento(){
 
 async function criarPagamento(){
 
+   informacoesClienteLocal()
+
     let validacao = true
 
     const objCriarPix = gerarObjCriarPagamento()
@@ -757,11 +813,11 @@ async function criarPagamento(){
 
     console.log('imgQrCodePix.scr: '+imgQrCodePix.scr)
 
-    txtExpiracaoPix.textContent = 'Expira em '+dateOfExpiration
+    txtExpiracaoPix.textContent = 'Expira em '+funcoes_data.converterdata(dateOfExpiration)
 
     txtPix.value = qrCode
 
-    
+    gerarPedido()
 
     return validacao
     
@@ -793,14 +849,88 @@ async function verificarPagamento(){
     console.log(statusPix); 
 
     if(statusPix=='approved'){
-        alert('Pix Pago!!')
+
+      // Construa a URL com os parâmetros
+      const urlBase = '/html/envio.html';
+      const urlCompleta = `${urlBase}?codigo=${idPix}`;
+
+      window.location.href = urlCompleta;
+
+
+
+
     }
     else{console.log('status: '+statusPix)}
     
     
     }
+
+async function gerarPedido(){
+
+  const vcliente = JSON.parse(localStorage.getItem('informacoesCliente'))
+
+  const vitens = gerarItens()
+
+  const vdoc = doc(db, "pedidos", ''+idPix)
+
+  try{ await setDoc( vdoc , { cliente:vcliente,itens:vitens,envio:"Aguardando envio"} ) } catch(error){console.log(error.message)}
+
+   
+
+}
+
+
         
-    
+// =================================== LOCALSTORAGE =============================================== //
+
+function informacoesClienteLocal(){
+
+  const objCliente = 
+  {
+    nome:document.getElementById('txtNomeCliente').value,
+    sobrenome:document.getElementById('txtSobrenomeCliente').value,
+    email:document.getElementById('txtEmailCliente').value,
+    ddd:document.getElementById('txtdddCliente').value,
+    celular:document.getElementById('txtCelularCliente').value,
+
+    cidade:document.getElementById('txtCidadeCliente').value,
+    estado:document.getElementById('txtEstadoCliente').value,
+    cep:document.getElementById('txtCEPCliente').value,
+    bairro:document.getElementById('txtBairroCliente').value,
+    rua:document.getElementById('txtRuaCliente').value,
+    numero:document.getElementById('txtNumeroCliente').value,
+    complemento:document.getElementById('txtComplementoCliente').value
+
+
+  }
+
+  localStorage.setItem('informacoesCliente',JSON.stringify(objCliente))
+
+
+}
+
+function retornarinformacoesClienteLocal(){
+
+  const objCliente = JSON.parse(localStorage.getItem('informacoesCliente'))
+
+  if (objCliente === null || Object.keys(objCliente).length === 0) {return}
+
+   
+  document.getElementById('txtNomeCliente').value=objCliente.nome
+  document.getElementById('txtSobrenomeCliente').value =objCliente.sobrenome
+  document.getElementById('txtEmailCliente').value=objCliente.email
+  document.getElementById('txtdddCliente').value =objCliente.ddd
+  document.getElementById('txtCelularCliente').value=objCliente.celular
+  document.getElementById('txtCidadeCliente').value=objCliente.cidade
+  document.getElementById('txtEstadoCliente').value=objCliente.estado
+  document.getElementById('txtCEPCliente').value=objCliente.cep
+  document.getElementById('txtBairroCliente').value=objCliente.bairro
+  document.getElementById('txtRuaCliente').value=objCliente.rua
+  document.getElementById('txtNumeroCliente').value=objCliente.numero
+  document.getElementById('txtComplementoCliente').value=objCliente.complemento
+
+
+}
 
 
 // =================================== EXECUTAR =============================================== //
@@ -811,3 +941,6 @@ adicionarEvento()
 adicionareventoCampoCelular()
 atualizarCarrinho()
 copiarChavePix()
+retornarinformacoesClienteLocal()
+// Construa a URL com os parâmetros
+// Construa a URL com os parâmetros
