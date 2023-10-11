@@ -238,6 +238,7 @@ customElements.define("cards-01", cards01);
       localStorage.setItem('localobjProduto', JSON.stringify(objProduto));
   
       window.location.href = "https://jvdesigner.github.io/ecommerce/html/detalhesProduto.html";
+      
   
       });
 
