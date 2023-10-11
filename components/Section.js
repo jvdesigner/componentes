@@ -477,7 +477,7 @@ class section10 extends HTMLElement {
       </a>
       </p>
 
-      <a id="linkVoltar" href="../../index.html" class=" underline text-sm text-teal-700">
+      <a id="linkVoltar" href="https://jvdesigner.github.io/ecommerce/index.html" class=" underline text-sm text-teal-700">
         Voltar ao Inicio
       </a>
 
