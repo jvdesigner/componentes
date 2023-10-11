@@ -30,7 +30,7 @@ export async function verificarFavoritos(){
         funcoes_loading.criarAlerta02('Favoritos Vazio!','Sua lista de favoritos está vazia','red','alert')
         
     }
-    else{ window.location.href='/html/favoritos.html' }
+    else{ window.location.href='https://jvdesigner.github.io/ecommerce/html/favoritos.html' }
 
 
 

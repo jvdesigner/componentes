@@ -229,7 +229,7 @@ export function irparaCheckout(){
 
 
 
-   window.location.href="../html/checkout.html"
+   window.location.href="..https://jvdesigner.github.io/ecommerce/html/checkout.html"
 
 }
 

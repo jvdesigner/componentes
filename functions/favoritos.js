@@ -274,7 +274,7 @@ function redirecionarListaVazia(){
 
     if(listaConvertida.length === 0){
 
-        window.location.href='/html/produtos.html'
+        window.location.href='https://jvdesigner.github.io/ecommerce/html/produtos.html'
         
     }
 

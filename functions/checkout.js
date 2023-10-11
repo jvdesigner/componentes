@@ -851,7 +851,7 @@ async function verificarPagamento(){
     if(statusPix=='approved'){
 
       // Construa a URL com os parâmetros
-      const urlBase = '/html/envio.html';
+      const urlBase = 'https://jvdesigner.github.io/ecommerce/html/envio.html';
       const urlCompleta = `${urlBase}?codigo=${idPix}`;
 
       window.location.href = urlCompleta;

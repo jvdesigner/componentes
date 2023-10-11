@@ -237,7 +237,7 @@ customElements.define("cards-01", cards01);
 
       localStorage.setItem('localobjProduto', JSON.stringify(objProduto));
   
-      window.location.href = "../html/detalhesProduto.html";
+      window.location.href = "https://jvdesigner.github.io/ecommerce/html/detalhesProduto.html";
   
       });
 
@@ -614,7 +614,7 @@ class cards05 extends HTMLElement {
 
       localStorage.setItem('localobjProduto', JSON.stringify(objProduto));
 
-      window.location.href = "../html/detalhesProduto.html";
+      window.location.href = "https://jvdesigner.github.io/ecommerce/html/detalhesProduto.html";
 
     });
 

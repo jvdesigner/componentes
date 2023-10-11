@@ -466,13 +466,13 @@ class section10 extends HTMLElement {
       
       </div>
 
-      <p class="mt-4 line-clamp-3 font-semibold text-sm/relaxed text-teal-600 mb-6">
+      <p class="mt-4 line-clamp-3 font-semibold text-sm/relaxed text-gray-600 mb-6">
         Salve esse link para acompanhar o status do seu pedido
       </p>
 
       <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 mb-6">
         Ficou com dúvida? Fale com o  
-      <a href="/html/suporte.html" class="underline text-teal-600">
+      <a href="https://jvdesigner.github.io/ecommerce/html/suporte.html" class="underline text-teal-600">
         Suporte
       </a>
       </p>
