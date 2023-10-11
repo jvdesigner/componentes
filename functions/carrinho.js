@@ -227,11 +227,25 @@ export function irparaCheckout(){
     return
   }
 
-
-
    window.location.href="https://jvdesigner.github.io/ecommerce/html/checkout.html"
+   //window.location.href="/html/checkout.html"
 
 }
+
+//funcao ir para checkout
+export async function comprarProduto(obj){
+
+  await localStorage.setItem("carrinho",JSON.stringify(obj));
+
+  window.location.href="https://jvdesigner.github.io/ecommerce/html/checkout.html"
+  //window.location.href="/html/checkout.html"
+
+}
+
+
+
+
+
 
 
   

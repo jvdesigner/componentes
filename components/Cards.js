@@ -86,7 +86,7 @@ customElements.define("cards-01", cards01);
     const CategoriaProduto = this.getAttribute('CategoriaProduto') || 'Categoria';
 
     // dados do produto em obj
-    const objProduto = { id:idProduto , imagem:srcimagem , nome:nomeProduto , preco:precoProduto, medida:medidaProduto, peso:pesoProduto , classificacao:numeroEstrelas , descricao:descricaoProduto , categoria:CategoriaProduto};
+    const objProduto = { id:idProduto , imagem:srcimagem , nome:nomeProduto , preco:precoProduto, medida:medidaProduto, peso:pesoProduto , classificacao:numeroEstrelas , descricao:descricaoProduto , categoria:CategoriaProduto,quantidade:1};
 
       let preenchimentoFavorito="";
 
@@ -453,7 +453,7 @@ class cards05 extends HTMLElement {
     const CategoriaProduto = this.getAttribute('CategoriaProduto') || 'Categoria';
 
     // dados do produto em obj
-    const objProduto = { id:idProduto , imagem:srcimagem , nome:nomeProduto , preco:precoProduto, medida:medidaProduto, peso:pesoProduto , classificacao:numeroEstrelas , descricao:descricaoProduto , categoria:CategoriaProduto};
+    const objProduto = { id:idProduto , imagem:srcimagem , nome:nomeProduto , preco:precoProduto, medida:medidaProduto, peso:pesoProduto , classificacao:numeroEstrelas , descricao:descricaoProduto , categoria:CategoriaProduto , quantidade:1};
 
     // variavel preenchimento do icone de favorito
     let preenchimentoFavorito="";
@@ -614,7 +614,8 @@ class cards05 extends HTMLElement {
 
       localStorage.setItem('localobjProduto', JSON.stringify(objProduto));
 
-      window.location.href = "https://jvdesigner.github.io/ecommerce/html/detalhesProduto.html";
+      //.location.href = "https://jvdesigner.github.io/ecommerce/html/detalhesProduto.html";
+      window.location.href = "/html/detalhesProduto.html";
 
     });
 
@@ -816,7 +817,7 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
     <input
       type="number"
       id="inputqnt" 
-      value="1"
+      value=${localobjProduto['quantidade']}
       class="h-10 w-full border-transparent text-center "
       disabled
     />
@@ -846,6 +847,7 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
   </button>
 
   <button
+  id="btncompraragora"
     class="flex items-center justify-center gap-4 max-md:gap-2 w-full md:w-1/2 rounded text-teal-600 shadow border bg-white p-2 md:p-3 text-base max-md:text-sm font-medium transition hover:scale-[1.02]  hover:text-teal-500"
   >
   
@@ -893,9 +895,13 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
     const btndiminuir = document.getElementById('btndiminuir')
     const inputqnt = document.getElementById('inputqnt')
 
-    btnaumentar.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('aumentar',inputqnt) })
-    btndiminuir.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('diminuir',inputqnt) })
+    //inputqnt.value = objProduto.quantidade
 
+    btnaumentar.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('aumentar',inputqnt);
+    localobjProduto.quantidade+=1;localStorage.setItem("localobjProduto",JSON.stringify(localobjProduto)) })
+    btndiminuir.addEventListener('click',()=>{ funcoes_produtos.alterarQuantidade('diminuir',inputqnt);
+    if(inputqnt.value>1) {localobjProduto.quantidade-=1;
+      localStorage.setItem("localobjProduto",JSON.stringify(localobjProduto))} })
     
     // texto de  descricao do produto
     const txtdescricao = document.getElementById('txtdescricao')
@@ -908,6 +914,21 @@ class="w-full object-cover rounded-2xl max-w-xs max-h-[200px] md:max-w-sm md:max
       funcoes_carrinho.adicionarCarrinho(localobjProduto,'adicionar') ;
      funcoes_carrinho.dropdownCarrinhoNavbar()
    });
+
+   //comprar agora
+   this.querySelector('#btncompraragora').addEventListener('click', ()=>{ 
+
+    const id = localobjProduto['id'];
+    const obj = {};
+    obj[id] = localobjProduto;
+
+  console.log('id: ' + id);
+  console.log('obj: ' + JSON.stringify(obj));
+
+
+    funcoes_carrinho.comprarProduto(obj)
+   
+ });
 
 
 

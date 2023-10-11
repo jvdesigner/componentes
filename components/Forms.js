@@ -846,7 +846,7 @@ class formresumo extends HTMLElement {
 
               <div class="flex justify-between">
                 <dt>Frete</dt>
-                <dd id="Frete">R$ 15,00</dd>
+                <dd id="Frete">R$ 0,00</dd>
               </div>
 
               <div class="flex justify-between">

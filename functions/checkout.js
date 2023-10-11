@@ -478,7 +478,6 @@ function atualizarCarrinho() {
     for (const chave in carrinho) {
         if (carrinho.hasOwnProperty(chave)) {
             const informacaoProduto = carrinho[chave];
-  
             componenteItensCarrinho = `
                 <itemcart-02
                     class=""
@@ -942,5 +941,4 @@ adicionareventoCampoCelular()
 atualizarCarrinho()
 copiarChavePix()
 retornarinformacoesClienteLocal()
-// Construa a URL com os parâmetros
-// Construa a URL com os parâmetros
+
