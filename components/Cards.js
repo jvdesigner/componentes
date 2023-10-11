@@ -616,7 +616,6 @@ class cards05 extends HTMLElement {
       localStorage.setItem('localobjProduto', JSON.stringify(objProduto));
 
       window.location.href = "https://jvdesigner.github.io/ecommerce/html/detalhesProduto.html";
-      //window.location.href = "/html/detalhesProduto.html";
 
     });
 
